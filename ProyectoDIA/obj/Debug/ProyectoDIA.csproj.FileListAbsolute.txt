@@ -1,0 +1,6 @@
+C:\Users\migue\RiderProjects\ProyectoDIA\bin\Debug\ProyectoDIA.exe
+C:\Users\migue\RiderProjects\ProyectoDIA\bin\Debug\ProyectoDIA.pdb
+C:\Users\migue\RiderProjects\ProyectoDIA\obj\Debug\ProyectoDIA.csprojAssemblyReference.cache
+C:\Users\migue\RiderProjects\ProyectoDIA\obj\Debug\ProyectoDIA.csproj.CoreCompileInputs.cache
+C:\Users\migue\RiderProjects\ProyectoDIA\obj\Debug\ProyectoDIA.exe
+C:\Users\migue\RiderProjects\ProyectoDIA\obj\Debug\ProyectoDIA.pdb
