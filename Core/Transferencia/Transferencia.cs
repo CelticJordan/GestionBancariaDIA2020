@@ -38,10 +38,18 @@ namespace Transferencias.Core
         /// <returns></returns>
         public override string ToString()
         {
-            return "Id: " + this.Id + "\n" + "Tipo: " + this.Tipo +
-                   "\n" + "CCC Origen: " + this.CCCOrigen + "\n" + "CCC Destino: " + this.CCCDestino + "\n" +
-                   "Importe: " + this.Importe + "\n" + "Fecha: " + this.Fecha + "\n";
+            StringBuilder toret = new StringBuilder ();
+            
+            toret.Append("\r\tId: "+this.Id);
+            toret.Append("\n\r\tTipo: "+this.Tipo);
+            toret.Append("\n\r\tCCC Origen:: " + this.CCCOrigen);
+            toret.Append("\n\r\tCCC Destino: " + this.CCCDestino);
+            toret.Append("\n\r\tImporte: " + this.Importe);
+            toret.Append("\n\r\tFecha: " + this.Fecha);
+
+            return toret.ToString();
         }
+
 
         
 
