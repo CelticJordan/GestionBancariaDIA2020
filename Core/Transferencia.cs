@@ -38,9 +38,9 @@ namespace Transferencias.Core
         /// <returns></returns>
         public override string ToString()
         {
-            return "Id: " + this.Id + "\n" + "Tipo: " + this.Tipo +
-                   "\n" + "CCC Origen: " + this.CCCOrigen + "\n" + "CCC Destino: " + this.CCCDestino + "\n" +
-                   "Importe: " + this.Importe + "\n" + "Fecha: " + this.Fecha + "\n";
+            return "\r\tId: " + this.Id + "\n\r\t" + "Tipo: " + this.Tipo +
+                   "\n\r\t" + "CCC Origen: " + this.CCCOrigen + "\n\r\t" + "CCC Destino: " + this.CCCDestino + "\n\r\t" +
+                   "Importe: " + this.Importe + "\n\r\t" + "Fecha: " + this.Fecha + "\n";
         }
 
         
