@@ -1,0 +1,9 @@
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\bin\Debug\Clientes.exe.config
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\bin\Debug\Clientes.exe
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\bin\Debug\Clientes.pdb
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\obj\Debug\Clientes.csprojAssemblyReference.cache
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\obj\Debug\Clientes.Properties.Resources.resources
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\obj\Debug\Clientes.csproj.GenerateResource.cache
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\obj\Debug\Clientes.csproj.CoreCompileInputs.cache
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\obj\Debug\Clientes.exe
+D:\carrera\cuarto\DIA\Proyecto\Clientes\Clientes\obj\Debug\Clientes.pdb
