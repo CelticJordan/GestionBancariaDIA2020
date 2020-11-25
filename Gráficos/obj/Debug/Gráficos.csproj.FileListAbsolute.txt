@@ -1,0 +1,9 @@
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\bin\Debug\Gráficos.exe.config
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\bin\Debug\Gráficos.exe
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\bin\Debug\Gráficos.pdb
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\obj\Debug\Gráficos.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\obj\Debug\Gráficos.Properties.Resources.resources
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\obj\Debug\Gráficos.csproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\obj\Debug\Gráficos.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\obj\Debug\Gráficos.exe
+C:\Users\Usuario\source\repos\Gráficos\Gráficos\obj\Debug\Gráficos.pdb
