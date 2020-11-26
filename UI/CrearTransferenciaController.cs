@@ -39,21 +39,22 @@ namespace Transferencias.UI
             int.TryParse(this.View.eid.Text, out id);
             double importe;
             double.TryParse(this.View.eimporte.Text, out importe);
-            
-            Transferencia t = new Transferencia( id, tipo, this.View.ecccorigen.Text,
-                this.View.ecccdest.Text, importe, this.View.efecha.Text);
-            
+            DateTime data;
 
-            try
+            if(DateTime.TryParse(this.View.efecha.Text, out data))
             {
-                DateTime.Parse(this.View.efecha.Text);
                 fecha = true;
             }
-            catch (FormatException)
+            else
             {
                 fecha = false;
-                
             }
+            
+
+            Transferencia t = new Transferencia( id, tipo, this.View.ecccorigen.Text,
+                this.View.ecccdest.Text, importe, data);
+            
+            
             
             foreach (Transferencia transferencia in transferencias.get())
             {

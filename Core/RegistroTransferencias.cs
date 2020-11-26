@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -146,7 +147,7 @@ namespace Transferencias.Core
                   toret.Add(new Transferencia((int) transferenciaxml.Attribute("Id"),
                       (string) transferenciaxml.Attribute("Tipo"), (string) transferenciaxml.Attribute("CCC_origen"),
                       (string) transferenciaxml.Attribute("CCC_destino"),
-                      (double) transferenciaxml.Attribute("Importe"), (string) transferenciaxml.Attribute("Fecha")));
+                      (double) transferenciaxml.Attribute("Importe"), (DateTime) transferenciaxml.Attribute("Fecha")));
               }
           }
       }

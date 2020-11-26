@@ -22,18 +22,6 @@ namespace Transferencias.UI
             this.View.BMoficarTransferencia.Click += (sender, args) => this.BMoficarTransferencia(tipo);
             
         }
-        
-        public Transferencia GetTransferencia(string tipo)
-        {
-            int id;
-            int.TryParse(this.View.eid.Text, out id);
-            double importe;
-            double.TryParse(this.View.eimporte.Text, out importe);
-            
-            
-            return new Transferencia( id, tipo, this.View.ecccorigen.Text,
-                this.View.ecccdest.Text, importe, this.View.efecha.Text);
-        }
 
         public void BMoficarTransferencia(string tipo)
         {
@@ -42,22 +30,28 @@ namespace Transferencias.UI
             transferencias = transferencias.RecuperarXml();
 
             bool fecha = false;
-            
+            int id;
+            int.TryParse(this.View.eid.Text, out id);
+            double importe;
+            double.TryParse(this.View.eimporte.Text, out importe);
+            DateTime data;
 
-            try
+            if(DateTime.TryParse(this.View.efecha.Text, out data))
             {
-                DateTime.Parse(this.View.efecha.Text);
                 fecha = true;
             }
-            catch (FormatException)
+            else
             {
                 fecha = false;
-                
             }
+
             
-            if ( fecha)
+            Transferencia t = new Transferencia( id, tipo, this.View.ecccorigen.Text,
+                this.View.ecccdest.Text, importe, data);
+
+            if (fecha)
             {
-                transferencias.Edit(GetTransferencia(tipo));
+                transferencias.Edit(t);
                 transferencias.GuardarXml();
                 WForms.MessageBox.Show("Transferencia Modificada correctamente");
                 this.View.Hide();
