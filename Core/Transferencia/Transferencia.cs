@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 
 namespace Transferencias.Core
@@ -21,7 +22,7 @@ namespace Transferencias.Core
         /// <param name="importe"></param>
         /// <param name="fecha"></param>
         /// <exception cref="Exception"></exception>
-        public Transferencia(int id,string tipo, string CCC_origen, string CCC_destino, double importe, string fecha)
+        public Transferencia(int id,string tipo, string CCC_origen, string CCC_destino, double importe, DateTime fecha)
         {
             Id = id;
             // Puntual / Periodica
@@ -50,7 +51,6 @@ namespace Transferencias.Core
             return toret.ToString();
         }
 
-
         
 
         public int Id { get ; set; }
@@ -58,7 +58,7 @@ namespace Transferencias.Core
         public string CCCOrigen { get ;  set; }
         public string CCCDestino { get ;set; }
         public double Importe { get ;  set; }
-        public string Fecha { get ;  set;}
+        public DateTime Fecha { get ;  set;}
         
 
     }
