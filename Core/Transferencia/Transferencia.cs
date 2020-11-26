@@ -40,12 +40,12 @@ namespace Transferencias.Core
         {
             StringBuilder toret = new StringBuilder ();
             
-            toret.Append("\r\tId: "+this.Id);
-            toret.Append("\n\r\tTipo: "+this.Tipo);
-            toret.Append("\n\r\tCCC Origen:: " + this.CCCOrigen);
-            toret.Append("\n\r\tCCC Destino: " + this.CCCDestino);
-            toret.Append("\n\r\tImporte: " + this.Importe);
-            toret.Append("\n\r\tFecha: " + this.Fecha);
+            toret.AppendLine("\r\tId: "+this.Id);
+            toret.AppendLine("\r\tTipo: "+this.Tipo);
+            toret.AppendLine("\r\tCCC Origen:: " + this.CCCOrigen);
+            toret.AppendLine("\r\tCCC Destino: " + this.CCCDestino);
+            toret.AppendLine("\r\tImporte: " + this.Importe);
+            toret.AppendLine("\r\tFecha: " + this.Fecha);
 
             return toret.ToString();
         }
