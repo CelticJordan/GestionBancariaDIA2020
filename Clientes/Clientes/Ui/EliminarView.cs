@@ -1,48 +1,4 @@
-﻿/*using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Clientes.Ui
-{
-    using Draw = System.Drawing;
-    using WForms = System.Windows.Forms;
-    class EliminarView : WForms.Form
-    {
-        public EliminarView()
-        {
-            this.Build();
-        }
-
-        void Build()
-        {
-       
-        }
-}
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;

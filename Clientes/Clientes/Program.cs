@@ -12,7 +12,9 @@ namespace Clientes
     {
         static void Main()
         {
-            WForms.Application.Run(new MainWindowCtrl().View);
+            var f = new MainWindow();
+
+            Application.Run(f);
 
         }
     }

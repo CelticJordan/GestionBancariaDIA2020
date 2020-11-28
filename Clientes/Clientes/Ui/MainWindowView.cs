@@ -1,377 +1,240 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Clientes.Ui
+﻿namespace Clientes.Ui
 {
+    using System.Windows.Forms;
+    using System.Drawing;
 
-    using Draw = System.Drawing;
-    using WForms = System.Windows.Forms;
-    class MainWindowView : WForms.Form
+    public partial class MainWindow
     {
 
-        public MainWindowView()
+        //Construyo el menú con las opciones de anhadir cliente etc
+        private void BuildMenu()
         {
-            this.Build();
+            this.mPpal = new MainMenu();
+            this.mEliminar = new MenuItem("&Eliminar");
+            this.mEditar = new MenuItem("&Editar");
+
+            this.opAnhadir = new MenuItem("&Añadir cliente")
+            {
+                Shortcut = Shortcut.CtrlIns
+            };
+            this.opAnhadir.Click += (sender, e) => this.onBtAnhadeClick();
+
+            this.opBuscar = new MenuItem("&Buscar cliente")
+            {
+                Shortcut = Shortcut.CtrlIns
+            };
+            this.opBuscar.Click += (sender, e) => this.OnBtBuscarClick();
+
+            this.opEliminar = new MenuItem("&Eliminar cliente seleccionado")
+            {
+                Shortcut = Shortcut.CtrlIns
+            };
+            this.opEliminar.Click += (sender, e) => this.OnBtEliminarMenuClick();
+
+            this.opEditar = new MenuItem("&Editar cliente seleccionado")
+            {
+                Shortcut = Shortcut.CtrlIns
+            };
+            this.opEditar.Click += (sender, e) => this.OnBtEditarMenuClick();
+
+            this.mEliminar.MenuItems.Add(this.opEliminar);
+            this.mEditar.MenuItems.Add(this.opEditar);
+
+
+            this.mPpal.MenuItems.Add(this.opAnhadir);
+            this.mPpal.MenuItems.Add(this.opBuscar);
+            this.mPpal.MenuItems.Add(this.mEliminar);
+            this.mPpal.MenuItems.Add(this.mEditar);
+            this.Menu = mPpal;
         }
 
-        void Build()
+
+        //Panel de detalle que mostrará la información detallada del cliente que está seleccionado en la tabla
+        private Panel BuildPanelDetalle()
         {
-            var pnlMain = new WForms.TableLayoutPanel
+            var pnlDetalle = new Panel { Dock = DockStyle.Bottom };
+            pnlDetalle.SuspendLayout();
+
+            this.edDetalle = new TextBox
             {
-                Dock = WForms.DockStyle.Fill
+                Dock = DockStyle.Fill,
+                Multiline = true,
+                ReadOnly = true,
+                Font = new Font(FontFamily.GenericMonospace, 7),
+                ForeColor = Color.Navy,
+                BackColor = Color.LightGray
             };
 
-
-            pnlMain.Controls.Add(this.tDni());
-            pnlMain.Controls.Add(this.BuildDni());
-            pnlMain.Controls.Add(this.tNombre());
-            pnlMain.Controls.Add(this.BuildNombre());
-            pnlMain.Controls.Add(this.tTelefono());
-            pnlMain.Controls.Add(this.BuildTelefono());
-            pnlMain.Controls.Add(this.tEmail());
-            pnlMain.Controls.Add(this.BuildEmail());
-            pnlMain.Controls.Add(this.tDireccion());
-            pnlMain.Controls.Add(this.BuildDireccion());
-
-            pnlMain.Controls.Add(this.BuildBtAnhade());
-            pnlMain.Controls.Add(this.BuildBtBuscar());
-            pnlMain.Controls.Add(this.BuildBtEditar());
-            pnlMain.Controls.Add(this.BuildBtEliminar());
-            pnlMain.Controls.Add(this.BuildBtListar());
-
-
-            this.Controls.Add(pnlMain);
-            this.Text = "Gestión de Clientes";
-            this.MinimumSize = new Draw.Size(300, 415);
+            pnlDetalle.Controls.Add(this.edDetalle);
+            pnlDetalle.ResumeLayout(false);
+            return pnlDetalle;
         }
 
 
-        //Creado para meter el texto del dni del cliente
-        WForms.Label tDni()
+        //Tabla que mostrará la información de los clientes
+        private Panel BuildPanelLista()
         {
-            titulodni = new WForms.Label
+            var pnlLista = new Panel();
+            pnlLista.SuspendLayout();
+            pnlLista.Dock = DockStyle.Fill;
+
+            // Crear gridview
+            this.grdLista = new DataGridView()
             {
-                Dock = WForms.DockStyle.Top
+                Dock = DockStyle.Fill,
+                AllowUserToResizeRows = false,
+                RowHeadersVisible = false,
+                AutoGenerateColumns = false,
+                MultiSelect = false,
+                AllowUserToAddRows = false,
+                EnableHeadersVisualStyles = false,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect
             };
 
-            titulodni.Text = "Introduce el dni del cliente a añadir";
-            titulodni.MaximumSize = new Draw.Size(800, 20);
+            this.grdLista.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            this.grdLista.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
 
-            return titulodni;
+            var textCellTemplate0 = new DataGridViewTextBoxCell();
+            var textCellTemplate1 = new DataGridViewTextBoxCell();
+            var textCellTemplate2 = new DataGridViewTextBoxCell();
+            var textCellTemplate3 = new DataGridViewTextBoxCell();
+            var textCellTemplate4 = new DataGridViewTextBoxCell();
+            textCellTemplate0.Style.BackColor = Color.LightGray;
+            textCellTemplate0.Style.ForeColor = Color.Black;
+            textCellTemplate1.Style.BackColor = Color.Wheat;
+            textCellTemplate1.Style.ForeColor = Color.Black;
+            textCellTemplate1.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            textCellTemplate2.Style.BackColor = Color.Wheat;
+            textCellTemplate2.Style.ForeColor = Color.Black;
+            textCellTemplate3.Style.BackColor = Color.Wheat;
+            textCellTemplate3.Style.ForeColor = Color.Black;
+            textCellTemplate4.Style.BackColor = Color.Wheat;
+            textCellTemplate4.Style.ForeColor = Color.Black;
 
-        }
-
-        //Caja para introducir el dni
-        WForms.Panel BuildDni()
-        {
-            var toret = new WForms.Panel
+            var column0 = new DataGridViewTextBoxColumn
             {
-                Dock = WForms.DockStyle.Top
+                SortMode = DataGridViewColumnSortMode.NotSortable,
+                CellTemplate = textCellTemplate0,
+                HeaderText = "DNI",
+                Width = 50,
+                ReadOnly = true
             };
 
-            this.dni = new WForms.TextBox
+            var column1 = new DataGridViewTextBoxColumn
             {
-                Dock = WForms.DockStyle.Fill,
-                Text = "",
-                TextAlign = WForms.HorizontalAlignment.Right
+                SortMode = DataGridViewColumnSortMode.NotSortable,
+                CellTemplate = textCellTemplate1,
+                HeaderText = "NOMBRE",
+                Width = 50,
+                ReadOnly = true
             };
 
-            toret.Controls.Add(this.dni);
-            toret.MaximumSize = new Draw.Size(800, 20);
-
-            return toret;
-        }
-
-        //Creado para meter el texto del dni del nombre
-        WForms.Label tNombre()
-        {
-            titulonombre = new WForms.Label
+            var column2 = new DataGridViewTextBoxColumn
             {
-                Dock = WForms.DockStyle.Top
+                SortMode = DataGridViewColumnSortMode.NotSortable,
+                CellTemplate = textCellTemplate2,
+                HeaderText = "TELÉFONO",
+                Width = 50,
+                ReadOnly = true
             };
 
-            titulonombre.Text = "Introduce el nombre del cliente";
-            titulonombre.MaximumSize = new Draw.Size(800, 20);
-
-            return titulonombre;
-
-        }
-
-        //Caja para introducir el nombre
-        WForms.Panel BuildNombre()
-        {
-            var toret = new WForms.Panel
+            var column3 = new DataGridViewTextBoxColumn
             {
-                Dock = WForms.DockStyle.Top
+                SortMode = DataGridViewColumnSortMode.NotSortable,
+                CellTemplate = textCellTemplate3,
+                HeaderText = "EMAIL",
+                Width = 50,
+                ReadOnly = true
             };
 
-            this.nombre = new WForms.TextBox
+            var column4 = new DataGridViewTextBoxColumn
             {
-                Dock = WForms.DockStyle.Fill,
-                Text = "",
-                TextAlign = WForms.HorizontalAlignment.Right
+                SortMode = DataGridViewColumnSortMode.NotSortable,
+                CellTemplate = textCellTemplate4,
+                HeaderText = "DIRECCIÓN",
+                Width = 50,
+                ReadOnly = true
             };
 
-            toret.Controls.Add(this.nombre);
-            toret.MaximumSize = new Draw.Size(800, 20);
+            this.grdLista.Columns.AddRange(new DataGridViewColumn[] {
+                column0, column1, column2, column3, column4
+            });
 
-            return toret;
+
+            this.grdLista.SelectionChanged +=
+                                        (sender, e) => this.FilaSeleccionada();
+            pnlLista.Controls.Add(this.grdLista);
+            pnlLista.ResumeLayout(false);
+            return pnlLista;
         }
 
-        //Creado para meter el texto del telefono del cliente
-        WForms.Label tTelefono()
+
+        //Texto de la parte inferior de la pantalla que muestra el número de clientes que hay en el banco en la fecha en la que se entró
+        private void BuildStatus()
         {
-            titulotelefono = new WForms.Label
+            this.sbStatus = new StatusBar { Dock = DockStyle.Bottom };
+            this.Controls.Add(this.sbStatus);
+        }
+
+
+        private void Build()
+        {
+            //this.BuildIcons();
+            this.BuildStatus();
+            this.BuildMenu();
+            this.BuildPanelLista();
+
+            this.SuspendLayout();
+            this.pnlPpal = new Panel()
             {
-                Dock = WForms.DockStyle.Top
+                Dock = DockStyle.Fill
             };
 
-            titulotelefono.Text = "Introduce el teléfono del cliente (formato sin espacios)";
-            titulotelefono.MaximumSize = new Draw.Size(800, 20);
+            this.pnlPpal.SuspendLayout();
+            this.Controls.Add(this.pnlPpal);
+            this.pnlPpal.Controls.Add(this.BuildPanelLista());
+            this.pnlPpal.Controls.Add(this.BuildPanelDetalle());
+            this.pnlPpal.ResumeLayout(false);
 
-            return titulotelefono;
+            this.MinimumSize = new Size(600, 400);
+            this.Resize += (obj, e) => this.ResizeWindow();
+            this.Text = "Gestión de clientes del banco";
 
+            this.ResumeLayout(true);
+            this.ResizeWindow();
         }
 
-        //Caja para introducir el telefono
-        WForms.Panel BuildTelefono()
+        private void ResizeWindow()
         {
-            var toret = new WForms.Panel
-            {
-                Dock = WForms.DockStyle.Top
-            };
+            // Tomar las nuevas medidas
+            int width = this.pnlPpal.ClientRectangle.Width;
 
-            this.telefono = new WForms.TextBox
-            {
-                Dock = WForms.DockStyle.Fill,
-                Text = "",
-                TextAlign = WForms.HorizontalAlignment.Right
-            };
+            // Redimensionar la tabla
+            this.grdLista.Width = width;
 
-            toret.Controls.Add(this.telefono);
-            toret.MaximumSize = new Draw.Size(800, 20);
-
-            return toret;
+            this.grdLista.Columns[ColDni].Width =
+                                (int)System.Math.Floor(width * .20); // dni
+            this.grdLista.Columns[ColNombre].Width =
+                                (int)System.Math.Floor(width * .20); // nombre
+            this.grdLista.Columns[ColTelefono].Width =
+                                (int)System.Math.Floor(width * .20); // telefono
+            this.grdLista.Columns[ColEmail].Width =
+                                (int)System.Math.Floor(width * .20); // email
+            this.grdLista.Columns[ColDireccion].Width =
+                                (int)System.Math.Floor(width * .20); // direccion                               
         }
 
-        //Creado para meter el texto del email del cliente
-        WForms.Label tEmail()
-        {
-            tituloemail = new WForms.Label
-            {
-                Dock = WForms.DockStyle.Top
-            };
+        private MainMenu mPpal;
+        private MenuItem opAnhadir;
+        private MenuItem mEliminar;
+        private MenuItem opBuscar;
+        private MenuItem opEliminar;
+        private MenuItem mEditar;
+        private MenuItem opEditar;
 
-            tituloemail.Text = "Introduce el email del cliente";
-            tituloemail.MaximumSize = new Draw.Size(800, 20);
-
-            return tituloemail;
-
-        }
-
-        //Caja para introducir el email
-        WForms.Panel BuildEmail()
-        {
-            var toret = new WForms.Panel
-            {
-                Dock = WForms.DockStyle.Top
-            };
-
-            this.email = new WForms.TextBox
-            {
-                Dock = WForms.DockStyle.Fill,
-                Text = "",
-                TextAlign = WForms.HorizontalAlignment.Right
-            };
-
-            toret.Controls.Add(this.email);
-            toret.MaximumSize = new Draw.Size(800, 20);
-
-            return toret;
-        }
-
-        //Creado para meter el texto de la dirección postal del cliente
-        WForms.Label tDireccion()
-        {
-            titulodireccion = new WForms.Label
-            {
-                Dock = WForms.DockStyle.Top
-            };
-
-            titulodireccion.Text = "Introduce la dirección postal del cliente";
-            titulodireccion.MaximumSize = new Draw.Size(800, 20);
-
-            return titulodireccion;
-
-        }
-
-        //Caja para introducir la dirección postal
-        WForms.Panel BuildDireccion()
-        {
-            var toret = new WForms.Panel
-            {
-                Dock = WForms.DockStyle.Top
-            };
-
-            this.direccion = new WForms.TextBox
-            {
-                Dock = WForms.DockStyle.Fill,
-                Text = "",
-                TextAlign = WForms.HorizontalAlignment.Right
-            };
-
-            toret.Controls.Add(this.direccion);
-            toret.MaximumSize = new Draw.Size(800, 20);
-
-            return toret;
-        }
-
-
-        //Boton para anhadir un nuevo cliente
-        WForms.Button BuildBtAnhade()
-        {
-            this.BtAnhade = new WForms.Button
-            {
-                Dock = WForms.DockStyle.Bottom,
-                Text = "Añadir cliente"
-            };
-            this.MaximumSize = new Draw.Size(2000, 20);
-
-            return this.BtAnhade;
-        }
-
-
-        //Boton para listar los clientes
-        WForms.Button BuildBtListar()
-        {
-            this.BtListar = new WForms.Button
-            {
-                Dock = WForms.DockStyle.Bottom,
-                Text = "Listar clientes"
-            };
-            this.MaximumSize = new Draw.Size(2000, 20);
-
-            return this.BtListar;
-        }
-
-
-        //Boton para buscar un cliente
-        WForms.Button BuildBtBuscar()
-        {
-            this.BtBuscar = new WForms.Button
-            {
-                Dock = WForms.DockStyle.Bottom,
-                Text = "Buscar cliente"
-            };
-            this.MaximumSize = new Draw.Size(2000, 20);
-
-            return this.BtBuscar;
-        }
-
-
-        //Boton para editar un cliente
-        WForms.Button BuildBtEditar()
-        {
-            this.BtEditar = new WForms.Button
-            {
-                Dock = WForms.DockStyle.Bottom,
-                Text = "Editar cliente"
-            };
-            this.MaximumSize = new Draw.Size(2000, 20);
-
-            return this.BtEditar;
-        }
-
-        //Boton para eliminar un cliente
-        WForms.Button BuildBtEliminar()
-        {
-            this.BtEliminar = new WForms.Button
-            {
-                Dock = WForms.DockStyle.Bottom,
-                Text = "Eliminar cliente"
-            };
-            this.MaximumSize = new Draw.Size(2000, 20);
-
-            return this.BtEliminar;
-        }
-
-
-        public WForms.Label titulodni
-        {
-            get; private set;
-        }
-        public WForms.TextBox dni
-        {
-            get; private set;
-        }
-
-
-        public WForms.Label titulonombre
-        {
-            get; private set;
-        }
-        public WForms.TextBox nombre
-        {
-            get; private set;
-        }
-
-        public WForms.Label titulotelefono
-        {
-            get; private set;
-        }
-
-        public WForms.TextBox telefono
-        {
-            get; private set;
-        }
-
-        public WForms.Label tituloemail
-        {
-            get; private set;
-        }
-
-        public WForms.TextBox email
-        {
-            get; private set;
-        }
-
-        public WForms.Label titulodireccion
-        {
-            get; private set;
-        }
-
-        public WForms.TextBox direccion
-        {
-            get; private set;
-        }
-
-        public WForms.Button BtAnhade
-        {
-            get; private set;
-        }
-
-        public WForms.Button BtListar
-        {
-            get; private set;
-        }
-
-        public WForms.Button BtBuscar
-        {
-            get; private set;
-        }
-
-        public WForms.Button BtEditar
-        {
-            get; private set;
-        }
-
-        public WForms.Button BtEliminar
-        {
-            get; private set;
-        }
-
+        private StatusBar sbStatus;
+        private Panel pnlPpal;
+        private TextBox edDetalle;
+        private DataGridView grdLista;
     }
 }

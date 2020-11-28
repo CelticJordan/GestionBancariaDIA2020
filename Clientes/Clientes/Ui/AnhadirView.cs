@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Clientes.Ui
 {
     using Draw = System.Drawing;
     using WForms = System.Windows.Forms;
-    public class EditarView : WForms.Form
+    public class AnhadirView : WForms.Form
     {
-        public EditarView()
+        public AnhadirView()
         {
             this.Build();
         }
@@ -34,11 +35,11 @@ namespace Clientes.Ui
             pnlMain.Controls.Add(this.BuildDireccion());
 
 
-            pnlMain.Controls.Add(this.BuildBtEditar());
+            pnlMain.Controls.Add(this.BuildBtAnhadir());
 
 
             this.Controls.Add(pnlMain);
-            this.Text = "Editar cliente";
+            this.Text = "Añadir cliente";
             this.MinimumSize = new Draw.Size(200, 350);
         }
 
@@ -79,17 +80,17 @@ namespace Clientes.Ui
             return toret;
         }
 
-        //Boton para editar un cliente
-        WForms.Button BuildBtEditar()
+        //Boton para añadir un cliente
+        WForms.Button BuildBtAnhadir()
         {
-            this.BtEditar = new WForms.Button
+            this.BtAnhadir = new WForms.Button
             {
                 Dock = WForms.DockStyle.Bottom,
-                Text = "Editar cliente"
+                Text = "Añadir cliente"
             };
             this.MaximumSize = new Draw.Size(2000, 20);
 
-            return this.BtEditar;
+            return this.BtAnhadir;
         }
 
         //Creado para meter el texto del dni del nombre
@@ -246,7 +247,7 @@ namespace Clientes.Ui
             get; private set;
         }
 
-        public WForms.Button BtEditar
+        public WForms.Button BtAnhadir
         {
             get; private set;
         }

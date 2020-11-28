@@ -59,11 +59,11 @@ namespace Clientes.Core
             StringBuilder toret = new StringBuilder ();
 
             toret.Append("\nDATOS DEL CLIENTE");
-            toret.Append("\nDNI: "+this.Dni);
-            toret.Append("\nNombre: "+this.Nombre);
-            toret.Append("\nTelefono: " + this.Telefono);
-            toret.Append("\nEmail: " + this.Email);
-            toret.Append("\nDirección postal: " + this.DirPostal);
+            toret.Append("\r\nDNI: "+this.Dni);
+            toret.Append("\r\nNombre: "+this.Nombre);
+            toret.Append("\r\nTelefono: " + this.Telefono);
+            toret.Append("\r\nEmail: " + this.Email);
+            toret.Append("\r\nDirección postal: " + this.DirPostal);
 
             return toret.ToString();
         }
