@@ -166,7 +166,7 @@ namespace ProyectoDIA
             for (int i = 0; i < op.Length; i++)
             {
                 Cliente cliente = lista[i];
-                op[i] = cliente.DNI ;
+                op[i] = cliente.Dni ;
             }
             cbcCLIENTES.Items.AddRange(op);
             
@@ -223,7 +223,7 @@ namespace ProyectoDIA
                         for (int j = 0; j < this.Transferencias.Count(); j++)
                         {
                             Transferencia transferencia = listaTransferencias[j];
-                            if (transferencia.CCCO == cuenta.CCC || transferencia.CCCD == cuenta.CCC)
+                            if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
                             {
                                 this.tbDetalle.Text += "Transferencia " + j + "\r\n";
                                 this.tbDetalle.Text += transferencia.ToString();
@@ -233,7 +233,7 @@ namespace ProyectoDIA
                         for (int j = 0; j < this.Prestamos.Count(); j++)
                         {
                             Prestamo prestamo = listaPrestamos[j];
-                            if (prestamo.CCC == cuenta.CCC || prestamo.CCCD == cuenta.CCC)
+                            if (prestamo.CccOri == cuenta.CCC || prestamo.CccDes == cuenta.CCC)
                             {
                                 this.tbDetalle.Text += "Prestamo " + j + "\r\n";
                                 this.tbDetalle.Text += prestamo.ToString();
@@ -269,7 +269,7 @@ namespace ProyectoDIA
                     {
                         for (int j = 0; j < cuenta.Depositos.Count; j++)
                         {
-                            if (cuenta.Depositos[j].Fecha.Year == anhoComprobacion)
+                            if (cuenta.Depositos[j].DateTime.Year == anhoComprobacion)
                             {
                                 this.tbDetalle.Text += "Deposito " + j + "\r\n";
                                 this.tbDetalle.Text += cuenta.Depositos[j].ToString();
@@ -278,7 +278,7 @@ namespace ProyectoDIA
 
                         for (int j = 0; j < cuenta.Retiradas.Count; j++)
                         {
-                            if (cuenta.Retiradas[j].Fecha.Year == anhoComprobacion)
+                            if (cuenta.Retiradas[j].DateTime.Year == anhoComprobacion)
                             {
                                 this.tbDetalle.Text += "Retirada " + j + "\r\n";
                                 this.tbDetalle.Text += cuenta.Retiradas[j].ToString();
@@ -290,7 +290,7 @@ namespace ProyectoDIA
                             Transferencia transferencia = listaTransferencias[j];
                             if (transferencia.Fecha.Year == anhoComprobacion)
                             {
-                                if (transferencia.CCCO == cuenta.CCC || transferencia.CCCD == cuenta.CCC)
+                                if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
                                 {
                                     this.tbDetalle.Text += "Transferencia " + j + "\r\n";
                                     this.tbDetalle.Text += transferencia.ToString();
@@ -303,7 +303,7 @@ namespace ProyectoDIA
                             Prestamo prestamo = listaPrestamos[j];
                             if (prestamo.Fecha.Year == anhoComprobacion)
                             {
-                                if (prestamo.CCC == cuenta.CCC || prestamo.CCCD == cuenta.CCC)
+                                if (prestamo.CccOri == cuenta.CCC || prestamo.CccDes == cuenta.CCC)
                                 {
                                     this.tbDetalle.Text += "Prestamo " + j + "\r\n";
                                     this.tbDetalle.Text += prestamo.ToString();

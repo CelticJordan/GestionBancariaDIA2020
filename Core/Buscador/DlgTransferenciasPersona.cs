@@ -164,7 +164,7 @@ namespace ProyectoDIA
             for (int i = 0; i < op.Length; i++)
             {
                 Cliente cliente = lista[i];
-                op[i] = cliente.DNI ;
+                op[i] = cliente.Dni ;
             }
             cbcCLIENTES.Items.AddRange(op);
             
@@ -208,7 +208,7 @@ namespace ProyectoDIA
                         for (int j = 0; j < this.Transferencias.Count(); j++)
                         {
                             Transferencia transferencia = listaTransferencias[j];
-                            if (transferencia.CCCO == cuenta.CCC || transferencia.CCCD == cuenta.CCC)
+                            if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
                             {
                                 this.tbDetalle.Text += "Transferencia " + j + "\r\n";
                                 this.tbDetalle.Text += transferencia.ToString();
@@ -246,7 +246,7 @@ namespace ProyectoDIA
                             Transferencia transferencia = listaTransferencias[j];
                             if (transferencia.Fecha.Year == anhoComprobacion)
                             {
-                                if (transferencia.CCCO == cuenta.CCC || transferencia.CCCD == cuenta.CCC)
+                                if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
                                 {
                                     this.tbDetalle.Text += "Transferencia " + j + "\r\n";
                                     this.tbDetalle.Text += transferencia.ToString();
