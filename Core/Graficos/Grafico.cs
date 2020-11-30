@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using static Gráficos.Pruebas.Cuenta;
 
 namespace Gráficos.Graficos
 {
@@ -38,23 +39,23 @@ namespace Gráficos.Graficos
                 depositos.Union(d);
             }
             //vamos juntar los depositos que tiene la misma fecha
-            var dep = from deposito in depositos select (deposito.Fecha, deposito.Cantidad);
+            var dep = from deposito in depositos select (deposito.DateTime, deposito.Cantidad);
             var fechas_transferencias = from transferencia in transferencias select (transferencia.Fecha, transferencia.Importe);
             var lista_dep = dep.ToList();
             var lista_transferencias = fechas_transferencias.ToList();
             lista_dep.AddRange(lista_transferencias);
-            var total = lista_dep.OrderBy(fecha => fecha.Fecha.Date);//ordenamos los datos 
+            var total = lista_dep.OrderBy(fecha => fecha.DateTime.Date);//ordenamos los datos 
             //ahora sumaremos las cantidades de los depositos y trasnferencias que se hicieron en la misma fecha y se eliminaran los elementos comunes
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -95,7 +96,7 @@ namespace Gráficos.Graficos
                 }
                 depositos.Union(d);
             }
-            var dep = from deposito in depositos select (deposito.Fecha);
+            var dep = from deposito in depositos select (deposito.DateTime);
             var fechas_trasnferencias = from transferencia in transferencias select (transferencia.Fecha);
             var total = fechas_trasnferencias.Union(dep);//juntamos los datos de que nos interesan y obtenemos todas las fechas
             total = total.OrderBy(fecha => fecha.Date);//ordenamos los datos
@@ -133,22 +134,22 @@ namespace Gráficos.Graficos
                 }
                 depositos.Union(d);
             }
-            var dep = from deposito in depositos where deposito.Fecha.Year == año select (deposito.Fecha, deposito.Cantidad);
+            var dep = from deposito in depositos where deposito.DateTime.Year == año select (deposito.DateTime, deposito.Cantidad);
             var fechas_trasnferencias = from transferencia in transferencias where transferencia.Fecha.Year == año select (transferencia.Fecha, transferencia.Importe);
             var lista_dep = dep.ToList();
             var lista_transferencias = fechas_trasnferencias.ToList();
             lista_dep.AddRange(lista_transferencias);
-            var total = lista_dep.OrderBy(fecha => fecha.Fecha);//ordenamos los datos
+            var total = lista_dep.OrderBy(fecha => fecha.DateTime);//ordenamos los datos
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -180,6 +181,7 @@ namespace Gráficos.Graficos
         {
             //cogemos las cuentas que tiene cada cliente
             var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
+            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //extraemos los depositos de las cuentas
             var depositos_cuentas = from cuenta in cuentas_cliente select cuenta.Depositos;
 
@@ -193,23 +195,23 @@ namespace Gráficos.Graficos
                 depositos.Union(d);
             }
             //transferencias que tienen como un titular  de la cuenta de destino el cliente que le pasamos 
-            var transferencias_cliente = from transferencia in transferencias where (transferencia.Destino.Titulares.Contains(c)) select (transferencia.Fecha, transferencia.Importe);
-            var dep = from deposito in depositos select (deposito.Fecha, deposito.Cantidad);
+            var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
+            var dep = from deposito in depositos select (deposito.DateTime, deposito.Cantidad);
             var fechas_trasnferencias = from transferencia in transferencias_cliente select (transferencia.Fecha, transferencia.Importe);
             var lista_dep = dep.ToList();
             var lista_transferencias = fechas_trasnferencias.ToList();
             lista_dep.AddRange(lista_transferencias);
-            var total = lista_dep.OrderBy(fecha => fecha.Fecha);//ordenamos los datos
+            var total = lista_dep.OrderBy(fecha => fecha.DateTime);//ordenamos los datos
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -241,6 +243,7 @@ namespace Gráficos.Graficos
         {
             //cogemos las cuentas que tiene cada cliente
             var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
+            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //extraemos los depositos de las cuentas
             var depositos_cuentas = from cuenta in cuentas_cliente select cuenta.Depositos;
             var depositos = depositos_cuentas.First();
@@ -253,8 +256,8 @@ namespace Gráficos.Graficos
                 depositos.Union(d);
             }
             //transferencias que tienen como un titular  de la cuenta de destino el cliente que le pasamos 
-            var transferencias_cliente = from transferencia in transferencias where (transferencia.Destino.Titulares.Contains(c)) select (transferencia.Fecha);
-            var dep = from deposito in depositos select (deposito.Fecha);
+            var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha);
+            var dep = from deposito in depositos select (deposito.DateTime);
             var fechas_trasnferencias = from transferencia in transferencias select (transferencia.Fecha);
             var total = fechas_trasnferencias.Union(dep);//juntamos los datos de que nos interesan y obtenemos todas las fechas
             total = total.OrderBy(fecha => fecha.Date);//ordenamos los datos
@@ -283,6 +286,7 @@ namespace Gráficos.Graficos
         {
             //cogemos los depositos de las cuentas del cliente
             var depositos_cuentas = from cuenta in cuentas where (cuenta.Titulares.Contains(c)) select cuenta.Depositos;
+            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //juntamos todos los objetos deposito, que en cuenta son IEnumerables
             var depositos = depositos_cuentas.First();
             foreach (IEnumerable<Deposito> d in depositos_cuentas)
@@ -293,23 +297,23 @@ namespace Gráficos.Graficos
                 }
                 depositos.Union(d);
             }
-            var dep = from deposito in depositos where deposito.Fecha.Year == año select (deposito.Fecha, deposito.Cantidad);
-            var transferencias_cliente = from transferencia in transferencias where transferencia.Destino.Titulares.Contains(c) select (transferencia.Fecha, transferencia.Importe);
+            var dep = from deposito in depositos where deposito.DateTime.Year == año select (deposito.DateTime, deposito.Cantidad);
+            var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
             var fechas_trasnferencias = from transferencia in transferencias_cliente where transferencia.Fecha.Year == año select (transferencia.Fecha, transferencia.Importe);
             var lista_dep = dep.ToList();
             var lista_transferencias = fechas_trasnferencias.ToList();
             lista_dep.AddRange(lista_transferencias);
-            var total = lista_dep.OrderBy(fecha => fecha.Fecha);//ordenamos los datos
+            var total = lista_dep.OrderBy(fecha => fecha.DateTime);//ordenamos los datos
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -339,11 +343,11 @@ namespace Gráficos.Graficos
         public int[] ordenarResumenCuenta(Cuenta c, IEnumerable<Transferencia> transferencias)
         {
             //cogemos las transferencias positivas(que tienen la cuenta como destino) y las negativas(que tienen la cuenta como origen)(el importe de las transferencias lo ponemos como negativo
-            var trasnferencias_pos = from transferencia in transferencias where transferencia.Destino.Equals(c) select (transferencia.Fecha, transferencia.Importe);
-            var trasnferencias_neg = from transferencia in transferencias where transferencia.Origen.Equals(c) select (transferencia.Fecha, -transferencia.Importe);
+            var trasnferencias_pos = from transferencia in transferencias where transferencia.CCCDestino.Equals(c.CCC) select (transferencia.Fecha, transferencia.Importe);
+            var trasnferencias_neg = from transferencia in transferencias where transferencia.CCCOrigen.Equals(c.CCC) select (transferencia.Fecha, -transferencia.Importe);
             //extraemos los depositos y las retiradas de la cuenta(el importe de las retiradas lo ponemos como negativo
-            var depositos_cuenta = from deposito in c.Depositos select (deposito.Fecha, deposito.Cantidad);
-            var retiradas_cuenta = from retirada in c.Retiradas select (retirada.Fecha, -retirada.Cantidad);
+            var depositos_cuenta = from deposito in c.Depositos select (deposito.DateTime, deposito.Cantidad);
+            var retiradas_cuenta = from retirada in c.Retiradas select (retirada.DateTime, -retirada.Cantidad);
             //union de saldos negativos y positivos en una lista
             var lista_trasnferencias_pos = trasnferencias_pos.ToList();
             var lista_trasnferencias_neg = trasnferencias_neg.ToList();
@@ -352,17 +356,17 @@ namespace Gráficos.Graficos
             lista_depositos.AddRange(lista_trasnferencias_pos);
             lista_depositos.AddRange(lista_trasnferencias_neg);
             lista_depositos.AddRange(lista_retiradas);
-            var total = lista_depositos.OrderBy(fecha => fecha.Fecha);//ordenamos los datos por fecha
+            var total = lista_depositos.OrderBy(fecha => fecha.DateTime);//ordenamos los datos por fecha
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -394,13 +398,13 @@ namespace Gráficos.Graficos
         public String[] ordenarAñosResumenCuenta(Cuenta c, IEnumerable<Transferencia> transferencias)
         {
             //cogemos las transferencias asociadas a la cuenta tanto como si es de destino u origen
-            var transferencias_cuenta = from transferencia in transferencias where (transferencia.Origen.Equals(c) | transferencia.Destino.Equals(c)) select transferencia.Fecha;
+            var transferencias_cuenta = from transferencia in transferencias where (transferencia.CCCOrigen.Equals(c.CCC) | transferencia.CCCDestino.Equals(c.CCC)) select transferencia.Fecha;
             //extraemos los depositos de las cuentas
-            var depositos_cuentas = from deposito in c.Depositos select deposito.Fecha;
+            var depositos_cuentas = from deposito in c.Depositos select deposito.DateTime;
             var total = transferencias_cuenta.Union(depositos_cuentas);//juntamos los datos de que nos interesan y obtenemos todas las fechas
             total = total.OrderBy(fecha => fecha.Date);//ordenamos los datos
             HashSet<String> lista_final_años = new HashSet<String>();//creamos un hashset para no introducir años repetidos
-            String año_cuenta = c.Fecha.Year.ToString();
+            String año_cuenta = c.FechaApertura.Year.ToString();
             lista_final_años.Add(año_cuenta);
             //aproximamos los importes
             int ultimo_año = total.Max().Year;
@@ -425,11 +429,11 @@ namespace Gráficos.Graficos
         public int[] ordenarResumenCuentaAño(Cuenta c, IEnumerable<Transferencia> transferencias, int año)
         {
             //cogemos las transferencias positivas(que tienen la cuenta como destino) y las negativas(que tienen la cuenta como origen)(el importe de las transferencias lo ponemos como negativo
-            var trasnferencias_pos = from transferencia in transferencias where (transferencia.Destino.Equals(c) ) select (transferencia.Fecha, transferencia.Importe);
-            var trasnferencias_neg = from transferencia in transferencias where (transferencia.Origen.Equals(c)) select (transferencia.Fecha, -transferencia.Importe);
+            var trasnferencias_pos = from transferencia in transferencias where (transferencia.CCCDestino.Equals(c.CCC) ) select (transferencia.Fecha, transferencia.Importe);
+            var trasnferencias_neg = from transferencia in transferencias where (transferencia.CCCOrigen.Equals(c.CCC)) select (transferencia.Fecha, -transferencia.Importe);
             //extraemos los depositos y las retiradas de la cuenta(el importe de las retiradas lo ponemos como negativo
-            var depositos_cuenta = from deposito in c.Depositos select (deposito.Fecha, deposito.Cantidad);
-            var retiradas_cuenta = from retirada in c.Retiradas  select (retirada.Fecha, -retirada.Cantidad);
+            var depositos_cuenta = from deposito in c.Depositos select (deposito.DateTime, deposito.Cantidad);
+            var retiradas_cuenta = from retirada in c.Retiradas  select (retirada.DateTime, -retirada.Cantidad);
             //union de saldos negativos y positivos en una lista
             var lista_trasnferencias_pos = trasnferencias_pos.ToList();
             var lista_trasnferencias_neg = trasnferencias_neg.ToList();
@@ -438,17 +442,17 @@ namespace Gráficos.Graficos
             lista_depositos.AddRange(lista_trasnferencias_pos);
             lista_depositos.AddRange(lista_trasnferencias_neg);
             lista_depositos.AddRange(lista_retiradas);
-            var total = lista_depositos.OrderBy(fecha => fecha.Fecha);//ordenamos los datos por fecha
+            var total = lista_depositos.OrderBy(fecha => fecha.DateTime);//ordenamos los datos por fecha
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -458,7 +462,7 @@ namespace Gráficos.Graficos
                     }
                 }
             }
-            var importes_ordenados = from importe in lista_total select (importe.Item2,importe.Fecha);
+            var importes_ordenados = from importe in lista_total select (importe.Item2,importe.DateTime);
             var saldo = c.Saldo;
             List<(int,DateTime)> lista_final = new List<(int,DateTime)>();
             //aproximamos los importes y restamos o sumamos al saldo
@@ -498,6 +502,7 @@ namespace Gráficos.Graficos
         {
             //cogemos las cuentas que tiene el cliente
             var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
+            var cuentas_nombres = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //cogemos los depositos y transferencias de todas las cuentas
             var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
             var retiradas_cliente = from retirada in cuentas_cliente select retirada.Retiradas;
@@ -521,11 +526,11 @@ namespace Gráficos.Graficos
                 }
                 retiradas.Union(r);
             }
-            var dep = from deposito in depositos select (deposito.Fecha, deposito.Cantidad);
-            var ret = from retirada in retiradas select (retirada.Fecha, -retirada.Cantidad);
+            var dep = from deposito in depositos select (deposito.DateTime, deposito.Cantidad);
+            var ret = from retirada in retiradas select (retirada.DateTime, -retirada.Cantidad);
             //cogemos las transferencias de retirada y de ingreso en las cuentas del cliente
-            var transferencias_pos = from transferencia in transferencias where (cuentas_cliente.Contains(transferencia.Destino)) select (transferencia.Fecha, transferencia.Importe);
-            var transferencias_neg = from transferencia in transferencias where (cuentas_cliente.Contains(transferencia.Origen)) select (transferencia.Fecha, -transferencia.Importe);
+            var transferencias_pos = from transferencia in transferencias where (cuentas_nombres.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
+            var transferencias_neg = from transferencia in transferencias where (cuentas_nombres.Contains(transferencia.CCCOrigen)) select (transferencia.Fecha, -transferencia.Importe);
             //union de saldos negativos y positivos en una lista
             var lista_trasnferencias_pos = transferencias_pos.ToList();
             var lista_trasnferencias_neg = transferencias_neg.ToList();
@@ -534,17 +539,17 @@ namespace Gráficos.Graficos
             lista_depositos.AddRange(lista_trasnferencias_pos);
             lista_depositos.AddRange(lista_trasnferencias_neg);
             lista_depositos.AddRange(lista_retiradas);
-            var total = lista_depositos.OrderBy(fecha => fecha.Fecha);//ordenamos los datos por fecha
+            var total = lista_depositos.OrderBy(fecha => fecha.DateTime);//ordenamos los datos por fecha
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -583,6 +588,7 @@ namespace Gráficos.Graficos
         {
             //cogemos las cuentas que tiene el cliente
             var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
+            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //cogemos los depositos y transferencias de todas las cuentas
             var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
             var retiradas_cliente = from retirada in cuentas_cliente select retirada.Retiradas;
@@ -606,11 +612,11 @@ namespace Gráficos.Graficos
                 }
                 retiradas.Union(r);
             }
-            var dep = from deposito in depositos select (deposito.Fecha);
-            var ret = from retirada in retiradas select (retirada.Fecha);
+            var dep = from deposito in depositos select (deposito.DateTime);
+            var ret = from retirada in retiradas select (retirada.DateTime);
             //cogemos las transferencias de retirada y de ingreso en las cuentas del cliente
-            var transferencias_pos = from transferencia in transferencias where (cuentas_cliente.Contains(transferencia.Destino)) select (transferencia.Fecha);
-            var transferencias_neg = from transferencia in transferencias where (cuentas_cliente.Contains(transferencia.Origen)) select (transferencia.Fecha);
+            var transferencias_pos = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha);
+            var transferencias_neg = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCOrigen)) select (transferencia.Fecha);
             var total = dep.Union(ret).Union(transferencias_neg).Union(transferencias_pos);//juntamos los datos de que nos interesan y obtenemos todas las fechas
             total = total.OrderBy(fecha => fecha.Date);//ordenamos los datos
             int ultimo_año = total.Max().Year;
@@ -630,6 +636,7 @@ namespace Gráficos.Graficos
         {
             //cogemos las cuentas que tiene el cliente
             var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
+            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //cogemos los depositos y transferencias de todas las cuentas
             var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
             var retiradas_cliente = from retirada in cuentas_cliente select retirada.Retiradas;
@@ -653,11 +660,11 @@ namespace Gráficos.Graficos
                 }
                 retiradas.Union(r);
             }
-            var dep = from deposito in depositos  select (deposito.Fecha, deposito.Cantidad);
-            var ret = from retirada in retiradas  select (retirada.Fecha, -retirada.Cantidad);
+            var dep = from deposito in depositos  select (deposito.DateTime, deposito.Cantidad);
+            var ret = from retirada in retiradas  select (retirada.DateTime, -retirada.Cantidad);
             //cogemos las transferencias de retirada y de ingreso en las cuentas del cliente
-            var transferencias_pos = from transferencia in transferencias where (cuentas_cliente.Contains(transferencia.Destino) ) select (transferencia.Fecha, transferencia.Importe);
-            var transferencias_neg = from transferencia in transferencias where (cuentas_cliente.Contains(transferencia.Origen) ) select (transferencia.Fecha, -transferencia.Importe);
+            var transferencias_pos = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino) ) select (transferencia.Fecha, transferencia.Importe);
+            var transferencias_neg = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCOrigen) ) select (transferencia.Fecha, -transferencia.Importe);
             //union de saldos negativos y positivos en una lista
             var lista_trasnferencias_pos = transferencias_pos.ToList();
             var lista_trasnferencias_neg = transferencias_neg.ToList();
@@ -666,17 +673,17 @@ namespace Gráficos.Graficos
             lista_depositos.AddRange(lista_trasnferencias_pos);
             lista_depositos.AddRange(lista_trasnferencias_neg);
             lista_depositos.AddRange(lista_retiradas);
-            var total = lista_depositos.OrderBy(fecha => fecha.Fecha);//ordenamos los datos por fecha
+            var total = lista_depositos.OrderBy(fecha => fecha.DateTime);//ordenamos los datos por fecha
             var lista_total = total.ToList();
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
                 {
-                    if (lista_total[i].Fecha.ToString() == lista_total[j].Fecha.ToString())
+                    if (lista_total[i].DateTime.ToString() == lista_total[j].DateTime.ToString())
                     {
                         //creamos el item nuevo con la fecha y la suma de las cantidades
                         var cantidad = lista_total[i].Item2 + lista_total[j].Item2;
-                        var fecha = lista_total[i].Fecha;
+                        var fecha = lista_total[i].DateTime;
                         var item = (fecha, cantidad);
                         //eliminamos los items antiguos y añadimos uno nuevo actualizado
                         lista_total.RemoveAt(j);
@@ -686,7 +693,7 @@ namespace Gráficos.Graficos
                     }
                 }
             }
-            var importes_ordenados = from importe in lista_total select (importe.Cantidad,importe.Fecha);
+            var importes_ordenados = from importe in lista_total select (importe.Cantidad,importe.DateTime);
             double saldo_inicial = 0;
             var saldos_cuentas = from cuenta in cuentas_cliente select cuenta.Saldo;
             foreach (double s in saldos_cuentas)
