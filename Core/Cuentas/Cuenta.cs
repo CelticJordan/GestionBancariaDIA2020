@@ -7,35 +7,35 @@ namespace DIA_P2_banco.Cuentas
         public class Deposito {
             public string Concepto;
             public DateTime DateTime;
-            public float Cantidad;
+            public double Cantidad;
 
-            public Deposito(string concepto, float cantidad){
+            public Deposito(string concepto, DateTime dt, double cantidad){
                 this.Concepto = concepto;
                 this.Cantidad = cantidad;
-                this.DateTime = DateTime.UtcNow;
+                this.DateTime = dt;
             }
         }
         public class Retirada {
             public string Concepto;
             public DateTime DateTime;
-            public float Cantidad;
+            public double Cantidad;
 
-            public Retirada(string concepto, float cantidad) {
+            public Retirada(string concepto, DateTime dt, double cantidad) {
                 this.Concepto = concepto;
                 this.Cantidad = cantidad;
-                this.DateTime = DateTime.UtcNow;
+                this.DateTime = dt;
             }
         }
         public string CCC { get; private set; }
         public string Tipo { get; protected set; }
-        public float Saldo { get; set; }
+        public double Saldo { get; set; }
         public List<Cliente> Titulares;
         public DateTime FechaApertura { get; private set; }
-        public float InteresMensual { get; set; }
-        public List<Deposito> Depositos;
-        public List<Retirada> Retiradas;
-        
-        
+        public double InteresMensual { get; set; }
+        public List<Deposito> Depositos { get; private set; }
+        public List<Retirada> Retiradas { get; private set; }
+
+
 
         protected Cuenta(string ccc, Cliente cliente)
         {
