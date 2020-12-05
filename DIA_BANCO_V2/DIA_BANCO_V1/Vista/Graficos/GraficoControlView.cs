@@ -58,7 +58,7 @@ namespace DIA_BANCO_V1
         /// <summary>
         /// Funcion que se encarga de crear el Grafico de ingresos general
         /// </summary>
-        private void OnCrearGraficoGeneral()
+        public void OnCrearGraficoGeneral()
         {
             Grafico grf = new Grafico();
             this.GraficoView = new GraficosView();
@@ -82,7 +82,7 @@ namespace DIA_BANCO_V1
         /// Funcion que se encarga de crear el Grafico de ingresos general por año
         /// </summary>
         /// <param name="año"></param>
-        private void OnCrearGraficoGeneralAño(int año)
+        public void OnCrearGraficoGeneralAño(int año)
         {
             Grafico grf = new Grafico();
             var array_datos = grf.ordenarMesesAñoIngresoGeneral(this.Cuentas, this.Transferencias, año);
@@ -108,7 +108,7 @@ namespace DIA_BANCO_V1
         /// <summary>
         /// Funcion que se encarga de crear el Grafico de ingresos generales de un cliente
         /// </summary>
-        private void OnCrearGraficoCliente()
+        public void OnCrearGraficoCliente()
         {
             Grafico grf = new Grafico();
             this.GraficoView = new GraficosView();
@@ -132,7 +132,7 @@ namespace DIA_BANCO_V1
         /// Funcion que se encargar de crear el Grafico de ingresos de un determinado año de un cliente
         /// </summary>
         /// <param name="año"></param>
-        private void OnCrearGraficoClienteAño(int año)
+        public void OnCrearGraficoClienteAño(int año)
         {
             Grafico grf = new Grafico();
             var array_datos = grf.ordenarIngresosClienteAño(this.Cliente, this.Cuentas, this.Transferencias,año);
@@ -206,7 +206,7 @@ namespace DIA_BANCO_V1
         /// <summary>
         /// Funcion que se encarga de crear el grafico de resumen del saldo de un cliente
         /// </summary>
-        private void OnCrearGraficoSaldoCliente()
+        public void OnCrearGraficoSaldoCliente()
         {
             Grafico grf = new Grafico();
             this.GraficoView = new GraficosView();
@@ -230,7 +230,7 @@ namespace DIA_BANCO_V1
         /// Funcion que se encarga de crear el grafico de resumen del saldo de un cliente en un determinado año
         /// </summary>
         /// <param name="año"></param>
-        private void OnCrearGraficoClienteAñoResumen(int año)
+        public void OnCrearGraficoClienteAñoResumen(int año)
         {
             Grafico grf = new Grafico();
             var array_datos = grf.ordenarResumenSaldoClienteAños(this.Cliente,this.Cuentas, this.Transferencias, año);

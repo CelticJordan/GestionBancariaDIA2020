@@ -39,9 +39,9 @@ namespace DIA_BANCO_V1
             Cuenta cue3 = new CuentaAhorro("33333333333333333333", cli3);
             cue3.Saldo = 5321;
 
-            cue1.Depositos.Add(new Cuenta.Deposito("nomina diciembre", DateTime.Now,  1500.23f));
-            cue1.Depositos.Add(new Cuenta.Deposito("nomina enero", DateTime.Now,3200.23f));
-            cue2.Depositos.Add(new Cuenta.Deposito("nomina febrero", DateTime.Now,1650.23f));
+            cue1.Depositos.Add(new Cuenta.Deposito("nomina diciembre", new DateTime(2017,05,10) ,  1500.23f));
+            cue1.Depositos.Add(new Cuenta.Deposito("nomina enero", new DateTime(2018,05,10),3200.23f));
+            cue2.Depositos.Add(new Cuenta.Deposito("nomina febrero", new DateTime(2019,05,10), 1650.23f));
 
             cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 121", DateTime.Now,499.99f));
             cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 532", DateTime.Now,99.99f));

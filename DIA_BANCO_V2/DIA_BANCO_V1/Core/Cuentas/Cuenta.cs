@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Clientes.Core;
+using System.Text;
 
 namespace DIA_BANCO_V1
 {
@@ -19,7 +20,7 @@ namespace DIA_BANCO_V1
             {
                 StringBuilder toret = new StringBuilder();
                 toret.AppendLine("\r\tConcepto: " + this.Concepto);
-                toret.AppendLine("\r\tFecha: " + this.Fecha);
+                toret.AppendLine("\r\tFecha: " + this.DateTime);
                 toret.AppendLine("\r\tCantidad: " + this.Cantidad);
                 return toret.ToString();
             }
@@ -38,7 +39,7 @@ namespace DIA_BANCO_V1
             {
                 StringBuilder toret = new StringBuilder();
                 toret.AppendLine("\r\tConcepto: " + this.Concepto);
-                toret.AppendLine("\r\tFecha: " + this.Fecha);
+                toret.AppendLine("\r\tFecha: " + this.DateTime);
                 toret.AppendLine("\r\tCantidad: " + this.Cantidad);
                 return toret.ToString();
             }
@@ -74,7 +75,7 @@ namespace DIA_BANCO_V1
                 toret.AppendLine("\r\tTitulares: " + this.Titulares[i].Nombre.ToString()); 
             }
             toret.AppendLine("\r\tFecha Apertural: " + this.FechaApertura);
-            toret.AppendLine("\r\tInteres: " + this.Interes);
+            toret.AppendLine("\r\tInteres: " + this.InteresMensual);
             return toret.ToString();
         }
     }

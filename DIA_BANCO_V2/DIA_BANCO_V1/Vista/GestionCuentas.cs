@@ -583,5 +583,15 @@ namespace DIA_BANCO_V1
             gcv.Transferencias = this.transferencias;
             gcv.OnCrearGraficoCuenta();
         }
+
+        private void graficoGeneralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GraficoControlView gcv = new GraficoControlView();
+            gcv.Cuentas = this.cuentas;
+            MessageBox.Show(this.cuentas.Count.ToString());
+            gcv.Transferencias = this.transferencias;
+
+            gcv.OnCrearGraficoGeneral();
+        }
     }
 }
