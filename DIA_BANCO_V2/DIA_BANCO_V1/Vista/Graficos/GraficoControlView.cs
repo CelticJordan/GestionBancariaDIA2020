@@ -18,12 +18,12 @@ namespace DIA_BANCO_V1
         public const int CHART_CANVAS_SIZE = 800;
         public GraficoControlView()
         {
-            this.PanelGraficoView= new MainPanelGraficoView();
-            this.PanelGraficoView.Btn_IngresoGeneral.Click += (sender, args) => this.OnCrearGraficoGeneral();
-            this.PanelGraficoView.Btn_GraficoCliente.Click += (sender, args) => this.OnCrearGraficoCliente();
-            this.PanelGraficoView.Btn_GraficoCuenta.Click += (sender, args) => this.OnCrearGraficoCuenta();
-            this.PanelGraficoView.Btn_GraficoSaldoCliente.Click += (sender, args) => this.OnCrearGraficoSaldoCliente();
-            
+            // this.PanelGraficoView= new MainPanelGraficoView();
+            // this.PanelGraficoView.Btn_IngresoGeneral.Click += (sender, args) => this.OnCrearGraficoGeneral();
+            // this.PanelGraficoView.Btn_GraficoCliente.Click += (sender, args) => this.OnCrearGraficoCliente();
+            // this.PanelGraficoView.Btn_GraficoCuenta.Click += (sender, args) => this.OnCrearGraficoCuenta();
+            // this.PanelGraficoView.Btn_GraficoSaldoCliente.Click += (sender, args) => this.OnCrearGraficoSaldoCliente();
+            //
 
         }
         /// <summary>
@@ -157,7 +157,7 @@ namespace DIA_BANCO_V1
         /// <summary>
         /// Funcion que se encarga de crear un grafico con el resumen del saldo de una cuenta
         /// </summary>
-        private void OnCrearGraficoCuenta()
+        public void OnCrearGraficoCuenta()
         {
             Grafico grf = new Grafico();
             this.GraficoView = new GraficosView();
@@ -181,7 +181,7 @@ namespace DIA_BANCO_V1
         /// Funcion que se encarga de crear el grafico con el resumen del saldo de una cuenta en un determinado año
         /// </summary>
         /// <param name="año"></param>
-        private void OnCrearGraficoCuentaAño(int año)
+        public void OnCrearGraficoCuentaAño(int año)
         {
             Grafico grf = new Grafico();
             var array_datos = grf.ordenarResumenCuentaAño( this.Cuenta, this.Transferencias, año);

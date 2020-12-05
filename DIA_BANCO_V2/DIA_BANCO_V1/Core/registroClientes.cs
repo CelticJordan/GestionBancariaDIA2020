@@ -15,7 +15,7 @@ namespace Clientes.Core
     class registroClientes:ICollection<Cliente>
     {
 
-        private List<Cliente> registro;//lista donde se almacenan los clientes
+        public List<Cliente> registro;//lista donde se almacenan los clientes
 
         //Constructor vacío
         public registroClientes()

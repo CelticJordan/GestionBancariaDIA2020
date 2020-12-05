@@ -71,6 +71,7 @@ namespace DIA_BANCO_V1
                     dataGridCuentas.Rows[i].Cells[4].Value = cuenta.InteresMensual;
                     dataGridCuentas.Rows[i].Cells[5].Value = cuenta.Titulares.First().Dni;
                     dataGridCuentas.Rows[i].Cells[6].Value = "Borrar Cuenta";
+                    dataGridCuentas.Rows[i].Cells[7].Value = "Grafico Cuenta";
                     i++;
                 }
 
@@ -246,6 +247,11 @@ namespace DIA_BANCO_V1
             if (dataGridCuentas.CurrentCell.ColumnIndex == 6)
             {
                 BorrarCuentaSeleccionadaDelGrid();
+            }
+            
+            if (dataGridCuentas.CurrentCell.ColumnIndex == 7)
+            {
+                mostrarGraficoCuenta();
             }
             
             ComprobarTipoCuentaParaMostrarDepositosORetiradas(getCuentaSelecionadaGridCuentas());
@@ -536,6 +542,46 @@ namespace DIA_BANCO_V1
                     MessageBox.Show("Borrado cancelado");
                 }
             }
+        }
+        
+        private void productosPersonaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            DlgProductosPersona dlgperson = new DlgProductosPersona(clientes, cuentas, transferencias, prestamos);
+            dlgperson.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void movimientosPersonaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            DlgMovimientosPersona dlg = new DlgMovimientosPersona(clientes, cuentas, transferencias, prestamos);
+            dlg.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void transferenciasPersonaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            DlgTransferenciasPersona dlg = new DlgTransferenciasPersona(clientes, cuentas, transferencias);
+            dlg.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void transferenciasBancoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            DlgTransferenciasBanco dlg = new DlgTransferenciasBanco(transferencias);
+            dlg.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void mostrarGraficoCuenta()
+        {
+            GraficoControlView gcv = new GraficoControlView();
+            gcv.Cuenta = getCuentaSelecionadaGridCuentas();
+            gcv.Transferencias = this.transferencias;
+            gcv.OnCrearGraficoCuenta();
         }
     }
 }

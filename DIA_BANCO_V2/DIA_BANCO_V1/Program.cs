@@ -62,12 +62,30 @@ namespace DIA_BANCO_V1
             Transferencia t1 = new Transferencia(123, "Puntual", "11111111111111111111", "22222222222222222222", 350d, DateTime.UtcNow);
             Transferencia t2 = new Transferencia(345, "Periodica", "33333333333333333333", "22222222222222222222", 355d, DateTime.UtcNow);
             Transferencia t3 = new Transferencia(789, "Puntual", "22222222222222222222", "11111111111111111111", 359d, DateTime.UtcNow);
+            transferencias.Add(t1);
+            transferencias.Add(t2);
+            transferencias.Add(t3);
 
             // RegistroBanco rb = new RegistroBanco();
             // rb.clientes;
-            //
+            
             GestionCuentas gc = new GestionCuentas(cuentas, clientes, prestamos, transferencias);
             Application.Run(gc);
+            
+            // VistaPrincipal vp = new VistaPrincipal();
+            // vp.Clientes = clientes;
+            // vp.Cuentas = cuentas;
+            // vp.Prestamos = prestamos;
+            // vp.Transferencias = transferencias;
+            // Application.Run(vp);
+
+            // var form = new MainWindowController();
+            // Application.Run(form.View);
+            
+            // var r = new MainWindow();
+            // registroClientes rc = new registroClientes();
+            // rc.registro = clientes;
+            // Application.Run(r);
         }
     }
 }

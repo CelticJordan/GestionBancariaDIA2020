@@ -60,6 +60,7 @@ namespace DIA_BANCO_V1
             this.Intereses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNITitular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BorrarCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GraficoSaldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botonInsertarTitulares = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Titulareslabel = new System.Windows.Forms.Label();
@@ -87,6 +88,11 @@ namespace DIA_BANCO_V1
             this.vistaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimientosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferenciasPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferenciasBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridCuentas)).BeginInit();
@@ -272,7 +278,7 @@ namespace DIA_BANCO_V1
             this.dataGridCuentas.AllowUserToDeleteRows = false;
             this.dataGridCuentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridCuentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCuentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.CCC, this.Tipo, this.Saldo, this.FechaApertura, this.Intereses, this.DNITitular, this.BorrarCuenta});
+            this.dataGridCuentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.CCC, this.Tipo, this.Saldo, this.FechaApertura, this.Intereses, this.DNITitular, this.BorrarCuenta, this.GraficoSaldo});
             this.dataGridCuentas.Location = new System.Drawing.Point(4, 168);
             this.dataGridCuentas.MultiSelect = false;
             this.dataGridCuentas.Name = "dataGridCuentas";
@@ -337,6 +343,13 @@ namespace DIA_BANCO_V1
             this.BorrarCuenta.ReadOnly = true;
             this.BorrarCuenta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.BorrarCuenta.Width = 111;
+            // 
+            // GraficoSaldo
+            // 
+            this.GraficoSaldo.HeaderText = "GraficoCuenta";
+            this.GraficoSaldo.Name = "GraficoSaldo";
+            this.GraficoSaldo.ReadOnly = true;
+            this.GraficoSaldo.Width = 138;
             // 
             // botonInsertarTitulares
             // 
@@ -552,7 +565,7 @@ namespace DIA_BANCO_V1
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.vistaToolStripMenuItem});
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.vistaToolStripMenuItem, this.buscadorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1632, 33);
@@ -569,14 +582,49 @@ namespace DIA_BANCO_V1
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(147, 30);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // cuentasToolStripMenuItem
             // 
             this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
-            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
+            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(147, 30);
             this.cuentasToolStripMenuItem.Text = "Cuentas";
+            // 
+            // buscadorToolStripMenuItem
+            // 
+            this.buscadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.productosPersonaToolStripMenuItem, this.movimientosPersonaToolStripMenuItem, this.transferenciasPersonaToolStripMenuItem, this.transferenciasBancoToolStripMenuItem});
+            this.buscadorToolStripMenuItem.Name = "buscadorToolStripMenuItem";
+            this.buscadorToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
+            this.buscadorToolStripMenuItem.Text = "Buscador";
+            // 
+            // productosPersonaToolStripMenuItem
+            // 
+            this.productosPersonaToolStripMenuItem.Name = "productosPersonaToolStripMenuItem";
+            this.productosPersonaToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.productosPersonaToolStripMenuItem.Text = "Productos persona";
+            this.productosPersonaToolStripMenuItem.Click += new System.EventHandler(this.productosPersonaToolStripMenuItem_Click);
+            // 
+            // movimientosPersonaToolStripMenuItem
+            // 
+            this.movimientosPersonaToolStripMenuItem.Name = "movimientosPersonaToolStripMenuItem";
+            this.movimientosPersonaToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.movimientosPersonaToolStripMenuItem.Text = "Movimientos persona";
+            this.movimientosPersonaToolStripMenuItem.Click += new System.EventHandler(this.movimientosPersonaToolStripMenuItem_Click);
+            // 
+            // transferenciasPersonaToolStripMenuItem
+            // 
+            this.transferenciasPersonaToolStripMenuItem.Name = "transferenciasPersonaToolStripMenuItem";
+            this.transferenciasPersonaToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.transferenciasPersonaToolStripMenuItem.Text = "Transferencias persona";
+            this.transferenciasPersonaToolStripMenuItem.Click += new System.EventHandler(this.transferenciasPersonaToolStripMenuItem_Click);
+            // 
+            // transferenciasBancoToolStripMenuItem
+            // 
+            this.transferenciasBancoToolStripMenuItem.Name = "transferenciasBancoToolStripMenuItem";
+            this.transferenciasBancoToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.transferenciasBancoToolStripMenuItem.Text = "Transferencias banco";
+            this.transferenciasBancoToolStripMenuItem.Click += new System.EventHandler(this.transferenciasBancoToolStripMenuItem_Click);
             // 
             // GestionCuentas
             // 
@@ -602,6 +650,16 @@ namespace DIA_BANCO_V1
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn GraficoSaldo;
+
+        private System.Windows.Forms.ToolStripMenuItem movimientosPersonaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transferenciasBancoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transferenciasPersonaToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem productosPersonaToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem buscadorToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
