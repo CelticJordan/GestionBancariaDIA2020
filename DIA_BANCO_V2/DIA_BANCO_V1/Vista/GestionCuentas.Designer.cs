@@ -641,6 +641,7 @@ namespace DIA_BANCO_V1
             this.transferenciasToolStripMenuItem.Name = "transferenciasToolStripMenuItem";
             this.transferenciasToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
             this.transferenciasToolStripMenuItem.Text = "Transferencias";
+            this.transferenciasToolStripMenuItem.Click += new System.EventHandler(this.transferenciasToolStripMenuItem_Click);
             // 
             // prestamosToolStripMenuItem
             // 
