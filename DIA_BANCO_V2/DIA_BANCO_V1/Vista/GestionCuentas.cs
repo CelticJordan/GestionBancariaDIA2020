@@ -707,9 +707,7 @@ namespace DIA_BANCO_V1
         {
             GraficoControlView gcv = new GraficoControlView();
             gcv.Cuentas = this.cuentas;
-            MessageBox.Show(this.cuentas.Count.ToString());
             gcv.Transferencias = this.transferencias;
-
             gcv.OnCrearGraficoGeneral();
         }
 
