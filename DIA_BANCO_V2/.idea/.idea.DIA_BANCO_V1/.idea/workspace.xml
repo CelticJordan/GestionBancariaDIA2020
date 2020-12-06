@@ -31,6 +31,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -92,6 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607183014284</updated>
       <workItem from="1607183019549" duration="8619000" />
+      <workItem from="1607246421464" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="graficos integrados">
       <created>1607188348787</created>
@@ -107,13 +111,20 @@
       <option name="project" value="LOCAL" />
       <updated>1607191053220</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Me pone de subir estos ficheros de config, nusepoqué">
+      <created>1607246785508</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607246785508</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -125,12 +136,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="graficos integrados" />
     <MESSAGE value="graficos integrados v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="graficos integrados v2" />
+    <MESSAGE value="Me pone de subir estos ficheros de config, nusepoqué" />
+    <option name="LAST_COMMIT_MESSAGE" value="Me pone de subir estos ficheros de config, nusepoqué" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1237" height="70" key="GridCell.Tab.0.bottom" timestamp="1607194397688">
