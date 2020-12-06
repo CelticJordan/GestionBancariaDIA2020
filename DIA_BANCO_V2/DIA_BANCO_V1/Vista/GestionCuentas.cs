@@ -34,10 +34,10 @@ namespace DIA_BANCO_V1
             this.clientes.Add(cli5);
             
             this.registroBanco = rb;
-            this.cuentas = rb.CargarCuentasXml("cuentas");
+            this.cuentas = new List<Cuenta>();//rb.CargarCuentasXml("cuentas.xml");
             //this.clientes = rb.CargarClientesXml("clientes");
             //this.prestamos = rb.CargarPrestamosXml("prestamos");
-            //this.transferencias = rb.CargarTransferenciasXml("transferencias");
+            this.transferencias = new List<Transferencia>();//rb.CargarTransferenciasXml("transferencias");
             InitializeComponent();
         }
 
@@ -716,6 +716,7 @@ namespace DIA_BANCO_V1
         private void guardarXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.registroBanco.GuardaCuentasXml(this.cuentas,"cuentas.xml");
+            this.registroBanco.GuardaTransferenciasXml(this.transferencias,"transferencias.xml");
         }
     }
 }

@@ -33,10 +33,6 @@ namespace DIA_BANCO_V1
         /// <param name="tipo"></param>
         public void BCrearTransferencia(string tipo)
         {
-
-          TransferenciasXML transferencias = new TransferenciasXML();
-          transferencias = transferencias.RecuperarXml();
-
             bool esta = false;
             bool fecha = false;
             bool ccc = false;
@@ -82,7 +78,7 @@ namespace DIA_BANCO_V1
             
             
             
-            foreach (Transferencia transferencia in transferencias.get())
+            foreach (Transferencia transferencia in transferencias)
             {
                 if (transferencia.Id == t.Id)
                 {
@@ -93,8 +89,6 @@ namespace DIA_BANCO_V1
             if (!esta && fecha && ccc && ccc1)
             {
                 this.transferencias.Add(t);
-                transferencias.Add(t);
-                transferencias.GuardarXml();
                 WForms.MessageBox.Show("Transferencia creada correctamente");
                 this.View.Hide();
                 this.View.Close();
