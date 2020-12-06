@@ -36,6 +36,15 @@ namespace DIA_BANCO_V1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnInsertarTransferencia = new System.Windows.Forms.Button();
+            this.dataGridTransferencias = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoTrans = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCCOrig = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCCDest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BorrarTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textConceptoRetirada = new System.Windows.Forms.TextBox();
@@ -88,15 +97,18 @@ namespace DIA_BANCO_V1
             this.vistaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciasPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciasBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graficoGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridTransferencias)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridCuentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridTitulares)).BeginInit();
@@ -108,6 +120,10 @@ namespace DIA_BANCO_V1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.btnInsertarTransferencia);
+            this.panel1.Controls.Add(this.dataGridTransferencias);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.textConceptoRetirada);
@@ -131,13 +147,88 @@ namespace DIA_BANCO_V1
             this.panel1.Controls.Add(this.dataGridDepositos);
             this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1633, 940);
+            this.panel1.Size = new System.Drawing.Size(1924, 991);
             this.panel1.TabIndex = 0;
+            // 
+            // btnInsertarTransferencia
+            // 
+            this.btnInsertarTransferencia.Location = new System.Drawing.Point(1219, 90);
+            this.btnInsertarTransferencia.Name = "btnInsertarTransferencia";
+            this.btnInsertarTransferencia.Size = new System.Drawing.Size(693, 29);
+            this.btnInsertarTransferencia.TabIndex = 51;
+            this.btnInsertarTransferencia.Text = "Insertar nueva transferencia";
+            this.btnInsertarTransferencia.UseVisualStyleBackColor = true;
+            this.btnInsertarTransferencia.Click += new System.EventHandler(this.btnInsertarTransferencia_Click);
+            // 
+            // dataGridTransferencias
+            // 
+            this.dataGridTransferencias.AllowUserToAddRows = false;
+            this.dataGridTransferencias.AllowUserToDeleteRows = false;
+            this.dataGridTransferencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTransferencias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.ID, this.TipoTrans, this.CCCOrig, this.CCCDest, this.Importe, this.Fecha, this.BorrarTransferencia});
+            this.dataGridTransferencias.Location = new System.Drawing.Point(1219, 125);
+            this.dataGridTransferencias.Name = "dataGridTransferencias";
+            this.dataGridTransferencias.ReadOnly = true;
+            this.dataGridTransferencias.RowTemplate.Height = 28;
+            this.dataGridTransferencias.Size = new System.Drawing.Size(693, 249);
+            this.dataGridTransferencias.TabIndex = 50;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 51;
+            // 
+            // TipoTrans
+            // 
+            this.TipoTrans.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TipoTrans.HeaderText = "TipoTrans";
+            this.TipoTrans.Name = "TipoTrans";
+            this.TipoTrans.ReadOnly = true;
+            this.TipoTrans.Width = 104;
+            // 
+            // CCCOrig
+            // 
+            this.CCCOrig.HeaderText = "CCCOrig";
+            this.CCCOrig.Name = "CCCOrig";
+            this.CCCOrig.ReadOnly = true;
+            // 
+            // CCCDest
+            // 
+            this.CCCDest.HeaderText = "CCCDest";
+            this.CCCDest.Name = "CCCDest";
+            this.CCCDest.ReadOnly = true;
+            // 
+            // Importe
+            // 
+            this.Importe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            this.Importe.Width = 89;
+            // 
+            // Fecha
+            // 
+            this.Fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 79;
+            // 
+            // BorrarTransferencia
+            // 
+            this.BorrarTransferencia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.BorrarTransferencia.HeaderText = "BorrarTransferencia";
+            this.BorrarTransferencia.Name = "BorrarTransferencia";
+            this.BorrarTransferencia.ReadOnly = true;
+            this.BorrarTransferencia.Width = 175;
             // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label10.Location = new System.Drawing.Point(733, 635);
+            this.label10.Location = new System.Drawing.Point(1206, 617);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 26);
             this.label10.TabIndex = 49;
@@ -146,7 +237,7 @@ namespace DIA_BANCO_V1
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label9.Location = new System.Drawing.Point(1025, 635);
+            this.label9.Location = new System.Drawing.Point(1498, 617);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 26);
             this.label9.TabIndex = 48;
@@ -154,14 +245,14 @@ namespace DIA_BANCO_V1
             // 
             // textConceptoRetirada
             // 
-            this.textConceptoRetirada.Location = new System.Drawing.Point(733, 664);
+            this.textConceptoRetirada.Location = new System.Drawing.Point(1206, 646);
             this.textConceptoRetirada.Name = "textConceptoRetirada";
             this.textConceptoRetirada.Size = new System.Drawing.Size(275, 26);
             this.textConceptoRetirada.TabIndex = 47;
             // 
             // textCantidadRetirada
             // 
-            this.textCantidadRetirada.Location = new System.Drawing.Point(1025, 664);
+            this.textCantidadRetirada.Location = new System.Drawing.Point(1498, 646);
             this.textCantidadRetirada.Name = "textCantidadRetirada";
             this.textCantidadRetirada.Size = new System.Drawing.Size(144, 26);
             this.textCantidadRetirada.TabIndex = 46;
@@ -169,7 +260,7 @@ namespace DIA_BANCO_V1
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label8.Location = new System.Drawing.Point(307, 623);
+            this.label8.Location = new System.Drawing.Point(830, 605);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 26);
             this.label8.TabIndex = 45;
@@ -178,7 +269,7 @@ namespace DIA_BANCO_V1
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label7.Location = new System.Drawing.Point(17, 623);
+            this.label7.Location = new System.Drawing.Point(540, 605);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 26);
             this.label7.TabIndex = 44;
@@ -186,14 +277,14 @@ namespace DIA_BANCO_V1
             // 
             // textCantidadDeposito
             // 
-            this.textCantidadDeposito.Location = new System.Drawing.Point(307, 652);
+            this.textCantidadDeposito.Location = new System.Drawing.Point(830, 634);
             this.textCantidadDeposito.Name = "textCantidadDeposito";
             this.textCantidadDeposito.Size = new System.Drawing.Size(133, 26);
             this.textCantidadDeposito.TabIndex = 43;
             // 
             // textConceptoDeposito
             // 
-            this.textConceptoDeposito.Location = new System.Drawing.Point(17, 652);
+            this.textConceptoDeposito.Location = new System.Drawing.Point(540, 634);
             this.textConceptoDeposito.Name = "textConceptoDeposito";
             this.textConceptoDeposito.Size = new System.Drawing.Size(275, 26);
             this.textConceptoDeposito.TabIndex = 42;
@@ -216,7 +307,7 @@ namespace DIA_BANCO_V1
             // 
             // BotonInsertarCuenta
             // 
-            this.BotonInsertarCuenta.Location = new System.Drawing.Point(942, 59);
+            this.BotonInsertarCuenta.Location = new System.Drawing.Point(927, 64);
             this.BotonInsertarCuenta.Name = "BotonInsertarCuenta";
             this.BotonInsertarCuenta.Size = new System.Drawing.Size(170, 69);
             this.BotonInsertarCuenta.TabIndex = 6;
@@ -356,7 +447,7 @@ namespace DIA_BANCO_V1
             // 
             // botonInsertarTitulares
             // 
-            this.botonInsertarTitulares.Location = new System.Drawing.Point(1475, 139);
+            this.botonInsertarTitulares.Location = new System.Drawing.Point(246, 541);
             this.botonInsertarTitulares.Name = "botonInsertarTitulares";
             this.botonInsertarTitulares.Size = new System.Drawing.Size(84, 41);
             this.botonInsertarTitulares.TabIndex = 40;
@@ -367,7 +458,7 @@ namespace DIA_BANCO_V1
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label6.Location = new System.Drawing.Point(1179, 125);
+            this.label6.Location = new System.Drawing.Point(0, 576);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(240, 26);
             this.label6.TabIndex = 39;
@@ -376,7 +467,7 @@ namespace DIA_BANCO_V1
             // Titulareslabel
             // 
             this.Titulareslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.1194F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.Titulareslabel.Location = new System.Drawing.Point(1179, 82);
+            this.Titulareslabel.Location = new System.Drawing.Point(0, 533);
             this.Titulareslabel.Name = "Titulareslabel";
             this.Titulareslabel.Size = new System.Drawing.Size(146, 43);
             this.Titulareslabel.TabIndex = 38;
@@ -389,11 +480,11 @@ namespace DIA_BANCO_V1
             this.dataGridTitulares.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridTitulares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridTitulares.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.DNI, this.Nombre, this.BorrarTitular});
-            this.dataGridTitulares.Location = new System.Drawing.Point(1179, 204);
+            this.dataGridTitulares.Location = new System.Drawing.Point(0, 605);
             this.dataGridTitulares.Name = "dataGridTitulares";
             this.dataGridTitulares.ReadOnly = true;
             this.dataGridTitulares.RowTemplate.Height = 24;
-            this.dataGridTitulares.Size = new System.Drawing.Size(450, 288);
+            this.dataGridTitulares.Size = new System.Drawing.Size(450, 383);
             this.dataGridTitulares.TabIndex = 37;
             this.dataGridTitulares.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTitulares_CellClick);
             // 
@@ -422,7 +513,7 @@ namespace DIA_BANCO_V1
             // 
             // botonInsertarRetirada
             // 
-            this.botonInsertarRetirada.Location = new System.Drawing.Point(733, 696);
+            this.botonInsertarRetirada.Location = new System.Drawing.Point(1206, 678);
             this.botonInsertarRetirada.Name = "botonInsertarRetirada";
             this.botonInsertarRetirada.Size = new System.Drawing.Size(436, 29);
             this.botonInsertarRetirada.TabIndex = 36;
@@ -437,11 +528,11 @@ namespace DIA_BANCO_V1
             this.dataGridRetiradas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridRetiradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRetiradas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.DatetimeRetirada, this.ConceptoRetirada, this.CantidadRetirada, this.BorrarRetirada});
-            this.dataGridRetiradas.Location = new System.Drawing.Point(733, 739);
+            this.dataGridRetiradas.Location = new System.Drawing.Point(1206, 721);
             this.dataGridRetiradas.Name = "dataGridRetiradas";
             this.dataGridRetiradas.ReadOnly = true;
             this.dataGridRetiradas.RowTemplate.Height = 24;
-            this.dataGridRetiradas.Size = new System.Drawing.Size(706, 245);
+            this.dataGridRetiradas.Size = new System.Drawing.Size(706, 270);
             this.dataGridRetiradas.TabIndex = 35;
             this.dataGridRetiradas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRetiradas_CellClick);
             // 
@@ -478,7 +569,7 @@ namespace DIA_BANCO_V1
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label5.Location = new System.Drawing.Point(733, 595);
+            this.label5.Location = new System.Drawing.Point(1206, 577);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(240, 26);
             this.label5.TabIndex = 34;
@@ -487,7 +578,7 @@ namespace DIA_BANCO_V1
             // Retiradaslabel
             // 
             this.Retiradaslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.1194F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.Retiradaslabel.Location = new System.Drawing.Point(733, 556);
+            this.Retiradaslabel.Location = new System.Drawing.Point(1206, 538);
             this.Retiradaslabel.Name = "Retiradaslabel";
             this.Retiradaslabel.Size = new System.Drawing.Size(178, 37);
             this.Retiradaslabel.TabIndex = 33;
@@ -496,7 +587,7 @@ namespace DIA_BANCO_V1
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label4.Location = new System.Drawing.Point(10, 585);
+            this.label4.Location = new System.Drawing.Point(533, 567);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(240, 26);
             this.label4.TabIndex = 32;
@@ -505,7 +596,7 @@ namespace DIA_BANCO_V1
             // Depositoslabel
             // 
             this.Depositoslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.1194F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.Depositoslabel.Location = new System.Drawing.Point(10, 533);
+            this.Depositoslabel.Location = new System.Drawing.Point(533, 515);
             this.Depositoslabel.Name = "Depositoslabel";
             this.Depositoslabel.Size = new System.Drawing.Size(178, 52);
             this.Depositoslabel.TabIndex = 31;
@@ -513,7 +604,7 @@ namespace DIA_BANCO_V1
             // 
             // botonInsertarDeposito
             // 
-            this.botonInsertarDeposito.Location = new System.Drawing.Point(4, 696);
+            this.botonInsertarDeposito.Location = new System.Drawing.Point(527, 678);
             this.botonInsertarDeposito.Name = "botonInsertarDeposito";
             this.botonInsertarDeposito.Size = new System.Drawing.Size(436, 29);
             this.botonInsertarDeposito.TabIndex = 30;
@@ -528,11 +619,11 @@ namespace DIA_BANCO_V1
             this.dataGridDepositos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridDepositos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridDepositos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.Datetime, this.ConceptoDeposito, this.CantidadDeposito, this.BorarDeposito});
-            this.dataGridDepositos.Location = new System.Drawing.Point(0, 742);
+            this.dataGridDepositos.Location = new System.Drawing.Point(523, 724);
             this.dataGridDepositos.Name = "dataGridDepositos";
             this.dataGridDepositos.ReadOnly = true;
             this.dataGridDepositos.RowTemplate.Height = 24;
-            this.dataGridDepositos.Size = new System.Drawing.Size(632, 245);
+            this.dataGridDepositos.Size = new System.Drawing.Size(632, 264);
             this.dataGridDepositos.TabIndex = 8;
             this.dataGridDepositos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDepositos_CellClick);
             // 
@@ -571,7 +662,7 @@ namespace DIA_BANCO_V1
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.vistaToolStripMenuItem, this.buscadorToolStripMenuItem, this.graficoGeneralToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1632, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -593,6 +684,19 @@ namespace DIA_BANCO_V1
             this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
             this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
             this.cuentasToolStripMenuItem.Text = "Cuentas";
+            // 
+            // transferenciasToolStripMenuItem
+            // 
+            this.transferenciasToolStripMenuItem.Name = "transferenciasToolStripMenuItem";
+            this.transferenciasToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+            this.transferenciasToolStripMenuItem.Text = "Transferencias";
+            this.transferenciasToolStripMenuItem.Click += new System.EventHandler(this.transferenciasToolStripMenuItem_Click);
+            // 
+            // prestamosToolStripMenuItem
+            // 
+            this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
+            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+            this.prestamosToolStripMenuItem.Text = "Prestamos";
             // 
             // buscadorToolStripMenuItem
             // 
@@ -636,32 +740,41 @@ namespace DIA_BANCO_V1
             this.graficoGeneralToolStripMenuItem.Text = "Grafico general";
             this.graficoGeneralToolStripMenuItem.Click += new System.EventHandler(this.graficoGeneralToolStripMenuItem_Click);
             // 
-            // transferenciasToolStripMenuItem
+            // label11
             // 
-            this.transferenciasToolStripMenuItem.Name = "transferenciasToolStripMenuItem";
-            this.transferenciasToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
-            this.transferenciasToolStripMenuItem.Text = "Transferencias";
-            this.transferenciasToolStripMenuItem.Click += new System.EventHandler(this.transferenciasToolStripMenuItem_Click);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label11.Location = new System.Drawing.Point(1219, 50);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(240, 26);
+            this.label11.TabIndex = 53;
+            this.label11.Text = "de la cuenta selecionada";
             // 
-            // prestamosToolStripMenuItem
+            // label12
             // 
-            this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
-            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
-            this.prestamosToolStripMenuItem.Text = "Prestamos";
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.1194F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label12.Location = new System.Drawing.Point(1219, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(240, 43);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Transferencias";
             // 
             // GestionCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1632, 987);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1924, 1038);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1000, 800);
             this.Name = "GestionCuentas";
             this.Text = "Gestion Cuentas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.GestionCuentas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridTransferencias)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridCuentas)).EndInit();
@@ -673,6 +786,22 @@ namespace DIA_BANCO_V1
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+
+        private System.Windows.Forms.DataGridView dataGridTransferencias;
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn BorrarTransferencia;
+
+        private System.Windows.Forms.Button btnInsertarTransferencia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCCDest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCCOrig;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoTrans;
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
 
         private System.Windows.Forms.ToolStripMenuItem graficoGeneralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prestamosToolStripMenuItem;

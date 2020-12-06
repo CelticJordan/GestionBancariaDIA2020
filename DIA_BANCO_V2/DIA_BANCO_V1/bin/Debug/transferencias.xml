@@ -6,4 +6,8 @@
   <Transferencia Id="32532" Tipo="Puntual" CCC_origen="123456789123456789124464364" CCC_destino="123456789123456789127636346" Importe="132" Fecha="2020-04-12T00:00:00" />
   <Transferencia Id="1241245" Tipo="Puntual" CCC_origen="1234567891234567891212345678912345678912" CCC_destino="1234567891234567891212345678912345678912" Importe="12" Fecha="2020-12-12T00:00:00" />
   <Transferencia Id="123523536" Tipo="Puntual" CCC_origen="12345678912345678912" CCC_destino="12345678912345678912" Importe="12" Fecha="2020-12-12T00:00:00" />
+  <Transferencia Id="55" Tipo="Puntual" CCC_origen="11111111111111111111" CCC_destino="11111111111111111111" Importe="55" Fecha="2202-12-12T00:00:00" />
+  <Transferencia Id="15" Tipo="Puntual" CCC_origen="11111111111111111111" CCC_destino="54879541241231231232" Importe="87" Fecha="2020-12-12T00:00:00" />
+  <Transferencia Id="6487" Tipo="Puntual" CCC_origen="11111111111111111111" CCC_destino="12312312311231231231" Importe="41" Fecha="2020-12-12T00:00:00" />
+  <Transferencia Id="456" Tipo="Puntual" CCC_origen="11111111111111111111" CCC_destino="45645645645645645645" Importe="10501" Fecha="2010-10-10T00:00:00" />
 </Transferencias>

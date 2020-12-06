@@ -39,29 +39,29 @@ namespace DIA_BANCO_V1
             Cuenta cue3 = new CuentaAhorro("33333333333333333333", cli3);
             cue3.Saldo = 5321;
 
-            cue1.Depositos.Add(new Cuenta.Deposito("nomina diciembre", new DateTime(2017,05,10) ,  1500.23f));
-            cue1.Depositos.Add(new Cuenta.Deposito("nomina enero", new DateTime(2018,05,10),3200.23f));
-            cue2.Depositos.Add(new Cuenta.Deposito("nomina febrero", new DateTime(2019,05,10), 1650.23f));
+            cue1.Depositos.Add(new Cuenta.Deposito("nomina diciembre", new DateTime(2017,05,10) ,  1500.23));
+            cue1.Depositos.Add(new Cuenta.Deposito("nomina enero", new DateTime(2018,05,10),3200.23));
+            cue2.Depositos.Add(new Cuenta.Deposito("nomina febrero", new DateTime(2019,05,10), 1650.23));
 
-            cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 121", DateTime.Now,499.99f));
-            cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 532", DateTime.Now,99.99f));
-            cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 689", DateTime.Now,1499.99f));
+            cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 121", DateTime.Now,499.99));
+            cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 532", DateTime.Now,99.99));
+            cue2.Retiradas.Add(new Cuenta.Retirada("pedido amazon 689", DateTime.Now,1499.9));
 
             cuentas.Add(cue1);
             cuentas.Add(cue2);
             cuentas.Add(cue3);
             
-            Prestamo p1 = new Prestamo( "12", "11111111111111111111", "22222222222222222222", 200d, "22-10-2000");
-            Prestamo p2 = new Prestamo( "13", "22222222222222222222", "33333333333333333333", 202d, "22-10-2000");
-            Prestamo p3 = new Prestamo( "14", "33333333333333333333", "11111111111111111111", 204d, "22-10-2000");
+            Prestamo p1 = new Prestamo( "12", "11111111111111111111", "22222222222222222222", 200, "22-10-2000");
+            Prestamo p2 = new Prestamo( "13", "22222222222222222222", "33333333333333333333", 202, "22-10-2000");
+            Prestamo p3 = new Prestamo( "14", "33333333333333333333", "11111111111111111111", 204, "22-10-2000");
             
             prestamos.Add(p1);
             prestamos.Add(p2);
             prestamos.Add(p3);
 
-            Transferencia t1 = new Transferencia(123, "Puntual", "11111111111111111111", "22222222222222222222", 350d, DateTime.UtcNow);
-            Transferencia t2 = new Transferencia(345, "Periodica", "33333333333333333333", "22222222222222222222", 355d, DateTime.UtcNow);
-            Transferencia t3 = new Transferencia(789, "Puntual", "22222222222222222222", "11111111111111111111", 359d, DateTime.UtcNow);
+            Transferencia t1 = new Transferencia(123, "Puntual", "11111111111111111111", "22222222222222222222", 350, DateTime.UtcNow);
+            Transferencia t2 = new Transferencia(345, "Periodica", "33333333333333333333", "22222222222222222222", 355, DateTime.UtcNow);
+            Transferencia t3 = new Transferencia(789, "Puntual", "22222222222222222222", "11111111111111111111", 359, DateTime.UtcNow);
             transferencias.Add(t1);
             transferencias.Add(t2);
             transferencias.Add(t3);
@@ -71,13 +71,6 @@ namespace DIA_BANCO_V1
             
             GestionCuentas gc = new GestionCuentas(cuentas, clientes, prestamos, transferencias);
             Application.Run(gc);
-            
-            // VistaPrincipal vp = new VistaPrincipal();
-            // vp.Clientes = clientes;
-            // vp.Cuentas = cuentas;
-            // vp.Prestamos = prestamos;
-            // vp.Transferencias = transferencias;
-            // Application.Run(vp);
 
             // var form = new MainWindowController();
             // Application.Run(form.View);

@@ -5,6 +5,13 @@ namespace DIA_BANCO_V1
 {
     public static class Banco
     {
+        
+        /// <summary>
+        /// comprueba que el cliente con el dni pasado existe
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <param name="clientes"></param>
+        /// <returns></returns>
         public static bool existeCliente(string dni, List<Cliente> clientes)
         {
             foreach (Cliente cli in clientes)
@@ -16,7 +23,7 @@ namespace DIA_BANCO_V1
         }
      
         /// <summary>
-        /// Retorna true siel ccc pasado ya existe
+        /// Retorna true si el ccc pasado ya existe
         /// </summary>
         /// <param name="ccc"></param>
         /// <returns></returns>
@@ -30,6 +37,7 @@ namespace DIA_BANCO_V1
             return false;
         }
         
+        //Devuelve la cuenta que coincida con el ccc pasado
         public static Cuenta getCuenta(string ccc, List<Cuenta> cuentas)
         {
             foreach (Cuenta c in cuentas)
@@ -40,7 +48,7 @@ namespace DIA_BANCO_V1
             return null;
         }
         
-        
+        //Devuelve el cliente que coincida con el dni pasado
         public static Cliente getCliente(string dni, List<Cliente> clientes)
         {
             foreach (Cliente c in clientes)
@@ -138,6 +146,19 @@ namespace DIA_BANCO_V1
                 cc = (CuentaCorriente) cuen;
                 cc.AddRetirada(ret);
             }
+        }
+
+        public static List<Transferencia> getTransferenciasCuenta(string ccc, List<Transferencia> todasTransferencias)
+        {
+            List<Transferencia> transferenciasCuenta = new List<Transferencia>();
+            foreach (Transferencia t in todasTransferencias)
+            {
+                if (ccc.Equals(t.CCCOrigen))
+                {
+                    transferenciasCuenta.Add(t);
+                }
+            }
+            return transferenciasCuenta;
         }
     }
 }

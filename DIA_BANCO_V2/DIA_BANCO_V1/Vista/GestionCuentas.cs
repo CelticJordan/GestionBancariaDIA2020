@@ -34,9 +34,9 @@ namespace DIA_BANCO_V1
             if (dataGridCuentas.Rows.Count >= 1)
             {
                 dataGridCuentas.Rows[0].Cells[0].Selected = true;
-                RefrescarGridTitulares(getCuentaSelecionadaGridCuentas().Titulares);
-                RefrescarGridDepositos(getCuentaSelecionadaGridCuentas().Depositos);
-                RefrescarGridRetiradas(getCuentaSelecionadaGridCuentas().Retiradas);
+                RefrescarGridTitulares(getTitularesCuentaSelecionadaGridCuentas());
+                RefrescarGridDepositos(GetDepositosCuentaSelecionadaGridCuentas());
+                RefrescarGridRetiradas(getRetiradasCuentaSelecionadaGridCuentas());
             }
             ComprobarTipoCuentaParaMostrarDepositosORetiradas(getCuentaSelecionadaGridCuentas());
         }
@@ -85,6 +85,7 @@ namespace DIA_BANCO_V1
             RefrescarGridTitulares(getTitularesCuentaSelecionadaGridCuentas());
             RefrescarGridDepositos(GetDepositosCuentaSelecionadaGridCuentas());
             RefrescarGridRetiradas(getRetiradasCuentaSelecionadaGridCuentas());
+            RefrescarGridTransferencias(GetTransferenciasCuentaSelecionadaGridCuentas());
         }
 
         private void RefrescarGridTitulares(List<Cliente> titulares)
@@ -156,6 +157,30 @@ namespace DIA_BANCO_V1
             }
         }
 
+        private void RefrescarGridTransferencias(List<Transferencia> transferencias)
+        {
+            dataGridTransferencias.DataSource = null; //Borrar todos los objetos almacenados en el datagrid transferencias
+            dataGridTransferencias.Rows.Clear();
+
+            if (transferencias != null)
+            {
+                int i = 0;
+                
+                foreach (Transferencia t in transferencias)
+                {
+                    dataGridTransferencias.Rows.Add();
+                    dataGridTransferencias.Rows[i].Cells[0].Value = t.Id;
+                    dataGridTransferencias.Rows[i].Cells[1].Value = t.Tipo;
+                    dataGridTransferencias.Rows[i].Cells[2].Value = t.CCCOrigen;
+                    dataGridTransferencias.Rows[i].Cells[3].Value = t.CCCDestino;
+                    dataGridTransferencias.Rows[i].Cells[4].Value = t.Importe;
+                    dataGridTransferencias.Rows[i].Cells[5].Value = t.Fecha.ToString();
+                    dataGridTransferencias.Rows[i].Cells[6].Value = "Borrar transferencia";
+                    i++;
+                }
+            }
+        }
+        
         public Cuenta getCuentaSelecionadaGridCuentas()
         {
             if (dataGridCuentas.RowCount >= 0 && dataGridCuentas.CurrentRow != null)
@@ -208,6 +233,19 @@ namespace DIA_BANCO_V1
             }
         }
         
+        public List<Transferencia> GetTransferenciasCuentaSelecionadaGridCuentas()
+        {
+            Cuenta c = getCuentaSelecionadaGridCuentas();
+            if (c != null)
+            {
+                return Banco.getTransferenciasCuenta(getCuentaSelecionadaGridCuentas().CCC, this.transferencias);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
         private void ComprobarTipoCuentaParaMostrarDepositosORetiradas(Cuenta cue)
         {
             //Visualizar o no los depositos o las retiradas en función del tipo de cuenta
@@ -243,17 +281,22 @@ namespace DIA_BANCO_V1
             //Añadir retiradas de la cuenta actual selecionada al datagrid retiradas
             RefrescarGridRetiradas(getRetiradasCuentaSelecionadaGridCuentas());
 
+            //Añadir transferencias de la cuenta actual selecionada al datagrid transferencias
+            RefrescarGridTransferencias(GetTransferenciasCuentaSelecionadaGridCuentas());
+
             //Si se clica en la columna 6, entonces se borra ese registro!
             if (dataGridCuentas.CurrentCell.ColumnIndex == 6)
             {
                 BorrarCuentaSeleccionadaDelGrid();
             }
             
+            //Si se clica en la columna 7, entonces se muestra el grafico de esa cuenta
             if (dataGridCuentas.CurrentCell.ColumnIndex == 7)
             {
                 mostrarGraficoCuenta();
             }
             
+            //Se pone visible o no los dataGrid depositos y retiradas, dependiendo del tipo de cuenta
             ComprobarTipoCuentaParaMostrarDepositosORetiradas(getCuentaSelecionadaGridCuentas());
         }
 
@@ -544,6 +587,60 @@ namespace DIA_BANCO_V1
             }
         }
         
+        /***************************************************************************/
+        /* GESTION DE Transferencias ***********************************************/
+        /***************************************************************************/
+        private void dataGridTransferencias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Si se clica en la columna 3, entonces se borra esa retirada
+            if (dataGridTransferencias.CurrentCell.ColumnIndex == 6)
+            {
+                int currentRowRetirada = dataGridTransferencias.CurrentRow.Index;
+                Cuenta cuentaSelecionada = getCuentaSelecionadaGridCuentas();
+                Cuenta.Retirada retSelecionado = getCuentaSelecionadaGridCuentas().Retiradas[currentRowRetirada];
+
+                //Preguntar y borrar
+                DialogResult dr = MessageBox.Show("¿De verdad quieres borrar esta retirada " + retSelecionado.Concepto
+                    + " - " + retSelecionado.Cantidad + "€ ?", "¿Borrar?",
+                    MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    if (Banco.borrarRetiradaCuenta(cuentaSelecionada, retSelecionado))
+                    {
+                        MessageBox.Show("Retirada borrada con éxito");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Algo malo ha pasado, no se ha borrado la transferencia");
+                    }
+                    RefrescarGridTransferencias(GetTransferenciasCuentaSelecionadaGridCuentas());
+                    RefrescarGridCuentas(this.cuentas);
+                }
+                else
+                {
+                    MessageBox.Show("Borrado cancelado");
+                }
+            }
+        }
+        
+        private void btnInsertarTransferencia_Click(object sender, EventArgs e)
+        {
+            if (dataGridCuentas.CurrentRow == null)
+            {
+                MessageBox.Show("No hay ninguna cuenta selecionada");
+                return;
+            }
+            CrearTransferenciaController ctc = new CrearTransferenciaController(this.transferencias);
+            ctc.View.ecccorigen.Text = getCuentaSelecionadaGridCuentas().CCC;
+            ctc.View.ecccorigen.Enabled = false;
+            ctc.View.ShowDialog();
+            RefrescarGridTransferencias(GetTransferenciasCuentaSelecionadaGridCuentas());
+        }
+        
+        /**********************************************************************************************************/
+        /****** MENU **********************************************************************************************/
+        /**********************************************************************************************************/
+
         private void productosPersonaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -572,7 +669,7 @@ namespace DIA_BANCO_V1
         private void transferenciasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            MainWindowController trans = new MainWindowController();
+            MainWindowController trans = new MainWindowController(this.transferencias);
             trans.View.ShowDialog();
             this.Visible = true;
         }

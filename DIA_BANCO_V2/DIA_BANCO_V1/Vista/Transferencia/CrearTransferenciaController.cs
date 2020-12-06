@@ -1,6 +1,6 @@
 
 using System;
-
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -10,8 +10,11 @@ namespace DIA_BANCO_V1
     
     public class CrearTransferenciaController
     {
-        public CrearTransferenciaController()
+        public List<Transferencia> transferencias;
+        
+        public CrearTransferenciaController(List<Transferencia> trans)
         {
+            this.transferencias = trans; 
             this.View = new CrearTransferencia();
 
             string tipo = this.View.etp.Text;
@@ -89,6 +92,7 @@ namespace DIA_BANCO_V1
 
             if (!esta && fecha && ccc && ccc1)
             {
+                this.transferencias.Add(t);
                 transferencias.Add(t);
                 transferencias.GuardarXml();
                 WForms.MessageBox.Show("Transferencia creada correctamente");
