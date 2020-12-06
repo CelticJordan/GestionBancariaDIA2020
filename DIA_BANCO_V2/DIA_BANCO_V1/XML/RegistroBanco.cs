@@ -372,7 +372,7 @@ namespace DIA_BANCO_V1
                     String tipo = (string) cu.Attribute(EtiquetaTipo);
                     double saldo = (double) cu.Attribute(EtiquetaSaldo);
                     DateTime fechaApertura = (DateTime) cu.Attribute(EtiquetaFechaApertura);
-                    double interes = (double) cu.Attribute(EtiquetaInteresMensual);
+                    double interes = Convert.ToDouble((string)cu.Attribute(EtiquetaInteresMensual));
 
                     
                     //ahora leemos las listas de objetos dentro de cada cuenta
