@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using Clientes.Core;
 using DIA_BANCO_V1;
 
 namespace DIA_BANCO_V1
@@ -28,15 +29,15 @@ namespace DIA_BANCO_V1
             //cogemos los depositos
             var depositos_cuentas = from cuenta in cuentas select cuenta.Depositos;
             //juntamos todos los objetos deposito, que en cuenta son IEnumerables
-            var depositos = depositos_cuentas.First();
+            List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
             foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
             {
-                if (d.Equals(depositos))
+               foreach(Cuenta.Deposito p in d)
                 {
-                    //nos se hace nada
+                    depositos.Add(p);
                 }
-                depositos.Union(d);
             }
+          
             //vamos juntar los depositos que tiene la misma fecha
             var dep = from deposito in depositos select (deposito.DateTime, deposito.Cantidad);
             var fechas_transferencias = from transferencia in transferencias select (transferencia.Fecha, transferencia.Importe);
@@ -103,11 +104,6 @@ namespace DIA_BANCO_V1
             int primer_año = total.Min().Year;
             HashSet<String> lista_final_años = new HashSet<String>();//creamos un hashset para no introducir años repetidos
             lista_final_años.Add(primer_año.ToString());
-            for (int i=primer_año; i<=ultimo_año;i++)
-            {
-                String elem = " ";
-                lista_final_años.Add(elem);
-            }
             lista_final_años.Add(ultimo_año.ToString());
             
             return lista_final_años.ToArray();//array de años
@@ -124,14 +120,13 @@ namespace DIA_BANCO_V1
             //cogemos los depositos
             var depositos_cuentas = from cuenta in cuentas select cuenta.Depositos;
             //juntamos todos los objetos deposito, que en cuenta son IEnumerables
-            var depositos = depositos_cuentas.First();
+            List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
             foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
             {
-                if (d.Equals(depositos))
+                foreach (Cuenta.Deposito p in d)
                 {
-                    //nos se hace nada
+                    depositos.Add(p);
                 }
-                depositos.Union(d);
             }
             var dep = from deposito in depositos where deposito.DateTime.Year == año select (deposito.DateTime, deposito.Cantidad);
             var fechas_trasnferencias = from transferencia in transferencias where transferencia.Fecha.Year == año select (transferencia.Fecha, transferencia.Importe);
@@ -184,14 +179,13 @@ namespace DIA_BANCO_V1
             //extraemos los depositos de las cuentas
             var depositos_cuentas = from cuenta in cuentas_cliente select cuenta.Depositos;
 
-            var depositos = depositos_cuentas.First();
+            List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
             foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
             {
-                if (d.Equals(depositos))
+                foreach (Cuenta.Deposito p in d)
                 {
-                    //nos se hace nada
+                    depositos.Add(p);
                 }
-                depositos.Union(d);
             }
             //transferencias que tienen como un titular  de la cuenta de destino el cliente que le pasamos 
             var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
@@ -245,14 +239,13 @@ namespace DIA_BANCO_V1
             var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //extraemos los depositos de las cuentas
             var depositos_cuentas = from cuenta in cuentas_cliente select cuenta.Depositos;
-            var depositos = depositos_cuentas.First();
+            List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
             foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
             {
-                if (d.Equals(depositos))
+                foreach (Cuenta.Deposito p in d)
                 {
-                    //nos se hace nada
+                    depositos.Add(p);
                 }
-                depositos.Union(d);
             }
             //transferencias que tienen como un titular  de la cuenta de destino el cliente que le pasamos 
             var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha);
@@ -287,14 +280,13 @@ namespace DIA_BANCO_V1
             var depositos_cuentas = from cuenta in cuentas where (cuenta.Titulares.Contains(c)) select cuenta.Depositos;
             var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
             //juntamos todos los objetos deposito, que en cuenta son IEnumerables
-            var depositos = depositos_cuentas.First();
+            List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
             foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
             {
-                if (d.Equals(depositos))
+                foreach (Cuenta.Deposito p in d)
                 {
-                    //nos se hace nada
+                    depositos.Add(p);
                 }
-                depositos.Union(d);
             }
             var dep = from deposito in depositos where deposito.DateTime.Year == año select (deposito.DateTime, deposito.Cantidad);
             var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
