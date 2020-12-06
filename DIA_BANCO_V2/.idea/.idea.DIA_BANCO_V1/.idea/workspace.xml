@@ -23,14 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8399d71-f2b3-4dda-bad9-4c8ab672a0bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/Vista/GestionCuentas.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/Vista/GestionCuentas.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/Vista/GestionCuentas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/Vista/GestionCuentas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DIA_BANCO_V1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DIA_BANCO_V1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/Vista/Transferencia/CrearTransferenciaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/Vista/Transferencia/CrearTransferenciaController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/bin/Debug/DIA_BANCO_V1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/bin/Debug/DIA_BANCO_V1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/bin/Debug/DIA_BANCO_V1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/bin/Debug/DIA_BANCO_V1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csproj.GenerateResource.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DIA_BANCO_V1/obj/Debug/DIA_BANCO_V1.pdb" afterDir="false" />
     </list>
@@ -42,12 +38,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../Practica 1/Program.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/DIA_BANCO_V1/Vista/GestionCuentas.Designer.cs" />
         <option value="$PROJECT_DIR$/DIA_BANCO_V1/Vista/GestionCuentas.cs" />
         <option value="$PROJECT_DIR$/DIA_BANCO_V1/Vista/Transferencia/GestionTransferencias.cs" />
+        <option value="$PROJECT_DIR$/DIA_BANCO_V1/Vista/Transferencia/CrearTransferenciaController.cs" />
       </list>
     </option>
   </component>
@@ -64,6 +64,7 @@
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -95,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607191726805</updated>
       <workItem from="1607191731411" duration="58000" />
-      <workItem from="1607210074645" duration="1802000" />
+      <workItem from="1607210074645" duration="4421000" />
     </task>
     <servers />
   </component>
@@ -120,22 +121,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1607211323275">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1607214524621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607211323275" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1607211323275">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607214524621" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1607214524621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607211323275" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1607211323275">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607214524621" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1607214524621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607211323275" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1607211323275">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607214524621" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1607214524621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607211323275" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607214524621" />
     <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1607210729038">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
