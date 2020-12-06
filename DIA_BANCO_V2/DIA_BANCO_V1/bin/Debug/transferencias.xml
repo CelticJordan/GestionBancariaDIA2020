@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Transferencias>
+  <Transferencia Id="45" Tipo="Periodica" CCC_origen="45" CCC_destino="45" Importe="45" Fecha="2000-12-12T00:00:00" />
+</Transferencias>
