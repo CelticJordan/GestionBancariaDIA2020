@@ -1,4 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Transferencias>
-  <Transferencia Id="45" Tipo="Periodica" CCC_origen="45" CCC_destino="45" Importe="45" Fecha="2000-12-12T00:00:00" />
+  <Transferencia Id="12" Tipo="Puntual" CCC_origen="12345678912345678912" CCC_destino="12345678912345678912" Importe="12" Fecha="2002-12-12T00:00:00" />
+  <Transferencia Id="4124" Tipo="Puntual" CCC_origen="12345678912345678912" CCC_destino="12345678912345678912" Importe="123" Fecha="2020-12-12T00:00:00" />
+  <Transferencia Id="412" Tipo="Puntual" CCC_origen="123456789123456789121" CCC_destino="123456789123456789124" Importe="12" Fecha="2020-12-12T00:00:00" />
+  <Transferencia Id="32532" Tipo="Puntual" CCC_origen="123456789123456789124464364" CCC_destino="123456789123456789127636346" Importe="132" Fecha="2020-04-12T00:00:00" />
+  <Transferencia Id="1241245" Tipo="Puntual" CCC_origen="1234567891234567891212345678912345678912" CCC_destino="1234567891234567891212345678912345678912" Importe="12" Fecha="2020-12-12T00:00:00" />
+  <Transferencia Id="123523536" Tipo="Puntual" CCC_origen="12345678912345678912" CCC_destino="12345678912345678912" Importe="12" Fecha="2020-12-12T00:00:00" />
 </Transferencias>

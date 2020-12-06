@@ -1,6 +1,9 @@
 
 using System;
 
+using System.Text;
+using System.Text.RegularExpressions;
+
 namespace DIA_BANCO_V1
 {
     using WForms = System.Windows.Forms;
@@ -33,6 +36,8 @@ namespace DIA_BANCO_V1
 
             bool esta = false;
             bool fecha = false;
+            bool ccc = false;
+            bool ccc1 = false;
             
             int id;
             int.TryParse(this.View.eid.Text, out id);
@@ -48,6 +53,25 @@ namespace DIA_BANCO_V1
             {
                 fecha = false;
             }
+
+            if (Regex.IsMatch(this.View.ecccorigen.Text, "^[0-9]{20}$"))
+            {
+                ccc = true;
+            }
+            else
+            {
+                ccc = false;
+            }
+            
+            if (Regex.IsMatch(this.View.ecccdest.Text, "^[0-9]{20}$"))
+            {
+                ccc1 = true;
+            }
+            else
+            {
+                ccc1 = false;
+            }
+            
             
 
             Transferencia t = new Transferencia( id, tipo, this.View.ecccorigen.Text,
@@ -63,7 +87,7 @@ namespace DIA_BANCO_V1
                 }
             }
 
-            if (!esta && fecha)
+            if (!esta && fecha && ccc && ccc1)
             {
                 transferencias.Add(t);
                 transferencias.GuardarXml();
@@ -71,15 +95,30 @@ namespace DIA_BANCO_V1
                 this.View.Hide();
                 this.View.Close();
             }
-            else if (!fecha)
+            else 
             {
-                WForms.MessageBox.Show("Error: Fecha erronea");
-            }
-            else
-            {
-                WForms.MessageBox.Show("Error: Ya existe esta transferencia");
+                if (!fecha)
+                {
+                    WForms.MessageBox.Show("Error: Fecha erronea");
+                }
+                if(!ccc)
+                {
+                    WForms.MessageBox.Show("Error: CCC Origen incorrecto");
+                }
+                
+                if(!ccc1)
+                {
+                    WForms.MessageBox.Show("Error: CCC Destino incorrecto");
+                }
+                
+                if(esta)
+                {
+                    WForms.MessageBox.Show("Error: Ya existe esta transferencia");
+                }
+
             }
             
+
         }
 
         
