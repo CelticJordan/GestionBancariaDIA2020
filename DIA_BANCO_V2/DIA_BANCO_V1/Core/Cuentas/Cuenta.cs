@@ -86,8 +86,10 @@ namespace DIA_BANCO_V1
             this.Saldo = saldo;
             this.Titulares = titulares;
             this.FechaApertura = fechaApertura;
-            this.Depositos = depositos;
-            this.Retiradas = retiradas;
+            if (depositos != null) this.Depositos = depositos;
+            else this.Depositos = new List<Deposito>();
+            if (retiradas != null) this.Retiradas = retiradas;
+            else this.Retiradas = new List<Retirada>();
         }
     }
 }

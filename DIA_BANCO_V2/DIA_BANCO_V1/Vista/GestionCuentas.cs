@@ -21,23 +21,11 @@ namespace DIA_BANCO_V1
 
         public GestionCuentas(RegistroBanco rb)
         {
-            Cliente cli1 = new Cliente("76735813Q","Rubén Solveira", "987987987","email","direcion");
-            Cliente cli2 = new Cliente("55555555P","Xoel Molinos", "654654654","email","direcion");
-            Cliente cli3 = new Cliente("11111111M","Ana lopez", "321321321","email","direcion");
-            Cliente cli4 = new Cliente("77777777V","Vegeta", "987987987","email","direcion");
-            Cliente cli5 = new Cliente("81759827P","Ruben titular 2", "654654654","email","direcion");
-            this.clientes = new List<Cliente>();
-            this.clientes.Add(cli1);
-            this.clientes.Add(cli2);
-            this.clientes.Add(cli3);
-            this.clientes.Add(cli4);
-            this.clientes.Add(cli5);
-            
             this.registroBanco = rb;
-            this.cuentas = new List<Cuenta>();//rb.CargarCuentasXml("cuentas.xml");
-            //this.clientes = rb.CargarClientesXml("clientes");
-            //this.prestamos = rb.CargarPrestamosXml("prestamos");
-            this.transferencias = new List<Transferencia>();//rb.CargarTransferenciasXml("transferencias");
+            this.cuentas = rb.CargarCuentasXml("cuentas.xml");
+            this.clientes = rb.CargarClientesXml("clientes.xml");
+            this.prestamos = rb.CargarPrestamosXml("prestamos.xml");
+            this.transferencias = rb.CargarTransferenciasXml("transferencias.xml");
             InitializeComponent();
         }
 
@@ -713,8 +701,9 @@ namespace DIA_BANCO_V1
 
         private void guardarXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.registroBanco.GuardaCuentasXml(this.cuentas,"cuentas.xml");
-            this.registroBanco.GuardaTransferenciasXml(this.transferencias,"transferencias.xml");
+            this.registroBanco.GuardaCuentasXml(this.cuentas, "cuentas.xml");
+            this.registroBanco.GuardaClientesXml(this.clientes, "clientes.xml");
+            this.registroBanco.GuardaTransferenciasXml(this.transferencias, "transferencias.xml");
         }
     }
 }

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BancoCuentas>
+  <cuenta ccc="11111111111111111111" tipo="Vivienda" saldo="282" fechaApertura="12/06/2020 19:09:13" interesMensual="0,3">
+    <titulares>
+      <titular>76735813Q</titular>
+      <titular>77777777V</titular>
+      <titular>81759827P</titular>
+    </titulares>
+    <depositos>
+      <deposito concepto="asdf" cantidad="123" dateTime="06/12/2020 20:38:29" />
+    </depositos>
+    <retiradas />
+  </cuenta>
+  <cuenta ccc="22222222222222222222" tipo="Vivienda" saldo="2548" fechaApertura="06/12/2020 19:20:05" interesMensual="0,3">
+    <titulares>
+      <titular>11111111M</titular>
+    </titulares>
+    <depositos />
+    <retiradas />
+  </cuenta>
+</BancoCuentas>
