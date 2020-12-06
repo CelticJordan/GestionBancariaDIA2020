@@ -1,4 +1,5 @@
-﻿using Clientes.Core;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DIA_BANCO_V1
 {
@@ -8,7 +9,15 @@ namespace DIA_BANCO_V1
             base(ccc, cliente)
         {
             base.Tipo = "Vivienda";
-            base.InteresMensual = 0.3d;
+            base.InteresMensual = 0.3;
+        }
+        
+        //Constructor para xml
+        public CuentaVivienda(string ccc, string tipo, double saldo,  DateTime fechaApertura, List<Cliente> titulares, List<Deposito> depositos, List<Retirada> retiradas) :
+            base(ccc, tipo, saldo, fechaApertura, titulares, depositos, retiradas)
+        {
+            base.Tipo = "Vivienda";
+            base.InteresMensual = 0.3;
         }
         
         public void AddDeposito(Deposito deposito)

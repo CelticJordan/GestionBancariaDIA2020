@@ -1,4 +1,6 @@
-﻿using Clientes.Core;
+﻿
+using System;
+using System.Collections.Generic;
 
 namespace DIA_BANCO_V1
 {
@@ -6,6 +8,14 @@ namespace DIA_BANCO_V1
     {
         public CuentaAhorro(string ccc, Cliente cliente) : 
             base(ccc, cliente)
+        {
+            base.Tipo = "Ahorro";
+            base.InteresMensual = 0.1d;
+        }
+        
+        //Constructor para xml
+        public CuentaAhorro(string ccc, string tipo, double saldo,  DateTime fechaApertura, List<Cliente> titulares, List<Deposito> depositos, List<Retirada> retiradas) :
+            base(ccc, tipo, saldo, fechaApertura, titulares, depositos, retiradas)
         {
             base.Tipo = "Ahorro";
             base.InteresMensual = 0.1d;

@@ -36,6 +36,8 @@ namespace DIA_BANCO_V1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnInsertarTransferencia = new System.Windows.Forms.Button();
             this.dataGridTransferencias = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,8 +107,9 @@ namespace DIA_BANCO_V1
             this.transferenciasPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciasBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graficoGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarXMLYSalirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridTransferencias)).BeginInit();
             this.panel2.SuspendLayout();
@@ -149,6 +152,24 @@ namespace DIA_BANCO_V1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1924, 991);
             this.panel1.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label11.Location = new System.Drawing.Point(1219, 50);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(240, 26);
+            this.label11.TabIndex = 53;
+            this.label11.Text = "de la cuenta selecionada";
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.1194F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label12.Location = new System.Drawing.Point(1219, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(240, 43);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Transferencias";
             // 
             // btnInsertarTransferencia
             // 
@@ -659,7 +680,7 @@ namespace DIA_BANCO_V1
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.vistaToolStripMenuItem, this.buscadorToolStripMenuItem, this.graficoGeneralToolStripMenuItem});
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.vistaToolStripMenuItem, this.buscadorToolStripMenuItem, this.graficoGeneralToolStripMenuItem, this.guardarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1924, 33);
@@ -740,23 +761,25 @@ namespace DIA_BANCO_V1
             this.graficoGeneralToolStripMenuItem.Text = "Grafico general";
             this.graficoGeneralToolStripMenuItem.Click += new System.EventHandler(this.graficoGeneralToolStripMenuItem_Click);
             // 
-            // label11
+            // guardarToolStripMenuItem
             // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label11.Location = new System.Drawing.Point(1219, 50);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(240, 26);
-            this.label11.TabIndex = 53;
-            this.label11.Text = "de la cuenta selecionada";
+            this.guardarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.guardarXMLToolStripMenuItem, this.guardarXMLYSalirToolStripMenuItem});
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(87, 29);
+            this.guardarToolStripMenuItem.Text = "Guardar";
             // 
-            // label12
+            // guardarXMLToolStripMenuItem
             // 
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.1194F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label12.Location = new System.Drawing.Point(1219, 7);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(240, 43);
-            this.label12.TabIndex = 52;
-            this.label12.Text = "Transferencias";
+            this.guardarXMLToolStripMenuItem.Name = "guardarXMLToolStripMenuItem";
+            this.guardarXMLToolStripMenuItem.Size = new System.Drawing.Size(237, 30);
+            this.guardarXMLToolStripMenuItem.Text = "Guardar XML";
+            this.guardarXMLToolStripMenuItem.Click += new System.EventHandler(this.guardarXMLToolStripMenuItem_Click);
+            // 
+            // guardarXMLYSalirToolStripMenuItem
+            // 
+            this.guardarXMLYSalirToolStripMenuItem.Name = "guardarXMLYSalirToolStripMenuItem";
+            this.guardarXMLYSalirToolStripMenuItem.Size = new System.Drawing.Size(237, 30);
+            this.guardarXMLYSalirToolStripMenuItem.Text = "Guardar XML y salir";
             // 
             // GestionCuentas
             // 
@@ -786,6 +809,10 @@ namespace DIA_BANCO_V1
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guardarXMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guardarXMLYSalirToolStripMenuItem;
 
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;

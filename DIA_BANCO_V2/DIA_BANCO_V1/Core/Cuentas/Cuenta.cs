@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Clientes.Core;
 using System.Text;
 
 namespace DIA_BANCO_V1
@@ -77,6 +76,18 @@ namespace DIA_BANCO_V1
             toret.AppendLine("\r\tFecha Apertural: " + this.FechaApertura);
             toret.AppendLine("\r\tInteres: " + this.InteresMensual);
             return toret.ToString();
+        }
+        
+        //constructor para usar al importar con XML
+        protected Cuenta(string ccc, string tipo, double saldo, DateTime fechaApertura, List<Cliente> titulares, List<Deposito> depositos, List<Retirada> retiradas)
+        {
+            this.CCC = ccc;
+            this.Tipo = tipo;
+            this.Saldo = saldo;
+            this.Titulares = titulares;
+            this.FechaApertura = fechaApertura;
+            this.Depositos = depositos;
+            this.Retiradas = retiradas;
         }
     }
 }

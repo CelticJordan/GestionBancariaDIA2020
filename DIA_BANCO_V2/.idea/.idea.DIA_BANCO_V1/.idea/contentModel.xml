@@ -15,7 +15,10 @@
             <e p="DlgTransferenciasBanco.cs" t="Include" />
             <e p="DlgTransferenciasPersona.cs" t="Include" />
           </e>
-          <e p="Cliente.cs" t="Include" />
+          <e p="Clientes" t="Include">
+            <e p="Cliente.cs" t="Include" />
+            <e p="registroClientes.cs" t="Include" />
+          </e>
           <e p="Cuentas" t="Include">
             <e p="Cuenta.cs" t="Include" />
             <e p="CuentaAhorro.cs" t="Include" />
@@ -29,7 +32,6 @@
             <e p="Prestamo.cs" t="Include" />
             <e p="RegistroPrestamos.cs" t="Include" />
           </e>
-          <e p="registroClientes.cs" t="Include" />
           <e p="Transferencia" t="Include">
             <e p="RegistroTransferencias.cs" t="Include" />
             <e p="Transferencia.cs" t="Include" />
@@ -97,6 +99,9 @@
             <e p="ModificarTransferencia.cs" t="Include" />
             <e p="ModificarTransferenciaController.cs" t="Include" />
           </e>
+        </e>
+        <e p="XML" t="Include">
+          <e p="RegistroBanco.cs" t="Include" />
         </e>
       </e>
       <e p="DIA_BANCO_V1.sln" t="IncludeFlat" />

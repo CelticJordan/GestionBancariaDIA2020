@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Clientes.Core;
 using DIA_BANCO_V1;
 
 namespace DIA_BANCO_V1
@@ -18,13 +17,27 @@ namespace DIA_BANCO_V1
         public List<Cliente> clientes;
         public List<Prestamo> prestamos;
         public List<Transferencia> transferencias;
+        public RegistroBanco registroBanco;
 
-        public GestionCuentas(List<Cuenta> cuentas, List<Cliente> clientes, List<Prestamo> prestamos, List<Transferencia> transferencias)
+        public GestionCuentas(RegistroBanco rb)
         {
-            this.cuentas = cuentas;
-            this.clientes = clientes;
-            this.prestamos = prestamos;
-            this.transferencias = transferencias;
+            Cliente cli1 = new Cliente("76735813Q","Rubén Solveira", "987987987","email","direcion");
+            Cliente cli2 = new Cliente("55555555P","Xoel Molinos", "654654654","email","direcion");
+            Cliente cli3 = new Cliente("11111111M","Ana lopez", "321321321","email","direcion");
+            Cliente cli4 = new Cliente("77777777V","Vegeta", "987987987","email","direcion");
+            Cliente cli5 = new Cliente("81759827P","Ruben titular 2", "654654654","email","direcion");
+            this.clientes = new List<Cliente>();
+            this.clientes.Add(cli1);
+            this.clientes.Add(cli2);
+            this.clientes.Add(cli3);
+            this.clientes.Add(cli4);
+            this.clientes.Add(cli5);
+            
+            this.registroBanco = rb;
+            this.cuentas = rb.CargarCuentasXml("cuentas");
+            //this.clientes = rb.CargarClientesXml("clientes");
+            //this.prestamos = rb.CargarPrestamosXml("prestamos");
+            //this.transferencias = rb.CargarTransferenciasXml("transferencias");
             InitializeComponent();
         }
 
@@ -698,6 +711,11 @@ namespace DIA_BANCO_V1
             gcv.Transferencias = this.transferencias;
 
             gcv.OnCrearGraficoGeneral();
+        }
+
+        private void guardarXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.registroBanco.GuardaCuentasXml(this.cuentas,"cuentas.xml");
         }
     }
 }

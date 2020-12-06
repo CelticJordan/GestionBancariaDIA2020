@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Clientes.Core;
 using Gráficos.UI;
 
 namespace DIA_BANCO_V1

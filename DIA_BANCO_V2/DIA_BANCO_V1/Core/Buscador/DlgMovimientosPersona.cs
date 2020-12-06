@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
-using Clientes.Core;
 
 namespace DIA_BANCO_V1
 {

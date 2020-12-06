@@ -1,5 +1,6 @@
-﻿using System.Security.Permissions;
-using Clientes.Core;
+﻿using System;
+using System.Collections.Generic;
+
 namespace DIA_BANCO_V1
 {
     public class CuentaCorriente : Cuenta
@@ -8,7 +9,15 @@ namespace DIA_BANCO_V1
             base(ccc, cliente)
         {
             base.Tipo = "Corriente";
-            base.InteresMensual = 0.0d;
+            base.InteresMensual = 0.0;
+        }
+        
+        //Constructor para xml
+        public CuentaCorriente(string ccc, string tipo, double saldo,  DateTime fechaApertura, List<Cliente> titulares, List<Deposito> depositos, List<Retirada> retiradas) :
+            base(ccc, tipo, saldo, fechaApertura, titulares, depositos, retiradas)
+        {
+            base.Tipo = "Corriente";
+            base.InteresMensual = 0.0;
         }
 
         public void AddDeposito(Deposito deposito)

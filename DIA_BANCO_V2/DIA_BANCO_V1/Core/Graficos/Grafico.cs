@@ -7,7 +7,6 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-using Clientes.Core;
 using DIA_BANCO_V1;
 
 namespace DIA_BANCO_V1

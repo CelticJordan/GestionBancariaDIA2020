@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Clientes.Core;
 
 namespace DIA_BANCO_V1
 {
@@ -14,9 +13,12 @@ namespace DIA_BANCO_V1
         /// <returns></returns>
         public static bool existeCliente(string dni, List<Cliente> clientes)
         {
-            foreach (Cliente cli in clientes)
+            if (clientes != null)
             {
-                if (dni.Equals(cli.Dni)) return true;
+                foreach (Cliente cli in clientes)
+                {
+                    if (dni.Equals(cli.Dni)) return true;
+                }
             }
 
             return false;
@@ -29,9 +31,12 @@ namespace DIA_BANCO_V1
         /// <returns></returns>
         public static bool existeCCC(string ccc, List<Cuenta> cuentas)
         {
-            foreach (Cuenta c in cuentas)
+            if (cuentas != null)
             {
-                if (c.CCC.Equals(ccc)) return true;
+                foreach (Cuenta c in cuentas)
+                {
+                    if (c.CCC.Equals(ccc)) return true;
+                }
             }
 
             return false;
@@ -40,9 +45,12 @@ namespace DIA_BANCO_V1
         //Devuelve la cuenta que coincida con el ccc pasado
         public static Cuenta getCuenta(string ccc, List<Cuenta> cuentas)
         {
-            foreach (Cuenta c in cuentas)
+            if (cuentas != null)
             {
-                if (c.CCC.Equals(ccc)) return c;
+                foreach (Cuenta c in cuentas)
+                {
+                    if (c.CCC.Equals(ccc)) return c;
+                }
             }
 
             return null;
@@ -150,15 +158,24 @@ namespace DIA_BANCO_V1
 
         public static List<Transferencia> getTransferenciasCuenta(string ccc, List<Transferencia> todasTransferencias)
         {
-            List<Transferencia> transferenciasCuenta = new List<Transferencia>();
-            foreach (Transferencia t in todasTransferencias)
+            if (todasTransferencias != null)
             {
-                if (ccc.Equals(t.CCCOrigen))
+                List<Transferencia> transferenciasCuenta = new List<Transferencia>();
+                foreach (Transferencia t in todasTransferencias)
                 {
-                    transferenciasCuenta.Add(t);
+                    if (ccc.Equals(t.CCCOrigen))
+                    {
+                        transferenciasCuenta.Add(t);
+                    }
                 }
+                return transferenciasCuenta;
             }
-            return transferenciasCuenta;
+            else
+            {
+                return null;
+            }
+
+            
         }
     }
 }

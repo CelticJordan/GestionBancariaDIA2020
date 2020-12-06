@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Clientes.Core;
 
 namespace DIA_BANCO_V1
 {
@@ -68,9 +67,9 @@ namespace DIA_BANCO_V1
 
             // RegistroBanco rb = new RegistroBanco();
             // rb.clientes;
-            
-            GestionCuentas gc = new GestionCuentas(cuentas, clientes, prestamos, transferencias);
-            Application.Run(gc);
+            RegistroBanco regbanco = new RegistroBanco();
+            GestionCuentas gestion = new GestionCuentas(regbanco);
+            Application.Run(gestion);
 
             // var form = new MainWindowController();
             // Application.Run(form.View);

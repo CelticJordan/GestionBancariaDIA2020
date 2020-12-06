@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
-using Clientes.Core;
 
 namespace DIA_BANCO_V1
 {
