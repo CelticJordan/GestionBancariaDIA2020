@@ -177,7 +177,7 @@ namespace DIA_BANCO_V1
                     dataGridTransferencias.Rows[i].Cells[3].Value = t.CCCDestino;
                     dataGridTransferencias.Rows[i].Cells[4].Value = t.Importe;
                     dataGridTransferencias.Rows[i].Cells[5].Value = t.Fecha.ToString();
-                    dataGridTransferencias.Rows[i].Cells[6].Value = "Borrar tran.";
+                    dataGridTransferencias.Rows[i].Cells[6].Value = "Borrar transferencia";
                     i++;
                 }
             }
@@ -643,7 +643,7 @@ namespace DIA_BANCO_V1
 
                 //Preguntar y borrar
                 DialogResult dr = MessageBox.Show("¿De verdad quieres borrar esta retirada ID:" + trans.Id.ToString()
-                    + " - " + trans.Importe + "€ ?", "¿Borrar?",
+                    + " - " + trans.Importe + "€ " +"con fecha "+ trans.Fecha + " ?", "¿Borrar?",
                     MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
