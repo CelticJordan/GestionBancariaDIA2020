@@ -1,11 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace DIA_BANCO_V1 {
     using WForms = System.Windows.Forms;
     public class NewLoanCtrl
     {
-        public NewLoanCtrl()
+        public List<Prestamo> prestamos = new List<Prestamo>();
+        public NewLoanCtrl(List<Prestamo> prestamos)
         {
+            this.prestamos = prestamos;
             this.View = new NewLoanView();
             
             this.View.BtCrear.Click += (sender,  args) => this.onBtCreaClick();
@@ -13,12 +17,9 @@ namespace DIA_BANCO_V1 {
 
         public void onBtCreaClick()
         {
-            RegistroPrestamos prestamos = RegistroPrestamos.RecuperaXml();
-
             try
             {
-                prestamos.Add(GetLoan());
-                prestamos.GuardaXml();
+                this.prestamos.Add(GetLoan());
                 WForms.MessageBox.Show("Prestamo creado");
                 this.View.Hide();
                 this.View.Close();

@@ -392,7 +392,7 @@ namespace DIA_BANCO_V1 {
                     var retiradasx = cu.Element(EtiquetaRetiradas).Elements(EtiquetaRetirada);
                     foreach (var m in retiradasx) {
                         String concepto = (string)m.Attribute(EtiquetaConcepto);
-                        double cantidad = (double)m.Attribute(EtiquetaNombre);
+                        double cantidad = (double)m.Attribute(EtiquetaCantidad);
                         DateTime dateTime = (DateTime)m.Attribute(EtiquetaDateTime);
 
                         Cuenta.Retirada retirada = new Cuenta.Retirada(concepto, dateTime, cantidad);

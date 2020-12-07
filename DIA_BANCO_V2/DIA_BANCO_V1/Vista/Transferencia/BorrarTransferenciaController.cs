@@ -1,13 +1,15 @@
+using System.Collections.Generic;
+
 namespace DIA_BANCO_V1
 {
     using WForms = System.Windows.Forms;
 
     public class BorrarTransferenciaController
     {
-
-        public BorrarTransferenciaController()
+        private List<Transferencia> transferencias;
+        public BorrarTransferenciaController(List<Transferencia> transferencias)
         {
-
+            this.transferencias = transferencias;
             this.View = new BorrarTransferencia();
             
             this.View.Bid.Click += (sender, args) => this.EliminarTransferencia();
@@ -21,16 +23,12 @@ namespace DIA_BANCO_V1
         /// </summary>
         public void EliminarTransferencia()
         {
-            
-            TransferenciasXML transferencias = new TransferenciasXML();
-            transferencias = transferencias.RecuperarXml();
-            
             int id;
             int.TryParse(this.View.eid.Text, out id);
             bool esta = false;
             Transferencia aEliminar = new Transferencia();
             
-            foreach (Transferencia i in transferencias.get())
+            foreach (Transferencia i in transferencias)
             {
                 if (i.Id == id)
                 {
@@ -42,7 +40,6 @@ namespace DIA_BANCO_V1
             if (esta)
             {
                 transferencias.Remove(aEliminar);
-                transferencias.GuardarXml();
                 WForms.MessageBox.Show("Se ha borrado correctamente");
                 this.View.Hide();
                 this.View.Close();

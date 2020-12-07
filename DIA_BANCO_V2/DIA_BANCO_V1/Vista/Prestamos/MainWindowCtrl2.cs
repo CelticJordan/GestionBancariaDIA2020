@@ -1,9 +1,14 @@
+using System.Collections.Generic;
+
 namespace DIA_BANCO_V1
 
 {
-    public class MainWindowCtrl2 {
-        public MainWindowCtrl2()
+    public class MainWindowCtrl2
+    {
+        private List<Prestamo> prestamos;
+        public MainWindowCtrl2(List<Prestamo> prestamos)
         {
+            this.prestamos = prestamos;
             this.View = new MainWindowView2();    
          
             this.View.OpQuit.Click += (o, args) => this.OnQuit();
@@ -30,7 +35,7 @@ namespace DIA_BANCO_V1
 
         void ViewNewLoan()
         {
-            new NewLoanCtrl().View.Show();
+            new NewLoanCtrl(this.prestamos).View.Show();
         }
         
         void ViewEditLoan()

@@ -33,13 +33,15 @@ namespace DIA_BANCO_V1
         /// </summary>
         private void ObtenerClientesPermitidos()
         {
-            //Ahora es cuando me arrepiento de no usar un mapa.   )':
-            foreach (Cliente c in this.clientes)
+            foreach (Cliente cTodos in this.clientes)
             {
-                if (!cuenta.Titulares.Contains(c))
-                {
-                    clientesBuscados.Add(c);
-                }
+                bool esta = false;
+                foreach(Cliente cYaEnCuenta in this.cuenta.Titulares)
+                    if (cTodos.Dni.Equals(cYaEnCuenta.Dni))
+                    {
+                        esta = true;
+                    }
+                if(esta == false) this.clientesBuscados.Add(cTodos);
             }
         }
 

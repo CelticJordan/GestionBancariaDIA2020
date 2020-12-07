@@ -13,7 +13,7 @@ namespace DIA_BANCO_V1
             this.View = new MainWindowView();
             
             this.View.bCrearTransferencia.Click += (sender, args) => new CrearTransferenciaController(transferencias).View.Show();
-            this.View.bBorrarTransferencia.Click += (sender, args) => new BorrarTransferenciaController().View.Show();
+            this.View.bBorrarTransferencia.Click += (sender, args) => new BorrarTransferenciaController(transferencias).View.Show();
             this.View.bConsultarTransferencias.Click += (sender, args) => new ConsultarTransferencia().Show();
             this.View.bModificarTransferencias.Click += (sender, args) => new ModificarTransferenciaController().View.Show();
         }

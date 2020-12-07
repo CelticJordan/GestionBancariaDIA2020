@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BancoTransferencias>
-  <transferencia id="45" tipoTransferencia="Puntual" cccOrigen="11111111111111111111" cccDestino="22222222222222222222" importe="45" fecha="12/12/1221 0:00:00" />
+  <transferencia id="12" tipoTransferencia="Puntual" cccOrigen="11111111111111111111" cccDestino="11111111111111111111" importe="12" fecha="12/12/2020 0:00:00" />
 </BancoTransferencias>

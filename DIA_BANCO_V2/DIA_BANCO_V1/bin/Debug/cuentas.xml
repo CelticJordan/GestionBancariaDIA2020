@@ -18,4 +18,15 @@
     <depositos />
     <retiradas />
   </cuenta>
+  <cuenta ccc="77777777777777777777" tipo="Corriente" saldo="-122223" fechaApertura="12/07/2020 18:11:39" interesMensual="0">
+    <titulares>
+      <titular>77777777V</titular>
+    </titulares>
+    <depositos>
+      <deposito concepto="123" cantidad="123" dateTime="12/07/2020 19:12:14" />
+    </depositos>
+    <retiradas>
+      <retirada concepto="43124" cantidad="123123" dateTime="12/07/2020 19:12:26" />
+    </retiradas>
+  </cuenta>
 </BancoCuentas>

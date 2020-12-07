@@ -136,9 +136,7 @@ namespace DIA_BANCO_V1
         
         public static bool borrarRetiradaCuenta(Cuenta cuen, Cuenta.Retirada ret)
         {
-            CuentaAhorro ch;
             CuentaCorriente cc;
-            CuentaVivienda cv;
             
             if(cuen is CuentaCorriente){
                 cc = (CuentaCorriente) cuen;
@@ -174,8 +172,69 @@ namespace DIA_BANCO_V1
             {
                 return null;
             }
+        }
+        
+        public static List<Prestamo> getPrestamosCuenta(string ccc, List<Prestamo> todosPrestamos)
+        {
+            if (todosPrestamos != null)
+            {
+                List<Prestamo> prestamosCuenta = new List<Prestamo>();
+                foreach (Prestamo p in todosPrestamos)
+                {
+                    if (ccc.Equals(p.CccOri))
+                    {
+                        prestamosCuenta.Add(p);
+                    }
+                }
+                return prestamosCuenta;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
+        public static bool borrarTransferencia(int id, List<Transferencia> transferencias)
+        {
+            foreach (Transferencia t in transferencias)
+            {
+                if (id.Equals(t.Id))
+                {
+                    transferencias.Remove(t);
+                    return true;
+                }
+            }
 
-            
+            return false;
+        }
+        
+        public static bool borrarPrestamo(string id, List<Prestamo> prestamos)
+        {
+            foreach (Prestamo p in prestamos)
+            {
+                if (id.Equals(p.IdPrestamo))
+                {
+                    prestamos.Remove(p);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool BorrarDniDeCuenta(string dni, Cuenta cuenta)
+        {
+            List<Cliente> titulares = cuenta.Titulares;
+            foreach (Cliente c in titulares)
+            {
+                if (dni.Equals(c.Dni))
+                {
+                    cuenta.Titulares.Remove(c);
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
