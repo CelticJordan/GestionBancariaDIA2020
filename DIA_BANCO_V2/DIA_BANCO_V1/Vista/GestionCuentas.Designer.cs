@@ -102,8 +102,6 @@ namespace DIA_BANCO_V1
             this.vistaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -717,7 +715,7 @@ namespace DIA_BANCO_V1
             // 
             // vistaToolStripMenuItem
             // 
-            this.vistaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.clientesToolStripMenuItem, this.cuentasToolStripMenuItem, this.transferenciasToolStripMenuItem, this.prestamosToolStripMenuItem});
+            this.vistaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.clientesToolStripMenuItem, this.cuentasToolStripMenuItem});
             this.vistaToolStripMenuItem.Name = "vistaToolStripMenuItem";
             this.vistaToolStripMenuItem.Size = new System.Drawing.Size(62, 29);
             this.vistaToolStripMenuItem.Text = "Vista";
@@ -733,19 +731,6 @@ namespace DIA_BANCO_V1
             this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
             this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
             this.cuentasToolStripMenuItem.Text = "Cuentas";
-            // 
-            // transferenciasToolStripMenuItem
-            // 
-            this.transferenciasToolStripMenuItem.Name = "transferenciasToolStripMenuItem";
-            this.transferenciasToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
-            this.transferenciasToolStripMenuItem.Text = "Transferencias";
-            this.transferenciasToolStripMenuItem.Click += new System.EventHandler(this.transferenciasToolStripMenuItem_Click);
-            // 
-            // prestamosToolStripMenuItem
-            // 
-            this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
-            this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
-            this.prestamosToolStripMenuItem.Text = "Prestamos";
             // 
             // buscadorToolStripMenuItem
             // 
@@ -963,8 +948,6 @@ namespace DIA_BANCO_V1
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
 
         private System.Windows.Forms.ToolStripMenuItem graficoGeneralToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem prestamosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transferenciasToolStripMenuItem;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn GraficoSaldo;
 

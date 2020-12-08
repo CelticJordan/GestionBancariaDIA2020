@@ -759,15 +759,6 @@ namespace DIA_BANCO_V1
             dlg.ShowDialog();
             this.Visible = true;
         }
-        
-        //Transferencias menu item
-        private void transferenciasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            MainWindowController trans = new MainWindowController(this.transferencias);
-            trans.View.ShowDialog();
-            this.Visible = true;
-        }
 
         private void transferenciasBancoToolStripMenuItem_Click(object sender, EventArgs e)
         {
