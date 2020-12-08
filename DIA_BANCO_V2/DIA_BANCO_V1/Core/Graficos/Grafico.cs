@@ -253,18 +253,27 @@ namespace DIA_BANCO_V1
             var fechas_trasnferencias = from transferencia in transferencias select (transferencia.Fecha);
             var total = fechas_trasnferencias.Union(dep);//juntamos los datos de que nos interesan y obtenemos todas las fechas
             total = total.OrderBy(fecha => fecha.Date);//ordenamos los datos
-            int ultimo_año = total.Max().Year;
-            int primer_año = total.Min().Year;
             HashSet<String> lista_final_años = new HashSet<String>();//creamos un hashset para no introducir años repetidos
-            lista_final_años.Add(primer_año.ToString());
-            for (int i = primer_año; i <= ultimo_año; i++)
+            if (total.Count() == 0)
             {
-                String elem = " ";
-                lista_final_años.Add(elem);
+                //no se hace nada
+                return lista_final_años.ToArray();
             }
-            lista_final_años.Add(ultimo_año.ToString());
+            else
+            {
+                int ultimo_año = total.Max().Year;
+                int primer_año = total.Min().Year;
 
-            return lista_final_años.ToArray();//array de años
+                lista_final_años.Add(primer_año.ToString());
+                for (int i = primer_año; i <= ultimo_año; i++)
+                {
+                    String elem = " ";
+                    lista_final_años.Add(elem);
+                }
+                lista_final_años.Add(ultimo_año.ToString());
+
+                return lista_final_años.ToArray();//array de años
+            }
         }
         /// <summary>
         /// A partir de un año y el cliente devolvera todos los depositos y trasnferencias ordenados en el tiempo
@@ -397,18 +406,27 @@ namespace DIA_BANCO_V1
             HashSet<String> lista_final_años = new HashSet<String>();//creamos un hashset para no introducir años repetidos
             String año_cuenta = c.FechaApertura.Year.ToString();
             lista_final_años.Add(año_cuenta);
-            //aproximamos los importes
-            int ultimo_año = total.Max().Year;
-            int primer_año = total.Min().Year;
-            lista_final_años.Add(primer_año.ToString());
-            for (int i = primer_año; i <= ultimo_año; i++)
+            if (total.Count() == 0)
             {
-                String elem = " ";
-                lista_final_años.Add(elem);
+                //no se hace nada
+                return lista_final_años.ToArray();
             }
-            lista_final_años.Add(ultimo_año.ToString());
+            else
+            {
+                //aproximamos los importes
+                int ultimo_año = total.Max().Year;
+                int primer_año = total.Min().Year;
+                lista_final_años.Add(primer_año.ToString());
+                for (int i = primer_año; i <= ultimo_año; i++)
+                {
+                    String elem = " ";
+                    lista_final_años.Add(elem);
+                }
+                lista_final_años.Add(ultimo_año.ToString());
 
-            return lista_final_años.ToArray();//array de años
+                return lista_final_años.ToArray();//array de años
+            }
+
         }
         /// <summary>
         /// Devuelve las modificaciones que tuvo el saldo de la cuenta en un año especifico
@@ -610,18 +628,27 @@ namespace DIA_BANCO_V1
             var transferencias_neg = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCOrigen)) select (transferencia.Fecha);
             var total = dep.Union(ret).Union(transferencias_neg).Union(transferencias_pos);//juntamos los datos de que nos interesan y obtenemos todas las fechas
             total = total.OrderBy(fecha => fecha.Date);//ordenamos los datos
-            int ultimo_año = total.Max().Year;
-            int primer_año = total.Min().Year;
             HashSet<String> lista_final_años = new HashSet<String>();//creamos un hashset para no introducir años repetidos
-            lista_final_años.Add(primer_año.ToString());
-            for (int i = primer_año; i <= ultimo_año; i++)
+            if (total.Count() == 0)
             {
-                String elem = " ";
-                lista_final_años.Add(elem);
+                //no se hace nada
+                return lista_final_años.ToArray();
             }
-            lista_final_años.Add(ultimo_año.ToString());
+            else
+            {
+                int ultimo_año = total.Max().Year;
+                int primer_año = total.Min().Year;
 
-            return lista_final_años.ToArray();//array de años
+                lista_final_años.Add(primer_año.ToString());
+                for (int i = primer_año; i <= ultimo_año; i++)
+                {
+                    String elem = " ";
+                    lista_final_años.Add(elem);
+                }
+                lista_final_años.Add(ultimo_año.ToString());
+
+                return lista_final_años.ToArray();//array de años
+            }
         }
         public int[] ordenarResumenSaldoClienteAños(Cliente c, IEnumerable<Cuenta> cuentas, IEnumerable<Transferencia> transferencias, int año)
         {
