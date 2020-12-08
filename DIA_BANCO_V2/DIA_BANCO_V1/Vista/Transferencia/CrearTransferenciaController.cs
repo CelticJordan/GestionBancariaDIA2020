@@ -11,10 +11,13 @@ namespace DIA_BANCO_V1
     public class CrearTransferenciaController
     {
         public List<Transferencia> transferencias;
+        public List<Cuenta> cuentas;
         
-        public CrearTransferenciaController(List<Transferencia> trans)
+        public CrearTransferenciaController(List<Transferencia> trans, List<Cuenta> cuentas)
         {
-            this.transferencias = trans; 
+            this.transferencias = trans;
+            this.cuentas = cuentas; 
+            
             this.View = new CrearTransferencia();
 
             string tipo = this.View.etp.Text;
@@ -35,7 +38,7 @@ namespace DIA_BANCO_V1
         {
             bool esta = false;
             bool fecha = false;
-            bool ccc = false;
+
             bool ccc1 = false;
             
             int id;
@@ -52,17 +55,8 @@ namespace DIA_BANCO_V1
             {
                 fecha = false;
             }
-
-            if (Regex.IsMatch(this.View.ecccorigen.Text, "^[0-9]{20}$"))
-            {
-                ccc = true;
-            }
-            else
-            {
-                ccc = false;
-            }
             
-            if (Regex.IsMatch(this.View.ecccdest.Text, "^[0-9]{20}$"))
+            if (Regex.IsMatch(this.View.ecccdest.Text, "^[0-9]{20}$") &&  Banco.existeCCC(this.View.ecccdest.Text,this.cuentas))
             {
                 ccc1 = true;
             }
@@ -70,7 +64,9 @@ namespace DIA_BANCO_V1
             {
                 ccc1 = false;
             }
-            
+
+            Cuenta cuentaOrigen = Banco.getCuenta(this.View.ecccorigen.Text, this.cuentas);
+            Cuenta cuentaDestino =  Banco.getCuenta(this.View.ecccdest.Text, this.cuentas);
             
 
             Transferencia t = new Transferencia( id, tipo, this.View.ecccorigen.Text,
@@ -86,10 +82,19 @@ namespace DIA_BANCO_V1
                 }
             }
 
-            if (!esta && fecha && ccc && ccc1)
+            if (!esta && fecha && ccc1)
             {
-                this.transferencias.Add(t);
-                WForms.MessageBox.Show("Transferencia creada correctamente");
+                if (Banco.transferencia_sum_rest(cuentaOrigen, cuentaDestino, importe))
+                {
+                    this.transferencias.Add(t);
+                    WForms.MessageBox.Show("Transferencia creada correctamente");
+                }
+                else
+                {
+                    WForms.MessageBox.Show("No hay saldo sufienciente para hacer la transferencia");
+                    WForms.MessageBox.Show("Se cancelo la transferencia");
+                }
+
                 this.View.Hide();
                 this.View.Close();
             }
@@ -99,14 +104,10 @@ namespace DIA_BANCO_V1
                 {
                     WForms.MessageBox.Show("Error: Fecha erronea");
                 }
-                if(!ccc)
-                {
-                    WForms.MessageBox.Show("Error: CCC Origen incorrecto");
-                }
-                
+
                 if(!ccc1)
                 {
-                    WForms.MessageBox.Show("Error: CCC Destino incorrecto");
+                    WForms.MessageBox.Show("Error: CCC Destino incorrecto o no existe");
                 }
                 
                 if(esta)

@@ -638,7 +638,6 @@ namespace DIA_BANCO_V1
             if (dataGridTransferencias.CurrentCell.ColumnIndex == 6)
             {
                 int currentTransferencia = dataGridTransferencias.CurrentRow.Index;
-                Cuenta cuentaSelecionada = getCuentaSelecionadaGridCuentas();
                 Transferencia trans = GetTransferenciasCuentaSelecionadaGridCuentas()[currentTransferencia];
 
                 //Preguntar y borrar
@@ -649,6 +648,7 @@ namespace DIA_BANCO_V1
                 {
                     if (Banco.borrarTransferencia(trans.Id, this.transferencias))
                     {
+                        
                         MessageBox.Show("Transferencia borrada con éxito");
                     }
                     else
@@ -672,10 +672,11 @@ namespace DIA_BANCO_V1
                 MessageBox.Show("No hay ninguna cuenta selecionada");
                 return;
             }
-            CrearTransferenciaController ctc = new CrearTransferenciaController(this.transferencias);
+            CrearTransferenciaController ctc = new CrearTransferenciaController(this.transferencias,this.cuentas);
             ctc.View.ecccorigen.Text = getCuentaSelecionadaGridCuentas().CCC;
             ctc.View.ecccorigen.Enabled = false;
             ctc.View.ShowDialog();
+            RefrescarGridCuentas(this.cuentas);
             RefrescarGridTransferencias(GetTransferenciasCuentaSelecionadaGridCuentas());
         }
         

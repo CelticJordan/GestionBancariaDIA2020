@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DIA_BANCO_V1
 {
@@ -86,6 +87,12 @@ namespace DIA_BANCO_V1
             return false;
         }
         
+        /// <summary>
+        /// Borra el deposito de una cuenta
+        /// </summary>
+        /// <param name="cuen"></param>
+        /// <param name="dep"></param>
+        /// <returns></returns>
         public static bool borrarDepositoCuenta(Cuenta cuen, Cuenta.Deposito dep)
         {
             CuentaAhorro ch;
@@ -112,6 +119,11 @@ namespace DIA_BANCO_V1
             return false;
         }
         
+        /// <summary>
+        /// Inserta un deposito en la cuenta
+        /// </summary>
+        /// <param name="cuen"></param>
+        /// <param name="dep"></param>
         public static void insertarDepositoCuenta(Cuenta cuen, Cuenta.Deposito dep)
         {
             CuentaAhorro ch;
@@ -235,6 +247,22 @@ namespace DIA_BANCO_V1
             }
 
             return false;
+        }
+
+        public static bool transferencia_sum_rest(Cuenta origen, Cuenta destino, double importe)
+        {
+            if (origen.Saldo > importe)
+            {
+                origen.Saldo = origen.Saldo - importe;
+                destino.Saldo = destino.Saldo + importe;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+            
         }
     }
 }
