@@ -197,22 +197,25 @@ namespace DIA_BANCO_V1
             {
                 this.tbDetalle.Clear();
                 Cliente cliente = listaClientes[ncliente];
-
                 var listaCuentas = this.Cuentas.ToList();
                 var listaTransferencias = this.Transferencias.ToList();
 
                 for (int i = 0; i < this.Cuentas.Count(); i++)
                 {
                     Cuenta cuenta = listaCuentas[i];
-                    if (cuenta.Titulares.Contains(cliente))
+                    for (int z = 0; z < cuenta.Titulares.Count(); z++)
                     {
-                        for (int j = 0; j < this.Transferencias.Count(); j++)
+                        if (cuenta.Titulares[z].Nombre.Equals(cliente.Nombre))
                         {
-                            Transferencia transferencia = listaTransferencias[j];
-                            if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
+                            this.tbDetalle.Text += "Nº de Cuenta" + i +"\r\n";
+                            for (int j = 0; j < this.Transferencias.Count(); j++)
                             {
-                                this.tbDetalle.Text += "Transferencia " + j + "\r\n";
-                                this.tbDetalle.Text += transferencia.ToString();
+                                Transferencia transferencia = listaTransferencias[j];
+                                if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
+                                {
+                                    this.tbDetalle.Text += "Transferencia " + j + "\r\n";
+                                    this.tbDetalle.Text += transferencia.ToString();
+                                }
                             }
                         }
                     }
@@ -240,17 +243,21 @@ namespace DIA_BANCO_V1
                 for (int i = 0; i < this.Cuentas.Count(); i++)
                 {
                     Cuenta cuenta = listaCuentas[i];
-                    if (cuenta.Titulares.Contains(cliente))
+                    for (int z = 0; z < cuenta.Titulares.Count(); z++)
                     {
-                        for (int j = 0; j < this.Transferencias.Count(); j++)
+                        if (cuenta.Titulares[z].Nombre.Equals(cliente.Nombre))
                         {
-                            Transferencia transferencia = listaTransferencias[j];
-                            if (transferencia.Fecha.Year == anhoComprobacion)
+                            this.tbDetalle.Text += "Nº de Cuenta" + i +"\r\n";
+                            for (int j = 0; j < this.Transferencias.Count(); j++)
                             {
-                                if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
+                                Transferencia transferencia = listaTransferencias[j];
+                                if (transferencia.Fecha.Year == anhoComprobacion)
                                 {
-                                    this.tbDetalle.Text += "Transferencia " + j + "\r\n";
-                                    this.tbDetalle.Text += transferencia.ToString();
+                                    if (transferencia.CCCOrigen == cuenta.CCC || transferencia.CCCDestino == cuenta.CCC)
+                                    {
+                                        this.tbDetalle.Text += "Transferencia " + j + "\r\n";
+                                        this.tbDetalle.Text += transferencia.ToString();
+                                    }
                                 }
                             }
                         }
