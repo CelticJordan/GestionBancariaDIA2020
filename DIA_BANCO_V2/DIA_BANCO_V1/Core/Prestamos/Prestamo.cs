@@ -13,7 +13,7 @@ namespace DIA_BANCO_V1
         private double importe;
         private DateTime fecha;
         
-        public Prestamo(string id, string cc1, string cc2, double amount, string date)
+      /*  public Prestamo(string id, string cc1, string cc2, double amount, string date)
         {
             date = date.Replace(" 0:00:00", "");
             date = date.Replace("/", "-");
@@ -24,7 +24,7 @@ namespace DIA_BANCO_V1
             CccDes = cc2;
             Importe = amount;
             Fecha = DateTime.ParseExact(date, "dd/MM/yyyy",provider);
-        }
+        }*/
         
         public Prestamo(string id, string cc1, string cc2, double amount, DateTime date)  {
 
