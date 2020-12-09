@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace DIA_BANCO_V1 {
     using WForms = System.Windows.Forms;
@@ -40,7 +41,7 @@ namespace DIA_BANCO_V1 {
             string date = this.View.EdFecha.Text;
             DateTime fDate = DateTime.ParseExact(date, "dd/MM/yyyy",provider);
 
-            return new Prestamo(idP,cccOri,cccDes,amount,date);
+            return new Prestamo(idP,cccOri,cccDes,amount,fDate);
         }
         
         public EditLoanView View { get; }

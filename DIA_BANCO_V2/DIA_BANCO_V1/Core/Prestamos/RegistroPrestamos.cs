@@ -193,7 +193,7 @@ namespace DIA_BANCO_V1  {
                     && doc.Root.Name == EtqPrestamos)
                 {
                     var prestamos = doc.Root.Elements(EtqPrestamo);
-
+                    var provider = new CultureInfo("es-ES", false);
                     foreach (var prestamoXml in prestamos)
                     {
 
@@ -202,7 +202,7 @@ namespace DIA_BANCO_V1  {
                              prestamoXml.Attribute(EtqCccOri).Value,
                              prestamoXml.Attribute(EtqCccDes).Value,
                             Convert.ToDouble(prestamoXml.Attribute(EtqImporte).Value),
-                             prestamoXml.Attribute(EtqFecha).Value));
+                             DateTime.Parse(prestamoXml.Attribute(EtqFecha).Value,provider)));
 
                     }
                 }

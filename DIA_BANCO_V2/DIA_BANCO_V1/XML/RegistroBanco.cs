@@ -450,7 +450,7 @@ namespace DIA_BANCO_V1 {
                     DateTime fecha = (DateTime)pr.Attribute(EtiquetaFecha);
 
 
-                    Prestamo prestamo = new Prestamo(id, cccOrigen, cccDestino, importe, fecha.ToString());
+                    Prestamo prestamo = new Prestamo(id, cccOrigen, cccDestino, importe, fecha);
                     contenedorPrestamos.Add(prestamo);
                 }
                 Console.WriteLine("Datos cargados correctamente. \n");

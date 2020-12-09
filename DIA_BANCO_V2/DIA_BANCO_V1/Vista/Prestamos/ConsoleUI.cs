@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace DIA_BANCO_V1 {
     using System;
     
@@ -50,8 +52,12 @@ namespace DIA_BANCO_V1 {
             
             Console.WriteLine("Fecha del Prestamo (dd-MM-yyyy): ");
             date = Console.ReadLine();
+            
+            var provider = new CultureInfo("es-ES", false);
+
+            DateTime Fecha = DateTime.ParseExact(date, "dd/MM/yyyy",provider);
         
-            return new Prestamo(idP,cccOri,cccDes,amount,date);
+            return new Prestamo(idP,cccOri,cccDes,amount,Fecha);
         }
 
         public static string PideIDBorrado()
