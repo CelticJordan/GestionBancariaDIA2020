@@ -795,6 +795,7 @@ namespace DIA_BANCO_V1
             this.guardarXMLYSalirToolStripMenuItem.Name = "guardarXMLYSalirToolStripMenuItem";
             this.guardarXMLYSalirToolStripMenuItem.Size = new System.Drawing.Size(237, 30);
             this.guardarXMLYSalirToolStripMenuItem.Text = "Guardar XML y salir";
+            this.guardarXMLYSalirToolStripMenuItem.Click += new System.EventHandler(this.guardarXMLySalirToolStripMenuItem_Click);
             // 
             // label13
             // 
