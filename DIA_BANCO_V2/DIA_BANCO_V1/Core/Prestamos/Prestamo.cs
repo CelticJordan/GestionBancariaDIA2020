@@ -15,6 +15,8 @@ namespace DIA_BANCO_V1
         
         public Prestamo(string id, string cc1, string cc2, double amount, string date)
         {
+            date = date.Replace(" 0:00:00", "");
+            date = date.Replace("/", "-");
             var provider = new CultureInfo("es-ES", false);
 
             IdPrestamo = id;

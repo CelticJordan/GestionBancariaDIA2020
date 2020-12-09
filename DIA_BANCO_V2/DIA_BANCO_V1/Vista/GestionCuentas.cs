@@ -792,5 +792,12 @@ namespace DIA_BANCO_V1
             this.registroBanco.GuardaTransferenciasXml(this.transferencias, "transferencias.xml");
             this.registroBanco.GuardaPrestamosXml(this.prestamos, "prestamos.xml");
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var r = new MainWindow(this.clientes);
+            r.ShowDialog();
+
+        }
     }
 }

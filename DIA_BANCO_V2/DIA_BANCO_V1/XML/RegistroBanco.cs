@@ -91,7 +91,6 @@ namespace DIA_BANCO_V1 {
         public static string EtiquetaFecha = "fecha";
         public static string EtiquetaCuota = "cuota";
         public static string EtiquetaNumeroCuotas = "numeroCuotas";
-        public static string EtiquetaPrestamos = "prestamos";
         public static string EtiquetaTitular = "titular";
 
 
@@ -440,9 +439,9 @@ namespace DIA_BANCO_V1 {
                 Console.WriteLine("No se han encontrado Prestamos anteriores, se ha creado un archivo nuevo \n");
             }
 
-            if (documento.Root != null && documento.Root.Name == EtiquetaBancoClientes) //en el caso de que encuentre un documento escrito
+            if (documento.Root != null && documento.Root.Name == EtiquetaBancoPrestamos) //en el caso de que encuentre un documento escrito
             {
-                var prestamos = documento.Root.Elements(EtiquetaBancoPrestamos);
+                var prestamos = documento.Root.Elements(EtiquetaPrestamo);
                 foreach (var pr in prestamos) {
                     String id = (string)pr.Attribute(EtiquetaId);
                     String cccOrigen = (string)pr.Attribute(EtiquetaCCCorigen);

@@ -18,9 +18,9 @@ namespace DIA_BANCO_V1
         public List<Cliente> registro;//lista donde se almacenan los clientes
 
         //Constructor vacío
-        public registroClientes()
+        public registroClientes(List<Cliente> clientes)
         {
-            this.registro = new List<Cliente>();
+            this.registro = clientes;
         }
 
         public void Add( Cliente c)//método para añadir un cliente

@@ -1,2 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BancoPrestamos />
+<BancoPrestamos>
+  <prestamo id="1905005587" cccOrigen="11111111111111111111" cccDestino="123" importe="123" fecha="12/12/1111 0:00:00" />
+</BancoPrestamos>

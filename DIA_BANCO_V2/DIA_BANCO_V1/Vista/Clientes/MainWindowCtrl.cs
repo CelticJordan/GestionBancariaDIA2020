@@ -19,11 +19,12 @@ namespace DIA_BANCO_V1
         public const int ColEmail = 3;
         public const int ColDireccion = 4;
         string dniglobal;//VARIABLE UTILIZADA PARA PODER MODIFICAR EL DNI AUNQUE SEA CLAVE PRIMARIA
-        private registroClientes registro = new registroClientes(); 
+        private List<Cliente> registro;
 
-
-        public MainWindow()
+        public MainWindow(List<Cliente> clientes)
         {
+        this.registro = clientes; 
+
             this.Build();
 
 
@@ -42,6 +43,8 @@ namespace DIA_BANCO_V1
             this.buscarView.BtEliminar.Click += (sender, args) => this.OnBtEliminarBuscarClick();
             this.buscarView.BtEditar.Click += (sender, args) => this.OnBtEditarBuscarClick();
             this.editarView.BtEditar.Click += (sender, args) => this.OnBtEditarBuscar2Click();
+            
+            this.Actualiza();
         }
 
         //Método que actualiza la tabla
