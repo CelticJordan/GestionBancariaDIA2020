@@ -23,7 +23,16 @@ namespace DIA_BANCO_V1
             CccOri = cc1;
             CccDes = cc2;
             Importe = amount;
-            Fecha = DateTime.ParseExact(date, "dd-MM-yyyy",provider);
+            Fecha = DateTime.ParseExact(date, "dd/MM/yyyy",provider);
+        }
+        
+        public Prestamo(string id, string cc1, string cc2, double amount, DateTime date)  {
+
+            IdPrestamo = id;
+            CccOri = cc1;
+            CccDes = cc2;
+            Importe = amount;
+            Fecha = date;
         }
 
         public string IdPrestamo
