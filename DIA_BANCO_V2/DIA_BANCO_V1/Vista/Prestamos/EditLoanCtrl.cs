@@ -31,11 +31,14 @@ namespace DIA_BANCO_V1 {
         
         public Prestamo GetLoan()
         {
+            var provider = new CultureInfo("es-ES", false);
+            
             string idP = this.View.EdIDP.Text;
             string cccOri = this.View.EdCCCOri.Text;
             string cccDes = this.View.EdCCCDes.Text;
             double amount = Convert.ToDouble(this.View.EdImporte.Text);
             string date = this.View.EdFecha.Text;
+            DateTime fDate = DateTime.ParseExact(date, "dd/MM/yyyy",provider);
 
             return new Prestamo(idP,cccOri,cccDes,amount,date);
         }
