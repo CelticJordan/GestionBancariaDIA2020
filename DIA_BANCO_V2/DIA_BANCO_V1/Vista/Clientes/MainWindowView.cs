@@ -155,9 +155,17 @@
                 Width = 50,
                 ReadOnly = true
             };
+            var column5 = new DataGridViewTextBoxColumn
+            {
+                SortMode = DataGridViewColumnSortMode.NotSortable,
+                CellTemplate = textCellTemplate4,
+                HeaderText = "Grafico",
+                Width = 50,
+                ReadOnly = true
+            };
 
             this.grdLista.Columns.AddRange(new DataGridViewColumn[] {
-                column0, column1, column2, column3, column4
+                column0, column1, column2, column3, column4, column5
             });
 
 
@@ -213,15 +221,18 @@
             this.grdLista.Width = width;
 
             this.grdLista.Columns[ColDni].Width =
-                                (int)System.Math.Floor(width * .20); // dni
+                                (int)System.Math.Floor(width * .165); // dni
             this.grdLista.Columns[ColNombre].Width =
-                                (int)System.Math.Floor(width * .20); // nombre
+                                (int)System.Math.Floor(width * .165); // nombre
             this.grdLista.Columns[ColTelefono].Width =
-                                (int)System.Math.Floor(width * .20); // telefono
+                                (int)System.Math.Floor(width * .165); // telefono
             this.grdLista.Columns[ColEmail].Width =
-                                (int)System.Math.Floor(width * .20); // email
+                                (int)System.Math.Floor(width * .165); // email
             this.grdLista.Columns[ColDireccion].Width =
-                                (int)System.Math.Floor(width * .20); // direccion                               
+                                (int)System.Math.Floor(width * .165); // direccion   
+            this.grdLista.Columns[ColGrafico].Width =
+                (int)System.Math.Floor(width * .165); // grafico  
+            
         }
 
         private MainMenu mPpal;

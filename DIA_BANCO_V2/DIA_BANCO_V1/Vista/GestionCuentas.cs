@@ -776,7 +776,7 @@ namespace DIA_BANCO_V1
             gcv.Transferencias = this.transferencias;
             gcv.OnCrearGraficoCuenta();
         }
-
+  
         private void graficoGeneralToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GraficoControlView gcv = new GraficoControlView();
@@ -784,6 +784,7 @@ namespace DIA_BANCO_V1
             gcv.Transferencias = this.transferencias;
             gcv.OnCrearGraficoGeneral();
         }
+        
 
         private void guardarXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -803,7 +804,7 @@ namespace DIA_BANCO_V1
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var r = new MainWindow(this.clientes);
+            var r = new MainWindow(this.clientes,this.cuentas,this.transferencias);
             r.ShowDialog();
 
         }

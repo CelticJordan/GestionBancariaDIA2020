@@ -18,12 +18,17 @@ namespace DIA_BANCO_V1
         public const int ColTelefono = 2;
         public const int ColEmail = 3;
         public const int ColDireccion = 4;
+        public const int ColGrafico = 5;
         string dniglobal;//VARIABLE UTILIZADA PARA PODER MODIFICAR EL DNI AUNQUE SEA CLAVE PRIMARIA
         private List<Cliente> registro;
+        private List<Cuenta> cuentas;
+        private List<Transferencia> transferencias;
 
-        public MainWindow(List<Cliente> clientes)
+        public MainWindow(List<Cliente> clientes,List<Cuenta> cuentas, List<Transferencia> transferencias)
         {
-        this.registro = clientes; 
+        this.registro = clientes;
+        this.cuentas = cuentas;
+        this.transferencias = transferencias;
 
             this.Build();
 
@@ -105,7 +110,8 @@ namespace DIA_BANCO_V1
             row.Cells[ColTelefono].Value = cliente.Telefono;
             row.Cells[ColEmail].Value = cliente.Email;
             row.Cells[ColDireccion].Value = cliente.DirPostal;
-
+            row.Cells[ColGrafico].Value = "Generar Gráfico";
+            
             // Assign tooltip text
             foreach (DataGridViewCell cell in row.Cells)
             {

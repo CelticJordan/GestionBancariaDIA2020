@@ -101,7 +101,6 @@ namespace DIA_BANCO_V1
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.vistaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -715,7 +714,7 @@ namespace DIA_BANCO_V1
             // 
             // vistaToolStripMenuItem
             // 
-            this.vistaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.clientesToolStripMenuItem, this.cuentasToolStripMenuItem});
+            this.vistaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.clientesToolStripMenuItem});
             this.vistaToolStripMenuItem.Name = "vistaToolStripMenuItem";
             this.vistaToolStripMenuItem.Size = new System.Drawing.Size(62, 29);
             this.vistaToolStripMenuItem.Text = "Vista";
@@ -726,13 +725,6 @@ namespace DIA_BANCO_V1
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-
-            // 
-            // cuentasToolStripMenuItem
-            // 
-            this.cuentasToolStripMenuItem.Name = "cuentasToolStripMenuItem";
-            this.cuentasToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
-            this.cuentasToolStripMenuItem.Text = "Cuentas";
             // 
             // buscadorToolStripMenuItem
             // 
@@ -963,7 +955,6 @@ namespace DIA_BANCO_V1
         private System.Windows.Forms.ToolStripMenuItem buscadorToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem vistaToolStripMenuItem;
 
