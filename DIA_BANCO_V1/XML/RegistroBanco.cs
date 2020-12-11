@@ -200,7 +200,7 @@ namespace DIA_BANCO_V1 {
             toret.Add(
                 new XAttribute(EtiquetaId, prestamo.IdPrestamo.ToString()),
                 new XAttribute(EtiquetaTipoPrestamo, prestamo.Tipo.ToString()),
-                new XAttribute(EtiquetaCCC, prestamo.CccOri.ToString()),
+                new XAttribute(EtiquetaCCCorigen, prestamo.CccOri.ToString()),
                 new XAttribute(EtiquetaImporte, prestamo.Importe.ToString()),
                 new XAttribute(EtiquetaCuota, prestamo.Cuota.ToString()),
                 new XAttribute(EtiquetaNumeroCuotas, prestamo.NumCuotas.ToString()),
@@ -447,7 +447,7 @@ namespace DIA_BANCO_V1 {
                 foreach (var pr in prestamos) {
                     String id = (string)pr.Attribute(EtiquetaId);
                     String tipo = (string) pr.Attribute(EtiquetaTipoPrestamo);
-                    String cccOrigen = (string)pr.Attribute(EtiquetaCCC);
+                    String cccOrigen = (string)pr.Attribute(EtiquetaCCCorigen);
                     double importe = (double)pr.Attribute(EtiquetaImporte);
                     double cuota = (double) pr.Attribute((EtiquetaCuota));
                     int numCuotas = (int) pr.Attribute((EtiquetaNumeroCuotas));
