@@ -239,7 +239,7 @@ namespace DIA_BANCO_V1
                             for (int j = 0; j < this.Prestamos.Count(); j++)
                             {
                                 Prestamo prestamo = listaPrestamos[j];
-                                if (prestamo.CccOri == cuenta.CCC || prestamo.CccDes == cuenta.CCC)
+                                if (prestamo.CccOri == cuenta.CCC)
                                 {
                                     this.tbDetalle.Text += "Prestamo " + j + "\r\n";
                                     this.tbDetalle.Text += prestamo.ToString();
@@ -315,7 +315,7 @@ namespace DIA_BANCO_V1
                                 Prestamo prestamo = listaPrestamos[j];
                                 if (prestamo.Fecha.Year == anhoComprobacion)
                                 {
-                                    if (prestamo.CccOri == cuenta.CCC || prestamo.CccDes == cuenta.CCC)
+                                    if (prestamo.CccOri == cuenta.CCC)
                                     {
                                         this.tbDetalle.Text += "Prestamo " + j + "\r\n";
                                         this.tbDetalle.Text += prestamo.ToString();

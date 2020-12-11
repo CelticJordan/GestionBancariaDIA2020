@@ -199,9 +199,11 @@ namespace DIA_BANCO_V1 {
             XElement toret = new XElement(EtiquetaPrestamo);
             toret.Add(
                 new XAttribute(EtiquetaId, prestamo.IdPrestamo.ToString()),
-                new XAttribute(EtiquetaCCCorigen, prestamo.CccOri.ToString()),
-                new XAttribute(EtiquetaCCCdestino, prestamo.CccDes.ToString()),
+                new XAttribute(EtiquetaTipoPrestamo, prestamo.Tipo.ToString()),
+                new XAttribute(EtiquetaCCC, prestamo.CccOri.ToString()),
                 new XAttribute(EtiquetaImporte, prestamo.Importe.ToString()),
+                new XAttribute(EtiquetaCuota, prestamo.Cuota.ToString()),
+                new XAttribute(EtiquetaNumeroCuotas, prestamo.NumCuotas.ToString()),
                 new XAttribute(EtiquetaFecha, prestamo.Fecha.ToString())
 
             );
@@ -444,13 +446,15 @@ namespace DIA_BANCO_V1 {
                 var prestamos = documento.Root.Elements(EtiquetaPrestamo);
                 foreach (var pr in prestamos) {
                     String id = (string)pr.Attribute(EtiquetaId);
-                    String cccOrigen = (string)pr.Attribute(EtiquetaCCCorigen);
-                    String cccDestino = (string)pr.Attribute(EtiquetaCCCdestino);
-                    double importe = (double)pr.Attribute(EtiquetaImporte);
+                    String tipo = (string)pr.Attribute(EtiquetaTipoPrestamo);
+                    String cccOrigen = (string)pr.Attribute(EtiquetaCCC);
+                    double importe = Convert.ToDouble((string)pr.Attribute(EtiquetaImporte));
+                    double cuota = Convert.ToDouble((string)pr.Attribute(EtiquetaCuota));
+                    int numCuotas = (int)pr.Attribute((EtiquetaNumeroCuotas));
                     DateTime fecha = (DateTime)pr.Attribute(EtiquetaFecha);
 
 
-                    Prestamo prestamo = new Prestamo(id, cccOrigen, cccDestino, importe, fecha);
+                    Prestamo prestamo = new Prestamo(id, tipo, cccOrigen, importe, cuota, numCuotas, fecha);
                     contenedorPrestamos.Add(prestamo);
                 }
                 Console.WriteLine("Datos cargados correctamente. \n");

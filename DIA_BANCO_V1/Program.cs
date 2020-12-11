@@ -49,14 +49,8 @@ namespace DIA_BANCO_V1
             cuentas.Add(cue1);
             cuentas.Add(cue2);
             cuentas.Add(cue3);
-            
-            Prestamo p1 = new Prestamo( "12", "11111111111111111111", "22222222222222222222", 200, DateTime.UtcNow);
-            Prestamo p2 = new Prestamo( "13", "22222222222222222222", "33333333333333333333", 202, DateTime.UtcNow);
-            Prestamo p3 = new Prestamo( "14", "33333333333333333333", "11111111111111111111", 204, DateTime.UtcNow);
-            
-            prestamos.Add(p1);
-            prestamos.Add(p2);
-            prestamos.Add(p3);
+           
+   
 
             Transferencia t1 = new Transferencia(123, "Puntual", "11111111111111111111", "22222222222222222222", 350, DateTime.UtcNow);
             Transferencia t2 = new Transferencia(345, "Periodica", "33333333333333333333", "22222222222222222222", 355, DateTime.UtcNow);

@@ -196,8 +196,8 @@ namespace DIA_BANCO_V1
                 {
                     dataGridPrestamos.Rows.Add();
                     dataGridPrestamos.Rows[i].Cells[0].Value = p.IdPrestamo;
-                    dataGridPrestamos.Rows[i].Cells[1].Value = p.CccOri;
-                    dataGridPrestamos.Rows[i].Cells[2].Value = p.CccDes;
+                    dataGridPrestamos.Rows[i].Cells[1].Value = p.Tipo;
+                    dataGridPrestamos.Rows[i].Cells[2].Value = p.CccOri;
                     dataGridPrestamos.Rows[i].Cells[3].Value = p.Importe;
                     dataGridPrestamos.Rows[i].Cells[4].Value = p.Fecha;
                     dataGridPrestamos.Rows[i].Cells[5].Value = "Borrar Pres.";
