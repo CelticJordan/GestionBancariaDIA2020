@@ -42,7 +42,6 @@ namespace DIA_BANCO_V1 {
             string idP = this.View.EdIDP.Text;
             string type = this.View.EdTipo.Text;
             string cccOri = this.View.EdCCCOri.Text;
-            string cccDes = this.View.EdCCCDes.Text;
             double amount = Convert.ToDouble(this.View.EdImporte.Text);
             int numCuotas = Convert.ToInt32(this.View.EdNumCuotas.Text);
             
@@ -58,7 +57,7 @@ namespace DIA_BANCO_V1 {
             string date = this.View.EdFecha.Text;
             DateTime fDate = DateTime.ParseExact(date, "dd/MM/yyyy",provider);
 
-            return new Prestamo(idP,type,cccOri,cccDes,amount,numCuotas,fDate.Date);
+            return new Prestamo(idP,type,cccOri,amount,numCuotas,fDate.Date);
         }
         
         public EditLoanView View { get; }

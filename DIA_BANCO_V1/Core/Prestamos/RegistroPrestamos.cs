@@ -15,8 +15,7 @@ namespace DIA_BANCO_V1  {
         private const string EtqPrestamo = "prestamo";
         private const string EtqId = "id";
         private const string EtqTipo = "Tipo";
-        private const string EtqCccOri = "cuentaOrigen";
-        private const string EtqCccDes = "cuentaDestino";
+        private const string EtqCccOri = "CCC";
         private const string EtqImporte = "importe";
         private const string EtqCuota = "cuota";
         private const string EtqNumCuotas = "numCuotas";
@@ -100,7 +99,6 @@ namespace DIA_BANCO_V1  {
                 {
                     p.Tipo = pEdit.Tipo;
                     p.CccOri = pEdit.CccOri;
-                    p.CccDes = pEdit.CccDes;
                     p.Importe = pEdit.Importe;
                     p.Cuota = pEdit.Cuota;
                     p.NumCuotas = pEdit.NumCuotas;
@@ -181,7 +179,6 @@ namespace DIA_BANCO_V1  {
                         new XAttribute( EtqId, pres.IdPrestamo ),
                         new XAttribute( EtqTipo, pres.Tipo),
                         new XAttribute( EtqCccOri, pres.CccOri ),
-                        new XAttribute( EtqCccDes, pres.CccDes ),
                         new XAttribute( EtqImporte, pres.Importe.ToString("G", CultureInfo.InvariantCulture) ),
                         new XAttribute( EtqCuota, pres.Cuota.ToString("G", CultureInfo.InvariantCulture) ),
                         new XAttribute( EtqNumCuotas, pres.NumCuotas.ToString("G", CultureInfo.InvariantCulture) ),
@@ -212,7 +209,6 @@ namespace DIA_BANCO_V1  {
                             prestamoXml.Attribute(EtqId).Value,
                             prestamoXml.Attribute(EtqTipo).Value,
                             prestamoXml.Attribute(EtqCccOri).Value,
-                            prestamoXml.Attribute(EtqCccDes).Value,
                             Convert.ToDouble(prestamoXml.Attribute(EtqImporte).Value),
                             Convert.ToDouble(prestamoXml.Attribute(EtqCuota).Value),
                             Convert.ToInt32(prestamoXml.Attribute(EtqNumCuotas).Value),

@@ -201,7 +201,6 @@ namespace DIA_BANCO_V1 {
                 new XAttribute(EtiquetaId, prestamo.IdPrestamo.ToString()),
                 new XAttribute(EtiquetaTipoPrestamo, prestamo.Tipo.ToString()),
                 new XAttribute(EtiquetaCCCorigen, prestamo.CccOri.ToString()),
-                new XAttribute(EtiquetaCCCdestino, prestamo.CccDes.ToString()),
                 new XAttribute(EtiquetaImporte, prestamo.Importe.ToString()),
                 new XAttribute(EtiquetaCuota, prestamo.Cuota.ToString()),
                 new XAttribute(EtiquetaNumeroCuotas, prestamo.NumCuotas.ToString()),
@@ -449,14 +448,13 @@ namespace DIA_BANCO_V1 {
                     String id = (string)pr.Attribute(EtiquetaId);
                     String tipo = (string) pr.Attribute(EtiquetaTipoPrestamo);
                     String cccOrigen = (string)pr.Attribute(EtiquetaCCCorigen);
-                    String cccDestino = (string)pr.Attribute(EtiquetaCCCdestino);
                     double importe = (double)pr.Attribute(EtiquetaImporte);
                     double cuota = (double) pr.Attribute((EtiquetaCuota));
                     int numCuotas = (int) pr.Attribute((EtiquetaNumeroCuotas));
                     DateTime fecha = (DateTime)pr.Attribute(EtiquetaFecha);
 
 
-                    Prestamo prestamo = new Prestamo(id, tipo, cccOrigen, cccDestino, importe, cuota, numCuotas, fecha);
+                    Prestamo prestamo = new Prestamo(id, tipo, cccOrigen, importe, cuota, numCuotas, fecha);
                     contenedorPrestamos.Add(prestamo);
                 }
                 Console.WriteLine("Datos cargados correctamente. \n");

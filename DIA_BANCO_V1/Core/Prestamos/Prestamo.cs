@@ -8,21 +8,19 @@ namespace DIA_BANCO_V1
         private string idP;
         private string tipo;
         private string cccOri;
-        private string cccDes;
         private double importe;
         private double cuota;
         private int numCuotas;
         private DateTime fecha;
         
-        public Prestamo(string id, string type, string cc1, string cc2, double amount, int nCuotas, DateTime date)  {
+        public Prestamo(string id, string type, string cc1, double amount, int nCuotas, DateTime date)  {
 
           double interes;
             
           IdPrestamo = id;
           Tipo = type;
           CccOri = cc1;
-          CccDes = cc2;
-            
+
           if (Tipo.Equals("Vivienda"))
           {
               interes = 1.05;
@@ -35,12 +33,11 @@ namespace DIA_BANCO_V1
           Fecha = date;
         }
 
-        public Prestamo(string id, string type, string cc1, string cc2, double amount,double quota, int nCuotas, DateTime date)
+        public Prestamo(string id, string type, string cc1, double amount,double quota, int nCuotas, DateTime date)
         {
             IdPrestamo = id;
             Tipo = type;
             CccOri = cc1;
-            CccDes = cc2;
             Importe = amount;
             Cuota = quota;
             NumCuotas = nCuotas;
@@ -64,12 +61,6 @@ namespace DIA_BANCO_V1
         {
             get => cccOri;
             set => cccOri = value;
-        }
-
-        public string CccDes
-        {
-            get => cccDes;
-            set => cccDes = value;
         }
 
         public double Importe
@@ -102,8 +93,7 @@ namespace DIA_BANCO_V1
 
             toret.AppendLine("\r\tId: " + this.IdPrestamo);
             toret.AppendLine("\r\tTipo: " + this.Tipo);
-            toret.AppendLine("\r\tCCC Origen:: " + this.CccOri);
-            toret.AppendLine("\r\tCCC Destino: " + this.CccDes);
+            toret.AppendLine("\r\tCCC: " + this.CccOri);
             toret.AppendLine("\r\tImporte: " + this.Importe);
             toret.AppendLine("\r\tCuota: " + this.Cuota);
             toret.AppendLine("\r\tNumCuotas: " + this.NumCuotas);

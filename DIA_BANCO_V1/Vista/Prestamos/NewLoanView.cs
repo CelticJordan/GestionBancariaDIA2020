@@ -19,7 +19,6 @@ namespace DIA_BANCO_V1 {
             pnlMain.Controls.Add( this.BuildIDP() );
             pnlMain.Controls.Add( this.BuildTipo() );
             pnlMain.Controls.Add( this.BuildCCCOri() );
-            pnlMain.Controls.Add( this.BuildCCCDes() );
             pnlMain.Controls.Add( this.BuildImporte() );
             pnlMain.Controls.Add( this.BuildNumCuotas() );
             pnlMain.Controls.Add( this.BuildFecha() );
@@ -89,7 +88,7 @@ namespace DIA_BANCO_V1 {
             
             toret.Controls.Add( new WForms.Label {
                 Dock  = WForms.DockStyle.Left,
-                Text = "CC Origen"
+                Text = "CCC"
             } );
 
             this.EdCCCOri = new WForms.TextBox {

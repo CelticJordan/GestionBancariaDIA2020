@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BancoPrestamos>
-  <prestamo id="1728870569" tipoPrestamo="Consumo" cccOrigen="11111111111111111111" cccDestino="123" importe="10800" cuota="100" numeroCuotas="108" fecha="12/23/2020 12:00:00 AM" />
-  <prestamo id="2129485650" tipoPrestamo="Consumo" cccOrigen="11111111111111111111" cccDestino="1234" importe="10800" cuota="450" numeroCuotas="24" fecha="12/12/2021 12:00:00 AM" />
+  <prestamo id="847662524" tipoPrestamo="Consumo" cccOrigen="11111111111111111111" importe="10800" cuota="900" numeroCuotas="12" fecha="12/12/2021 12:00:00 AM" />
 </BancoPrestamos>
