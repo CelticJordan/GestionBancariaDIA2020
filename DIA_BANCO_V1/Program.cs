@@ -50,9 +50,15 @@ namespace DIA_BANCO_V1
             cuentas.Add(cue2);
             cuentas.Add(cue3);
             
+<<<<<<< HEAD
             Prestamo p1 = new Prestamo( "12", "Consumo", "11111111111111111111", 10800, 900, 12, DateTime.UtcNow);
             Prestamo p2 = new Prestamo( "13", "Consumo","22222222222222222222", 10800, 90, 120, DateTime.UtcNow);
             Prestamo p3 = new Prestamo( "14", "Vivienda", "33333333333333333333", 10500, 35, 30, DateTime.UtcNow);
+=======
+            Prestamo p1 = new Prestamo( "12", "11111111111111111111", "22222222222222222222", 200, DateTime.UtcNow);
+            Prestamo p2 = new Prestamo( "13", "22222222222222222222", "33333333333333333333", 202, DateTime.UtcNow);
+            Prestamo p3 = new Prestamo( "14", "33333333333333333333", "11111111111111111111", 204, DateTime.UtcNow);
+>>>>>>> parent of 2226138... Redefinidos y reimplementados Prestamos:
             
             prestamos.Add(p1);
             prestamos.Add(p2);

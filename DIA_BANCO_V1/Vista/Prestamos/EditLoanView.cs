@@ -1,4 +1,5 @@
-namespace DIA_BANCO_V1 {
+namespace DIA_BANCO_V1
+{
     using Draw = System.Drawing;
     using WForms = System.Windows.Forms;
 
@@ -16,17 +17,25 @@ namespace DIA_BANCO_V1 {
                 Dock = WForms.DockStyle.Fill
             };
 
+<<<<<<< HEAD
             pnlMain.Controls.Add( this.BuildIDP() );
             pnlMain.Controls.Add( this.BuildTipo() );
             pnlMain.Controls.Add( this.BuildCCCOri() );
             pnlMain.Controls.Add( this.BuildImporte() );
             pnlMain.Controls.Add( this.BuildNumCuotas() );
             pnlMain.Controls.Add( this.BuildFecha() );
+=======
+            pnlMain.Controls.Add(this.BuildIDP());
+            pnlMain.Controls.Add(this.BuildCCCOri());
+            pnlMain.Controls.Add(this.BuildCCCDes());
+            pnlMain.Controls.Add(this.BuildImporte());
+            pnlMain.Controls.Add(this.BuildFecha());
+>>>>>>> parent of 2226138... Redefinidos y reimplementados Prestamos:
             pnlMain.Controls.Add(this.BuildBtEditar());
 
             this.Controls.Add(pnlMain);
             this.Text = "Editar Prestamo";
-            this.MinimumSize = new Draw.Size(400, 800);
+            this.MinimumSize = new Draw.Size(400, 650);
         }
 
         WForms.Panel BuildIDP()
@@ -50,35 +59,6 @@ namespace DIA_BANCO_V1 {
             };
 
             toret.Controls.Add(this.EdIDP);
-
-            return toret;
-        }
-        
-        WForms.Panel BuildTipo()
-        {
-            var toret = new WForms.Panel {
-                Dock = WForms.DockStyle.Top
-            };
-            
-            toret.Controls.Add (new WForms.Label {
-                Dock  = WForms.DockStyle.Top,
-                Text = "Tipo de Prestamo: "
-            });
-            
-
-            this.EdTipo = new WForms.ComboBox {
-                Dock = WForms.DockStyle.Top,
-                DropDownStyle = WForms.ComboBoxStyle.DropDownList,
-            };
-
-            this.EdTipo.Items.AddRange(new[]
-            {
-                "Consumo", "Vivienda"
-            });
-            
-            this.EdTipo.Text = (string) this.EdTipo.Items[0];
-            
-            toret.Controls.Add( this.EdTipo );
 
             return toret;
         }
@@ -158,28 +138,6 @@ namespace DIA_BANCO_V1 {
             return toret;
         }
 
-        WForms.Panel BuildNumCuotas()
-        {
-            var toret = new WForms.Panel {
-                Dock = WForms.DockStyle.Top
-            };
-            
-            toret.Controls.Add( new WForms.Label {
-                Dock  = WForms.DockStyle.Left,
-                Text = "NumCuotas (Consumo 12-120 / Vivienda 12-360)"
-            } );
-
-            this.EdNumCuotas = new WForms.TextBox {
-                Dock = WForms.DockStyle.Fill,
-                Text = "",
-                TextAlign = WForms.HorizontalAlignment.Right
-            };
-
-            toret.Controls.Add( this.EdNumCuotas );
-
-            return toret;
-        }
-        
         WForms.Panel BuildFecha()
         {
             var toret = new WForms.Panel
@@ -219,15 +177,11 @@ namespace DIA_BANCO_V1 {
 
         public WForms.TextBox EdIDP { get; private set; }
 
-        public WForms.ComboBox EdTipo { get; private set; }
-        
         public WForms.TextBox EdCCCOri { get; private set; }
-        
+
         public WForms.TextBox EdCCCDes { get; private set; }
-        
+
         public WForms.TextBox EdImporte { get; private set; }
-        
-        public WForms.TextBox EdNumCuotas { get; private set; }
 
         public WForms.TextBox EdFecha { get; private set; }
     }

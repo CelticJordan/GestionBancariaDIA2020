@@ -14,11 +14,14 @@ namespace DIA_BANCO_V1  {
         private const string EtqPrestamos = "prestamos";
         private const string EtqPrestamo = "prestamo";
         private const string EtqId = "id";
+<<<<<<< HEAD
         private const string EtqTipo = "Tipo";
         private const string EtqCccOri = "CCC";
+=======
+        private const string EtqCccOri = "cuentaOrigen";
+        private const string EtqCccDes = "cuentaDestino";
+>>>>>>> parent of 2226138... Redefinidos y reimplementados Prestamos:
         private const string EtqImporte = "importe";
-        private const string EtqCuota = "cuota";
-        private const string EtqNumCuotas = "numCuotas";
         private const string EtqFecha = "fecha";
 
         public RegistroPrestamos()
@@ -34,14 +37,12 @@ namespace DIA_BANCO_V1  {
         public void Add(Prestamo p)
         {
             var idP = p.IdPrestamo;
-            var tipo = p.Tipo;
-            var numCuota = p.NumCuotas;
             
             if (Existe(idP))
             {
                 throw new ArgumentException("Ya existe un Prestamo con ese identificador");
             }
-
+            
             this.prestamos.Add(p);
         }
 
@@ -92,16 +93,13 @@ namespace DIA_BANCO_V1  {
             {
                 throw new ArgumentException("No existe ningun Prestamo con ese identificador");
             }
-
+            
             foreach (var p in this.prestamos)
             {
                 if (p.IdPrestamo.Equals(pEdit.IdPrestamo))
                 {
-                    p.Tipo = pEdit.Tipo;
                     p.CccOri = pEdit.CccOri;
                     p.Importe = pEdit.Importe;
-                    p.Cuota = pEdit.Cuota;
-                    p.NumCuotas = pEdit.NumCuotas;
                     p.Fecha = pEdit.Fecha;
 
                 }
@@ -175,6 +173,7 @@ namespace DIA_BANCO_V1  {
             foreach(var pres in this.prestamos) {
 
                 root.Add(
+<<<<<<< HEAD
                     new XElement( EtqPrestamo,
                         new XAttribute( EtqId, pres.IdPrestamo ),
                         new XAttribute( EtqTipo, pres.Tipo),
@@ -183,6 +182,14 @@ namespace DIA_BANCO_V1  {
                         new XAttribute( EtqCuota, pres.Cuota.ToString("G", CultureInfo.InvariantCulture) ),
                         new XAttribute( EtqNumCuotas, pres.NumCuotas.ToString("G", CultureInfo.InvariantCulture) ),
                         new XAttribute( EtqFecha, pres.Fecha.ToString("dd/MM/yyyy") ) ) );
+=======
+                        new XElement( EtqPrestamo,
+                            new XAttribute( EtqId, pres.IdPrestamo ),
+                            new XAttribute( EtqCccOri, pres.CccOri.ToString() ),
+                            new XAttribute( EtqCccDes, pres.CccDes.ToString() ),
+                            new XAttribute( EtqImporte, pres.Importe.ToString("G", CultureInfo.InvariantCulture) ),
+                            new XAttribute( EtqFecha, pres.Fecha.ToString("dd-MM-yyyy") ) ) );
+>>>>>>> parent of 2226138... Redefinidos y reimplementados Prestamos:
             }
             
             doc.Add( root );
@@ -206,12 +213,16 @@ namespace DIA_BANCO_V1  {
                     {
 
                         toret.Add(new Prestamo(
+<<<<<<< HEAD
                             prestamoXml.Attribute(EtqId).Value,
                             prestamoXml.Attribute(EtqTipo).Value,
                             prestamoXml.Attribute(EtqCccOri).Value,
+=======
+                             prestamoXml.Attribute(EtqId).Value,
+                             prestamoXml.Attribute(EtqCccOri).Value,
+                             prestamoXml.Attribute(EtqCccDes).Value,
+>>>>>>> parent of 2226138... Redefinidos y reimplementados Prestamos:
                             Convert.ToDouble(prestamoXml.Attribute(EtqImporte).Value),
-                            Convert.ToDouble(prestamoXml.Attribute(EtqCuota).Value),
-                            Convert.ToInt32(prestamoXml.Attribute(EtqNumCuotas).Value),
                              DateTime.Parse(prestamoXml.Attribute(EtqFecha).Value,provider)));
 
                     }

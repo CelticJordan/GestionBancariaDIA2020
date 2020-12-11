@@ -67,7 +67,6 @@
     <Compile Include="Core\Cuentas\CuentaVivienda.cs" />
     <Compile Include="Core\Graficos\Grafico.cs" />
     <Compile Include="Core\Prestamos\Prestamo.cs" />
-    <Compile Include="Core\Prestamos\PrestamoException.cs" />
     <Compile Include="Core\Prestamos\RegistroPrestamos.cs" />
     <Compile Include="Core\Transferencia\RegistroTransferencias.cs" />
     <Compile Include="Core\Transferencia\Transferencia.cs" />
@@ -98,6 +97,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vista\ModalInsertarTitular.Designer.cs" />
+    <Compile Include="Vista\Prestamos\ConsoleUI.cs" />
     <Compile Include="Vista\Prestamos\DelLoanCtrl.cs" />
     <Compile Include="Vista\Prestamos\DelLoanView.cs">
       <SubType>Form</SubType>
