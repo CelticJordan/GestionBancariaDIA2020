@@ -19,6 +19,7 @@ namespace DIA_BANCO_V1
         public const int ColEmail = 3;
         public const int ColDireccion = 4;
         public const int ColGrafico = 5;
+        public const int ColGrafico2 = 6;
         string dniglobal;//VARIABLE UTILIZADA PARA PODER MODIFICAR EL DNI AUNQUE SEA CLAVE PRIMARIA
         private List<Cliente> registro;
         private List<Cuenta> cuentas;
@@ -68,6 +69,15 @@ namespace DIA_BANCO_V1
                 gcv.Transferencias = this.transferencias;
                 gcv.Cliente = cliente;
                 gcv.OnCrearGraficoSaldoCliente();
+
+            }
+            if (columna == 6)
+            {
+                GraficoControlView gcv = new GraficoControlView();
+                gcv.Cuentas = this.cuentas;
+                gcv.Transferencias = this.transferencias;
+                gcv.Cliente = cliente;
+                gcv.OnCrearGraficoCliente();
 
             }
 
@@ -131,8 +141,9 @@ namespace DIA_BANCO_V1
             row.Cells[ColTelefono].Value = cliente.Telefono;
             row.Cells[ColEmail].Value = cliente.Email;
             row.Cells[ColDireccion].Value = cliente.DirPostal;
-            row.Cells[ColGrafico].Value = "Generar Gráfico";
-            
+            row.Cells[ColGrafico].Value = "Generar Gráfico Saldo";
+            row.Cells[ColGrafico2].Value = "Generar Gráfico Ingresos";
+
             // Assign tooltip text
             foreach (DataGridViewCell cell in row.Cells)
             {

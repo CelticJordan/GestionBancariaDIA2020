@@ -99,6 +99,8 @@
             var textCellTemplate2 = new DataGridViewTextBoxCell();
             var textCellTemplate3 = new DataGridViewTextBoxCell();
             var textCellTemplate4 = new DataGridViewTextBoxCell();
+            var textCellTemplate5 = new DataGridViewTextBoxCell();
+            var textCellTemplate6 = new DataGridViewTextBoxCell();
             textCellTemplate0.Style.BackColor = Color.LightGray;
             textCellTemplate0.Style.ForeColor = Color.Black;
             textCellTemplate1.Style.BackColor = Color.Wheat;
@@ -110,6 +112,8 @@
             textCellTemplate3.Style.ForeColor = Color.Black;
             textCellTemplate4.Style.BackColor = Color.Wheat;
             textCellTemplate4.Style.ForeColor = Color.Black;
+            textCellTemplate5.Style.BackColor = Color.Orange;
+            textCellTemplate6.Style.BackColor = Color.DarkOrange;
 
             var column0 = new DataGridViewTextBoxColumn
             {
@@ -158,14 +162,22 @@
             var column5 = new DataGridViewTextBoxColumn
             {            
                 SortMode = DataGridViewColumnSortMode.NotSortable,
-                CellTemplate = textCellTemplate4,
-                HeaderText = "Grafico",
+                CellTemplate = textCellTemplate5,
+                HeaderText = "Grafico Saldo",
+                Width = 50,
+                ReadOnly = true
+            };
+            var column6 = new DataGridViewTextBoxColumn
+            {
+                SortMode = DataGridViewColumnSortMode.NotSortable,
+                CellTemplate = textCellTemplate6,
+                HeaderText = "Grafico Ingreso",
                 Width = 50,
                 ReadOnly = true
             };
 
             this.grdLista.Columns.AddRange(new DataGridViewColumn[] {
-                column0, column1, column2, column3, column4, column5
+                column0, column1, column2, column3, column4, column5, column6
             });
 
 
@@ -208,7 +220,7 @@
             this.pnlPpal.Controls.Add(this.BuildPanelDetalle());
             this.pnlPpal.ResumeLayout(false);
 
-            this.MinimumSize = new Size(600, 400);
+            this.MinimumSize = new Size(1000, 700);
             this.Resize += (obj, e) => this.ResizeWindow();
             this.Text = "Gestión de clientes del banco";
 
@@ -225,21 +237,22 @@
             this.grdLista.Width = width;
 
             this.grdLista.Columns[ColDni].Width =
-                                (int)System.Math.Floor(width * .165); // dni
+                                (int)System.Math.Floor(width * .142); // dni
             this.grdLista.Columns[ColNombre].Width =
-                                (int)System.Math.Floor(width * .165); // nombre
+                                (int)System.Math.Floor(width * .142); // nombre
             this.grdLista.Columns[ColTelefono].Width =
-                                (int)System.Math.Floor(width * .165); // telefono
+                                (int)System.Math.Floor(width * .142); // telefono
             this.grdLista.Columns[ColEmail].Width =
-                                (int)System.Math.Floor(width * .165); // email
+                                (int)System.Math.Floor(width * .142); // email
             this.grdLista.Columns[ColDireccion].Width =
-                                (int)System.Math.Floor(width * .165); // direccion   
+                                (int)System.Math.Floor(width * .142); // direccion   
             this.grdLista.Columns[ColGrafico].Width =
-                (int)System.Math.Floor(width * .165); // grafico  
+                (int)System.Math.Floor(width * .142); // grafico  
+            this.grdLista.Columns[ColGrafico2].Width =
+                (int)System.Math.Floor(width * .142); // grafico  
             
         }
 
-        private DataGridViewTextBoxColumn column5;
         private MainMenu mPpal;
         private MenuItem opAnhadir;
         private MenuItem mEliminar;

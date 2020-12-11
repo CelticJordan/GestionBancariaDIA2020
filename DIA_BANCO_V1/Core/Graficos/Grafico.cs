@@ -172,22 +172,33 @@ namespace DIA_BANCO_V1
         /// <returns></returns>
         public int[] ordenarIngresosCliente(Cliente c, IEnumerable<Cuenta> cuentas, IEnumerable<Transferencia> transferencias)
         {
-            //cogemos las cuentas que tiene cada cliente
-            var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
-            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
-            //extraemos los depositos de las cuentas
-            var depositos_cuentas = from cuenta in cuentas_cliente select cuenta.Depositos;
+            //cogemos las cuentas que tiene el cliente
+            List<Cuenta> cuentas_cliente = new List<Cuenta>();
+            foreach (Cuenta c1 in cuentas)
+            {
+                foreach (Cliente c2 in c1.Titulares)
+                {
+                    if (c2.Dni.Equals(c.Dni))
+                    {
+                        cuentas_cliente.Add(c1);
+                    }
+                }
+            }
 
+            //cogemos los depositos y transferencias de todas las cuentas
+            var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
+            //tratamos la coleccion de Ienumerables de deposito
             List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
-            foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
+            foreach (IEnumerable<Cuenta.Deposito> d in depositos_cliente)
             {
                 foreach (Cuenta.Deposito p in d)
                 {
                     depositos.Add(p);
                 }
             }
+            var nombre_cuentas = from cuenta in cuentas_cliente select cuenta.CCC;
             //transferencias que tienen como un titular  de la cuenta de destino el cliente que le pasamos 
-            var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
+            var transferencias_cliente = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
             var dep = from deposito in depositos select (deposito.DateTime, deposito.Cantidad);
             var fechas_trasnferencias = from transferencia in transferencias_cliente select (transferencia.Fecha, transferencia.Importe);
             var lista_dep = dep.ToList();
@@ -233,21 +244,33 @@ namespace DIA_BANCO_V1
         /// <returns></returns>
         public String[] ordenarAñosIngresosCliente(Cliente c, IEnumerable<Cuenta> cuentas, IEnumerable<Transferencia> transferencias)
         {
-            //cogemos las cuentas que tiene cada cliente
-            var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
-            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
-            //extraemos los depositos de las cuentas
-            var depositos_cuentas = from cuenta in cuentas_cliente select cuenta.Depositos;
+            //cogemos las cuentas que tiene el cliente
+            List<Cuenta> cuentas_cliente = new List<Cuenta>();
+            foreach (Cuenta c1 in cuentas)
+            {
+                foreach (Cliente c2 in c1.Titulares)
+                {
+                    if (c2.Dni.Equals(c.Dni))
+                    {
+                        cuentas_cliente.Add(c1);
+                    }
+                }
+            }
+
+            //cogemos los depositos y transferencias de todas las cuentas
+            var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
+            //tratamos la coleccion de Ienumerables de deposito
             List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
-            foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
+            foreach (IEnumerable<Cuenta.Deposito> d in depositos_cliente)
             {
                 foreach (Cuenta.Deposito p in d)
                 {
                     depositos.Add(p);
                 }
             }
+            var nombre_cuentas = from cuenta in cuentas_cliente select cuenta.CCC;
             //transferencias que tienen como un titular  de la cuenta de destino el cliente que le pasamos 
-            var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha);
+            var transferencias_cliente = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCDestino)) select (transferencia.Fecha);
             var dep = from deposito in depositos select (deposito.DateTime);
             var fechas_trasnferencias = from transferencia in transferencias select (transferencia.Fecha);
             var total = fechas_trasnferencias.Union(dep);//juntamos los datos de que nos interesan y obtenemos todas las fechas
@@ -284,20 +307,33 @@ namespace DIA_BANCO_V1
         /// <returns></returns>
         public int[] ordenarIngresosClienteAño(Cliente c, IEnumerable<Cuenta> cuentas, IEnumerable<Transferencia> transferencias, int año)
         {
-            //cogemos los depositos de las cuentas del cliente
-            var depositos_cuentas = from cuenta in cuentas where (cuenta.Titulares.Contains(c)) select cuenta.Depositos;
-            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
-            //juntamos todos los objetos deposito, que en cuenta son IEnumerables
+            //cogemos las cuentas que tiene el cliente
+            List<Cuenta> cuentas_cliente = new List<Cuenta>();
+            foreach (Cuenta c1 in cuentas)
+            {
+                foreach (Cliente c2 in c1.Titulares)
+                {
+                    if (c2.Dni.Equals(c.Dni))
+                    {
+                        cuentas_cliente.Add(c1);
+                    }
+                }
+            }
+
+            //cogemos los depositos y transferencias de todas las cuentas
+            var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
+            //tratamos la coleccion de Ienumerables de deposito
             List<Cuenta.Deposito> depositos = new List<Cuenta.Deposito>();
-            foreach (IEnumerable<Cuenta.Deposito> d in depositos_cuentas)
+            foreach (IEnumerable<Cuenta.Deposito> d in depositos_cliente)
             {
                 foreach (Cuenta.Deposito p in d)
                 {
                     depositos.Add(p);
                 }
             }
+            var nombre_cuentas = from cuenta in cuentas_cliente select cuenta.CCC;
             var dep = from deposito in depositos where deposito.DateTime.Year == año select (deposito.DateTime, deposito.Cantidad);
-            var transferencias_cliente = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
+            var transferencias_cliente = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
             var fechas_trasnferencias = from transferencia in transferencias_cliente where transferencia.Fecha.Year == año select (transferencia.Fecha, transferencia.Importe);
             var lista_dep = dep.ToList();
             var lista_transferencias = fechas_trasnferencias.ToList();
@@ -509,8 +545,18 @@ namespace DIA_BANCO_V1
         public int[] ordenarResumenSaldoCliente(Cliente c, IEnumerable<Cuenta> cuentas, IEnumerable<Transferencia> transferencias)
         {
             //cogemos las cuentas que tiene el cliente
-            var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
-            var cuentas_nombres = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
+            List<Cuenta> cuentas_cliente = new List<Cuenta>();
+            foreach(Cuenta c1 in cuentas)
+            {
+                foreach (Cliente c2 in c1.Titulares)
+                {
+                    if (c2.Dni.Equals(c.Dni))
+                    {
+                        cuentas_cliente.Add(c1);
+                    }
+                }
+            }
+
             //cogemos los depositos y transferencias de todas las cuentas
             var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
             var retiradas_cliente = from retirada in cuentas_cliente select retirada.Retiradas;
@@ -531,11 +577,12 @@ namespace DIA_BANCO_V1
                     retiradas.Add(p);
                 }
             }
+            var nombre_cuentas = from cuenta in cuentas_cliente select cuenta.CCC;
             var dep = from deposito in depositos select (deposito.DateTime, deposito.Cantidad);
             var ret = from retirada in retiradas select (retirada.DateTime, -retirada.Cantidad);
             //cogemos las transferencias de retirada y de ingreso en las cuentas del cliente
-            var transferencias_pos = from transferencia in transferencias where (cuentas_nombres.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
-            var transferencias_neg = from transferencia in transferencias where (cuentas_nombres.Contains(transferencia.CCCOrigen)) select (transferencia.Fecha, -transferencia.Importe);
+            var transferencias_pos = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCDestino)) select (transferencia.Fecha, transferencia.Importe);
+            var transferencias_neg = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCOrigen)) select (transferencia.Fecha, -transferencia.Importe);
             //union de saldos negativos y positivos en una lista
             var lista_trasnferencias_pos = transferencias_pos.ToList();
             var lista_trasnferencias_neg = transferencias_neg.ToList();
@@ -546,6 +593,7 @@ namespace DIA_BANCO_V1
             lista_depositos.AddRange(lista_retiradas);
             var total = lista_depositos.OrderBy(fecha => fecha.DateTime);//ordenamos los datos por fecha
             var lista_total = total.ToList();
+
             for (int i = 0; i < lista_total.Count(); i++)
             {
                 for (int j = i + 1; j < lista_total.Count(); j++)
@@ -581,6 +629,7 @@ namespace DIA_BANCO_V1
                 lista_final.Add(elem);
             }
             return lista_final.ToArray();
+
         }
         /// <summary>
         /// Funcion que calcula los años en los que se hicieron las transacciones
@@ -592,8 +641,18 @@ namespace DIA_BANCO_V1
         public String[] ordenarAñosResumenCliente(Cliente c, IEnumerable<Cuenta> cuentas, IEnumerable<Transferencia> transferencias)
         {
             //cogemos las cuentas que tiene el cliente
-            var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
-            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
+            List<Cuenta> cuentas_cliente = new List<Cuenta>();
+            foreach (Cuenta c1 in cuentas)
+            {
+                foreach (Cliente c2 in c1.Titulares)
+                {
+                    if (c2.Dni.Equals(c.Dni))
+                    {
+                        cuentas_cliente.Add(c1);
+                    }
+                }
+            }
+
             //cogemos los depositos y transferencias de todas las cuentas
             var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
             var retiradas_cliente = from retirada in cuentas_cliente select retirada.Retiradas;
@@ -614,11 +673,12 @@ namespace DIA_BANCO_V1
                     retiradas.Add(p);
                 }
             }
+            var nombre_cuentas = from cuenta in cuentas_cliente select cuenta.CCC;
             var dep = from deposito in depositos select (deposito.DateTime);
             var ret = from retirada in retiradas select (retirada.DateTime);
             //cogemos las transferencias de retirada y de ingreso en las cuentas del cliente
-            var transferencias_pos = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino)) select (transferencia.Fecha);
-            var transferencias_neg = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCOrigen)) select (transferencia.Fecha);
+            var transferencias_pos = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCDestino)) select (transferencia.Fecha);
+            var transferencias_neg = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCOrigen)) select (transferencia.Fecha);
             var total = dep.Union(ret).Union(transferencias_neg).Union(transferencias_pos);//juntamos los datos de que nos interesan y obtenemos todas las fechas
             total = total.OrderBy(fecha => fecha.Date);//ordenamos los datos
             HashSet<String> lista_final_años = new HashSet<String>();//creamos un hashset para no introducir años repetidos
@@ -646,8 +706,18 @@ namespace DIA_BANCO_V1
         public int[] ordenarResumenSaldoClienteAños(Cliente c, IEnumerable<Cuenta> cuentas, IEnumerable<Transferencia> transferencias, int año)
         {
             //cogemos las cuentas que tiene el cliente
-            var cuentas_cliente = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta;
-            var cuentas_nombre = from cuenta in cuentas where cuenta.Titulares.Contains(c) select cuenta.CCC;
+            List<Cuenta> cuentas_cliente = new List<Cuenta>();
+            foreach (Cuenta c1 in cuentas)
+            {
+                foreach (Cliente c2 in c1.Titulares)
+                {
+                    if (c2.Dni.Equals(c.Dni))
+                    {
+                        cuentas_cliente.Add(c1);
+                    }
+                }
+            }
+
             //cogemos los depositos y transferencias de todas las cuentas
             var depositos_cliente = from deposito in cuentas_cliente select deposito.Depositos;
             var retiradas_cliente = from retirada in cuentas_cliente select retirada.Retiradas;
@@ -660,20 +730,20 @@ namespace DIA_BANCO_V1
                     depositos.Add(p);
                 }
             }
-            // tratamos la coleccion de Ienumerables de retiradas
             List<Cuenta.Retirada> retiradas = new List<Cuenta.Retirada>();
             foreach (IEnumerable<Cuenta.Retirada> d in retiradas_cliente)
             {
                 foreach (Cuenta.Retirada p in d)
                 {
-                   retiradas.Add(p);
+                    retiradas.Add(p);
                 }
             }
+            var nombre_cuentas = from cuenta in cuentas_cliente select cuenta.CCC;
             var dep = from deposito in depositos  select (deposito.DateTime, deposito.Cantidad);
             var ret = from retirada in retiradas  select (retirada.DateTime, -retirada.Cantidad);
             //cogemos las transferencias de retirada y de ingreso en las cuentas del cliente
-            var transferencias_pos = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCDestino) ) select (transferencia.Fecha, transferencia.Importe);
-            var transferencias_neg = from transferencia in transferencias where (cuentas_nombre.Contains(transferencia.CCCOrigen) ) select (transferencia.Fecha, -transferencia.Importe);
+            var transferencias_pos = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCDestino) ) select (transferencia.Fecha, transferencia.Importe);
+            var transferencias_neg = from transferencia in transferencias where (nombre_cuentas.Contains(transferencia.CCCOrigen) ) select (transferencia.Fecha, -transferencia.Importe);
             //union de saldos negativos y positivos en una lista
             var lista_trasnferencias_pos = transferencias_pos.ToList();
             var lista_trasnferencias_neg = transferencias_neg.ToList();

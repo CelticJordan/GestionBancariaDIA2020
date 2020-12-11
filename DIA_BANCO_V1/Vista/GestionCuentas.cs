@@ -804,8 +804,10 @@ namespace DIA_BANCO_V1
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             var r = new MainWindow(this.clientes,this.cuentas,this.transferencias);
             r.ShowDialog();
+            this.Visible = true;
 
         }
     }
