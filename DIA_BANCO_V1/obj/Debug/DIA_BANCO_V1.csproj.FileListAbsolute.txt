@@ -1,0 +1,73 @@
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe.config
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.pdb
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csprojAssemblyReference.cache
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Properties.Resources.resources
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.GestionCuentas.resources
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarCuenta.resources
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarTitular.resources
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.GenerateResource.cache
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.CoreCompileInputs.cache
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.exe
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.pdb
+C:\Users\ruben\RiderProjects\DIA_BANCO_V1\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.VistaMain.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe.config
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.pdb
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csprojAssemblyReference.cache
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Properties.Resources.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.GestionCuentas.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarCuenta.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarTitular.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.GenerateResource.cache
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.CoreCompileInputs.cache
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.exe
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.pdb
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe.config
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.pdb
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csprojAssemblyReference.cache
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Properties.Resources.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.GestionCuentas.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarCuenta.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarTitular.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.GenerateResource.cache
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.CoreCompileInputs.cache
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.exe
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V2\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.pdb
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe.config
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.pdb
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csprojAssemblyReference.cache
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Properties.Resources.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.GestionCuentas.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarCuenta.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarTitular.resources
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.GenerateResource.cache
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.CoreCompileInputs.cache
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.exe
+D:\Ingenieria Informática\20 21\DIA\20-21\Proyecto Final\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.pdb
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe.config
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.pdb
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Properties.Resources.resources
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.GestionCuentas.resources
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarCuenta.resources
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarTitular.resources
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.GenerateResource.cache
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.exe
+C:\Users\Usuario\Documents\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.pdb
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe.config
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.exe
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\bin\Debug\DIA_BANCO_V1.pdb
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csprojAssemblyReference.cache
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Properties.Resources.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.GestionCuentas.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarCuenta.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.Vista.ModalInsertarTitular.resources
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.GenerateResource.cache
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.csproj.CoreCompileInputs.cache
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.exe
+C:\Users\ruben\OneDrive\Documentos\GitHub\GestionBancariaDIA2020\DIA_BANCO_V1\obj\Debug\DIA_BANCO_V1.pdb
