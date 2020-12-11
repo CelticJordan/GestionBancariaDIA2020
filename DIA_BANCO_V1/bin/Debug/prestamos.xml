@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BancoPrestamos>
+  <prestamo id="1807176343" tipoPrestamo="Consumo" ccc="11111111111111111111" importe="21600" cuota="1661.53846153846" numeroCuotas="13" fecha="12/20/2020 12:00:00 AM" />
+</BancoPrestamos>
