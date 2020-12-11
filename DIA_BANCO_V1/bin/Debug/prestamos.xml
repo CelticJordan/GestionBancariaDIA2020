@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BancoPrestamos>
-  <prestamo id="847662524" tipoPrestamo="Consumo" cccOrigen="11111111111111111111" importe="10800" cuota="900" numeroCuotas="12" fecha="12/12/2021 12:00:00 AM" />
-</BancoPrestamos>
