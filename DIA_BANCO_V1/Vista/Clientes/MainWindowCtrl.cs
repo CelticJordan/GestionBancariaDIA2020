@@ -52,6 +52,27 @@ namespace DIA_BANCO_V1
             this.Actualiza();
         }
 
+        //Método para mostrar el gráfico al clickar en la opción de gráfico
+        private void OnBtGraficoClick()
+        {
+            int fila;
+            int columna;
+            fila = this.grdLista.CurrentRow.Index;
+            columna = this.grdLista.CurrentCell.ColumnIndex;
+            Cliente cliente = Banco.getCliente(this.grdLista.CurrentRow.Cells[0].Value.ToString(), this.registro);
+
+            if (columna == 5)
+            {
+                GraficoControlView gcv = new GraficoControlView();
+                gcv.Cuentas = this.cuentas;
+                gcv.Transferencias = this.transferencias;
+                gcv.Cliente = cliente;
+                gcv.OnCrearGraficoSaldoCliente();
+
+            }
+
+        }
+
         //Método que actualiza la tabla
         private void Actualiza()
         {

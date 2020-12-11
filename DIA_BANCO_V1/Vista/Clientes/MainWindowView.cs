@@ -156,7 +156,7 @@
                 ReadOnly = true
             };
             var column5 = new DataGridViewTextBoxColumn
-            {
+            {            
                 SortMode = DataGridViewColumnSortMode.NotSortable,
                 CellTemplate = textCellTemplate4,
                 HeaderText = "Grafico",
@@ -171,6 +171,11 @@
 
             this.grdLista.SelectionChanged +=
                                         (sender, e) => this.FilaSeleccionada();
+
+            this.grdLista.Click +=
+                            (sender, e) => this.OnBtGraficoClick();
+
+
             pnlLista.Controls.Add(this.grdLista);
             pnlLista.ResumeLayout(false);
             return pnlLista;
@@ -183,7 +188,6 @@
             this.sbStatus = new StatusBar { Dock = DockStyle.Bottom };
             this.Controls.Add(this.sbStatus);
         }
-
 
         private void Build()
         {
@@ -235,6 +239,7 @@
             
         }
 
+        private DataGridViewTextBoxColumn column5;
         private MainMenu mPpal;
         private MenuItem opAnhadir;
         private MenuItem mEliminar;
