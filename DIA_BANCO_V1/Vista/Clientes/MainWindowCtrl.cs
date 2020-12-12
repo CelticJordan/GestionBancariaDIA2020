@@ -463,15 +463,17 @@ namespace DIA_BANCO_V1
         {
             string dnieliminar = this.buscarView.dni.Text;
             StringBuilder toret = new StringBuilder();
+            Cliente temp = null;
 
             foreach (Cliente c in registro)
             {
                 if (dnieliminar.Equals(c.Dni))
                 {
                     toret.Append(c.ToString());
-                    registro.Remove(c);
+                    temp = c;
                 }
             }
+            registro.Remove(temp);
 
             this.Actualiza();
             WForms.MessageBox.Show("Se ha eliminado el cliente con los datos: \n" + toret, "Eliminar cliente");
@@ -657,14 +659,16 @@ namespace DIA_BANCO_V1
             string dnieliminar = this.registro.ElementAt(fila).Dni;
             StringBuilder toret = new StringBuilder();
 
+            Cliente temp=null;
             foreach (Cliente c in registro)
             {
                 if (dnieliminar.Equals(c.Dni))
                 {
                     toret.Append(c.ToString());
-                    registro.Remove(c);
+                    temp = c;
                 }
             }
+            registro.Remove(temp);
 
             this.Actualiza();
             WForms.MessageBox.Show("Se ha eliminado el cliente con los datos: \n" + toret, "Eliminar cliente");
