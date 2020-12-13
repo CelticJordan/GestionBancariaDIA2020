@@ -681,24 +681,23 @@ namespace DIA_BANCO_V1
             RefrescarGridTransferencias(GetTransferenciasCuentaSelecionadaGridCuentas());
         }
         
-        
+        /// <summary>
+        /// Comprueba si ha pasado 1 mes desde la ultima transferencia mensual, si es asi , realiza la transferencia y actualiza la fecha de la siguiente transferencia
+        /// </summary>
         public void control_transferencias_periodicas()
         {
             foreach (Transferencia transferencia in this.transferencias)
             {
                 if (transferencia is Transferencia_Periodica)
-                {
+                { 
                     Transferencia_Periodica t = (Transferencia_Periodica)transferencia;
                    if(DateTime.Now > t.Fecha && DateTime.Now<t.Fecha_Siguiente)
                     {
-                        //Banco.transferencia_sum_rest(transferencia,this.cuentas);
-                        //transferencia.Fecha_Siguiente = transferencia.Fecha_Siguiente.AddMonths(1);
-                        //MessageBox.Show("Ha pasado 1 mes"+"FECHA DE TRANS "+ t.Fecha+"FECHA ACTUAL "+DateTime.Now +"Fecha siguiente: "+ t.Fecha_Siguiente );
+                        Banco.transferencia_sum_rest(transferencia,this.cuentas);
+                        t.Fecha_Siguiente = t.Fecha_Siguiente.AddMonths(1);
                     }
-
                 }
             }
-            //RefrescarGridCuentas(this.cuentas);
         }
         
         /***************************************************************************/

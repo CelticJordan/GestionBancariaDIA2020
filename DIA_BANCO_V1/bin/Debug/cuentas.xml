@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BancoCuentas>
-  <cuenta ccc="11111111111111111111" tipo="Vivienda" saldo="298" fechaApertura="12/06/2020 19:09:13" interesMensual="0,3">
+  <cuenta ccc="11111111111111111111" tipo="Vivienda" saldo="360" fechaApertura="12/06/2020 19:09:13" interesMensual="0,3">
     <titulares>
       <titular>76735813Q</titular>
       <titular>77777777V</titular>
@@ -12,7 +12,7 @@
     </depositos>
     <retiradas />
   </cuenta>
-  <cuenta ccc="22222222222222222222" tipo="Vivienda" saldo="2478" fechaApertura="06/12/2020 19:20:05" interesMensual="0,3">
+  <cuenta ccc="22222222222222222222" tipo="Vivienda" saldo="2470" fechaApertura="06/12/2020 19:20:05" interesMensual="0,3">
     <titulares>
       <titular>11111111M</titular>
     </titulares>
@@ -30,7 +30,7 @@
       <retirada concepto="43124" cantidad="123123" dateTime="07/12/2020 19:12:26" />
     </retiradas>
   </cuenta>
-  <cuenta ccc="33333333333333333333" tipo="Ahorro" saldo="199598" fechaApertura="13/12/2020 15:31:03" interesMensual="0,1">
+  <cuenta ccc="33333333333333333333" tipo="Ahorro" saldo="199544" fechaApertura="13/12/2020 15:31:03" interesMensual="0,1">
     <titulares>
       <titular>81759827P</titular>
     </titulares>
