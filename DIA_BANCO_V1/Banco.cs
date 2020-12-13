@@ -226,12 +226,24 @@ namespace DIA_BANCO_V1
             return false;
         }
         
-        public static bool borrarPrestamo(string id, List<Prestamo> prestamos)
+        public static bool borrarPrestamo(string id, List<Prestamo> prestamos ,List<Cuenta> cuentas)
         {
             foreach (Prestamo p in prestamos)
             {
                 if (id.Equals(p.IdPrestamo))
                 {
+                    Cuenta a = getCuenta(p.CccOri, cuentas);
+                    
+                    if (p.Tipo.Equals("Consumo"))
+                    {
+                        a.Saldo = a.Saldo -  p.Importe/1.08;
+                    }
+            
+                    if (p.Tipo.Equals("Vivienda"))
+                    {
+                        a.Saldo = a.Saldo -  p.Importe/1.05;
+                    }
+
                     prestamos.Remove(p);
                     return true;
                 }
@@ -270,6 +282,24 @@ namespace DIA_BANCO_V1
             {
                 return false;
             }
+        }
+        
+        public static bool prestamo_sum(Prestamo p,List<Cuenta> cuentas)
+        {
+            Cuenta origen = Banco.getCuenta(p.CccOri, cuentas);
+
+            if (p.Tipo.Equals("Consumo"))
+            {
+                origen.Saldo = origen.Saldo +  p.Importe/1.08;
+                return true;
+            }
+            
+            if (p.Tipo.Equals("Vivienda"))
+            {
+                origen.Saldo = origen.Saldo +  p.Importe/1.05;
+                return true;
+            }
+            return false;
         }
         
     }

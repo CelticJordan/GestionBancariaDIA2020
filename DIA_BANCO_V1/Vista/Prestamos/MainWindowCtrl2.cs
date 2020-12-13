@@ -6,9 +6,11 @@ namespace DIA_BANCO_V1
     public class MainWindowCtrl2
     {
         private List<Prestamo> prestamos;
-        public MainWindowCtrl2(List<Prestamo> prestamos)
+        private List<Cuenta> cuentas;
+        public MainWindowCtrl2(List<Prestamo> prestamos, List<Cuenta> cuentas)
         {
             this.prestamos = prestamos;
+            this.cuentas = cuentas;
             this.View = new MainWindowView2();    
          
             this.View.OpQuit.Click += (o, args) => this.OnQuit();
@@ -21,6 +23,7 @@ namespace DIA_BANCO_V1
             this.View.BtEditLoan.Click += (o, args) => this.ViewEditLoan();
             this.View.BtDelLoan.Click += (o, args) => this.ViewDelLoan();
         }
+
         
         void OnQuit()
         {
@@ -35,7 +38,7 @@ namespace DIA_BANCO_V1
 
         void ViewNewLoan()
         {
-            new NewLoanCtrl(this.prestamos).View.Show();
+            new NewLoanCtrl(this.prestamos, this.cuentas).View.Show();
         }
         
         void ViewEditLoan()

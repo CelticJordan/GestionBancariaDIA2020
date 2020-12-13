@@ -718,7 +718,7 @@ namespace DIA_BANCO_V1
                     MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
-                    if (Banco.borrarPrestamo(pres.IdPrestamo, this.prestamos))
+                    if (Banco.borrarPrestamo(pres.IdPrestamo, this.prestamos,this.cuentas))
                     {
                         MessageBox.Show("Prestamo borrado con éxito");
                     }
@@ -744,13 +744,14 @@ namespace DIA_BANCO_V1
                 return;
             }
             
-            NewLoanCtrl nlc = new NewLoanCtrl(this.prestamos);
+            NewLoanCtrl nlc = new NewLoanCtrl(this.prestamos, this.cuentas);
             nlc.View.EdCCCOri.Text = getCuentaSelecionadaGridCuentas().CCC;
             nlc.View.EdCCCOri.Enabled = false;
             nlc.View.EdIDP.Text = new Random().Next().ToString();
             nlc.View.EdIDP.Enabled = false;
             nlc.View.ShowDialog();
             RefrescarGridPrestamos(GetPrestamosCuentaSelecionadaGridCuentas());
+            RefrescarGridCuentas(this.cuentas);
         }
         
         /**********************************************************************************************************/

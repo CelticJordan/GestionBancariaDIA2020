@@ -2,6 +2,7 @@
 using System.Text;
 using System.Xml.Linq;
 using System;
+using System.Globalization;
 using DIA_BANCO_V1;
 
 namespace DIA_BANCO_V1 {
@@ -205,7 +206,7 @@ namespace DIA_BANCO_V1 {
                 new XAttribute(EtiquetaImporte, prestamo.Importe.ToString()),
                 new XAttribute(EtiquetaCuota, prestamo.Cuota.ToString()),
                 new XAttribute(EtiquetaNumeroCuotas, prestamo.NumCuotas.ToString()),
-                new XAttribute(EtiquetaFecha, prestamo.Fecha.ToString())
+                new XAttribute(EtiquetaFecha, prestamo.Fecha.ToString("dd/MM/yyyy"))
 
             );
 
@@ -474,7 +475,7 @@ namespace DIA_BANCO_V1 {
                     double importe = Convert.ToDouble((string)pr.Attribute(EtiquetaImporte));
                     double cuota = Convert.ToDouble((string)pr.Attribute(EtiquetaCuota));
                     int numCuotas = (int)pr.Attribute((EtiquetaNumeroCuotas));
-                    DateTime fecha = (DateTime)pr.Attribute(EtiquetaFecha);
+                    DateTime fecha = Convert.ToDateTime((string)pr.Attribute(EtiquetaFecha));
 
 
                     Prestamo prestamo = new Prestamo(id, tipo, cccOrigen, importe, cuota, numCuotas, fecha);
