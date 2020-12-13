@@ -709,7 +709,6 @@ namespace DIA_BANCO_V1
             if (dataGridPrestamos.CurrentCell.ColumnIndex == 5)
             {
                 int currentPrest = dataGridPrestamos.CurrentRow.Index;
-                Cuenta cuentaSelecionada = getCuentaSelecionadaGridCuentas();
                 Prestamo pres = GetPrestamosCuentaSelecionadaGridCuentas()[currentPrest];
 
                 //Preguntar y borrar

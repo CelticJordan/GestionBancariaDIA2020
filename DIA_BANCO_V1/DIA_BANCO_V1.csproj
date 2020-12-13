@@ -60,7 +60,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Core\Clientes\Cliente.cs" />
-    <Compile Include="Core\Clientes\registroClientes.cs" />
     <Compile Include="Core\Cuentas\Cuenta.cs" />
     <Compile Include="Core\Cuentas\CuentaAhorro.cs" />
     <Compile Include="Core\Cuentas\CuentaCorriente.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="Core\Graficos\Grafico.cs" />
     <Compile Include="Core\Prestamos\PrestamoException.cs" />
     <Compile Include="Core\Prestamos\Prestamo.cs" />
-    <Compile Include="Core\Prestamos\RegistroPrestamos.cs" />
     <Compile Include="Core\Transferencia\Transferencia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,22 +95,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vista\ModalInsertarTitular.Designer.cs" />
-    <Compile Include="Vista\Prestamos\DelLoanCtrl.cs" />
-    <Compile Include="Vista\Prestamos\DelLoanView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Prestamos\EditLoanCtrl.cs" />
-    <Compile Include="Vista\Prestamos\EditLoanView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Prestamos\ListLoanCtrl.cs" />
-    <Compile Include="Vista\Prestamos\ListLoanView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Prestamos\MainWindowCtrl2.cs" />
-    <Compile Include="Vista\Prestamos\MainWindowView2.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Vista\Prestamos\NewLoanCtrl.cs" />
     <Compile Include="Vista\Prestamos\NewLoanView.cs">
       <SubType>Form</SubType>
