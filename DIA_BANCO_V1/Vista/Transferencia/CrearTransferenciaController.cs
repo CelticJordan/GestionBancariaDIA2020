@@ -49,9 +49,17 @@ namespace DIA_BANCO_V1
             DateTime data=DateTime.Now;
             string[] _fecha = this.View.efecha.Text.Split('/');
             
+            int dia = int.Parse(_fecha[0]);
+            int mes = int.Parse(_fecha[1]);
+            int anyo = int.Parse(_fecha[2]);
 
-            // data = new DateTime((int)_fecha[2],(int)_fecha[1],(int)_fecha[0]);
-            
+            try {
+                data = new DateTime(anyo, mes, dia);
+                fecha = true;
+            } catch (Exception e) {
+                Console.WriteLine(e.Message);
+            }
+
             if (Regex.IsMatch(this.View.ecccdest.Text, "^[0-9]{20}$") &&  Banco.existeCCC(this.View.ecccdest.Text,this.cuentas))
             {
                 ccc1 = true;

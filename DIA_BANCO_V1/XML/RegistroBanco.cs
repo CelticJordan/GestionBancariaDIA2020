@@ -377,7 +377,7 @@ namespace DIA_BANCO_V1 {
                     String ccc = (string)cu.Attribute(EtiquetaCCC);
                     String tipo = (string)cu.Attribute(EtiquetaTipo);
                     double saldo = (double)cu.Attribute(EtiquetaSaldo);
-                    DateTime fechaApertura = (DateTime)cu.Attribute(EtiquetaFechaApertura);
+                    DateTime fechaApertura = Convert.ToDateTime((string) cu.Attribute(EtiquetaFechaApertura));
                     double interes = Convert.ToDouble((string)cu.Attribute(EtiquetaInteresMensual));
 
 
@@ -559,7 +559,7 @@ namespace DIA_BANCO_V1 {
                         String cccOrigen = (string)tr.Attribute(EtiquetaCCCorigen);
                         String cccDestino = (string)tr.Attribute(EtiquetaCCCdestino);
                         double importe = (double)tr.Attribute(EtiquetaImporte);
-                        DateTime fecha = (DateTime)tr.Attribute(EtiquetaFecha);
+                        DateTime fecha = Convert.ToDateTime((string)tr.Attribute(EtiquetaFecha));
 
                         Transferencia transferencia =
                             new Transferencia(id, tipoTransferencia, cccOrigen, cccDestino, importe, fecha);
@@ -573,8 +573,8 @@ namespace DIA_BANCO_V1 {
                         String cccOrigen = (string)tr.Attribute(EtiquetaCCCorigen);
                         String cccDestino = (string)tr.Attribute(EtiquetaCCCdestino);
                         double importe = (double)tr.Attribute(EtiquetaImporte);
-                        DateTime fecha = (DateTime)tr.Attribute(EtiquetaFecha);
-                        DateTime fecha_siguiente = (DateTime) tr.Attribute(EtiquetaFecha_Siguiente);
+                        DateTime fecha = Convert.ToDateTime((string)tr.Attribute(EtiquetaFecha));
+                        DateTime fecha_siguiente = Convert.ToDateTime((string)tr.Attribute(EtiquetaFecha_Siguiente));
 
                         Transferencia_Periodica transferencia =
                             new Transferencia_Periodica(id, tipoTransferencia, cccOrigen, cccDestino, importe, fecha, fecha_siguiente);
