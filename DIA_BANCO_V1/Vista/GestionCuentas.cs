@@ -26,6 +26,7 @@ namespace DIA_BANCO_V1
             this.clientes = rb.CargarClientesXml("clientes.xml");
             this.prestamos = rb.CargarPrestamosXml("prestamos.xml");
             this.transferencias = rb.CargarTransferenciasXml("transferencias.xml");
+            control_transferencias_periodicas();
             InitializeComponent();
         }
 
@@ -646,7 +647,7 @@ namespace DIA_BANCO_V1
                     MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
-                    if (Banco.borrarTransferencia(trans.Id, this.transferencias))
+                    if (Banco.borrarTransferencia(trans.Id, this.transferencias, this.cuentas))
                     {
                         
                         MessageBox.Show("Transferencia borrada con éxito");
@@ -678,6 +679,26 @@ namespace DIA_BANCO_V1
             ctc.View.ShowDialog();
             RefrescarGridCuentas(this.cuentas);
             RefrescarGridTransferencias(GetTransferenciasCuentaSelecionadaGridCuentas());
+        }
+        
+        
+        public void control_transferencias_periodicas()
+        {
+            foreach (Transferencia transferencia in this.transferencias)
+            {
+                if (transferencia.Tipo == "Periodica")
+                {
+                    int act_month = DateTime.Now.Month;
+                    DateTime new_date= new DateTime(transferencia.Fecha.Year,act_month,transferencia.Fecha.Day);
+                    if(DateTime.Now > transferencia.Fecha && new_date<DateTime.Now)
+                    {
+                        MessageBox.Show("Ha pasado 1 mes"+"FECHA DE TRANS "+ transferencia.Fecha+"FECHA ACTUAL "+DateTime.Now +"FECHA MODIFICADA " +new_date);
+                        //Banco.transferencia_sum_rest(transferencia,this.cuentas);
+                    }
+
+                }
+            }
+            //RefrescarGridCuentas(this.cuentas);
         }
         
         /***************************************************************************/
@@ -784,7 +805,6 @@ namespace DIA_BANCO_V1
             gcv.Transferencias = this.transferencias;
             gcv.OnCrearGraficoGeneral();
         }
-        
 
         private void guardarXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {

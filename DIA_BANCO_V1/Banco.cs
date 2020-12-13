@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace DIA_BANCO_V1
 {
@@ -206,17 +207,22 @@ namespace DIA_BANCO_V1
             }
         }
         
-        public static bool borrarTransferencia(int id, List<Transferencia> transferencias)
+        public static bool borrarTransferencia(int id, List<Transferencia> transferencias , List<Cuenta> cuentas)
         {
             foreach (Transferencia t in transferencias)
             {
                 if (id.Equals(t.Id))
                 {
+                    //Devuelvo el dinero
+                    Cuenta a = getCuenta(t.CCCOrigen, cuentas);
+                    Cuenta b = getCuenta(t.CCCDestino, cuentas);
+                    a.Saldo = a.Saldo + t.Importe;
+                    b.Saldo = b.Saldo - t.Importe;
+                    //Borro la cuenta
                     transferencias.Remove(t);
                     return true;
                 }
             }
-
             return false;
         }
         
@@ -249,20 +255,22 @@ namespace DIA_BANCO_V1
             return false;
         }
 
-        public static bool transferencia_sum_rest(Cuenta origen, Cuenta destino, double importe)
+        public static bool transferencia_sum_rest(Transferencia t,List<Cuenta> cuentas)
         {
-            if (origen.Saldo > importe)
+            Cuenta origen = Banco.getCuenta(t.CCCOrigen, cuentas);
+            Cuenta destino =  Banco.getCuenta(t.CCCDestino, cuentas);
+
+            if (origen.Saldo > t.Importe)
             {
-                origen.Saldo = origen.Saldo - importe;
-                destino.Saldo = destino.Saldo + importe;
+                origen.Saldo = origen.Saldo -  t.Importe;
+                destino.Saldo = destino.Saldo +  t.Importe;
                 return true;
             }
             else
             {
                 return false;
             }
-            
-            
         }
+        
     }
 }

@@ -118,26 +118,10 @@
     <Compile Include="Vista\Prestamos\NewLoanView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\Transferencia\BorrarTransferencia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Transferencia\BorrarTransferenciaController.cs" />
-    <Compile Include="Vista\Transferencia\ConsultarTransferencia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Transferencia\ConsultarTransferenciaController.cs" />
     <Compile Include="Vista\Transferencia\CrearTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vista\Transferencia\CrearTransferenciaController.cs" />
-    <Compile Include="Vista\Transferencia\MainWindowController.cs" />
-    <Compile Include="Vista\Transferencia\MainWindowView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Transferencia\ModificarTransferencia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vista\Transferencia\ModificarTransferenciaController.cs" />
     <Compile Include="Vista\Clientes\AnhadirView.cs">
       <SubType>Form</SubType>
     </Compile>

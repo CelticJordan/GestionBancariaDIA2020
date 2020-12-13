@@ -64,9 +64,6 @@ namespace DIA_BANCO_V1
             {
                 ccc1 = false;
             }
-
-            Cuenta cuentaOrigen = Banco.getCuenta(this.View.ecccorigen.Text, this.cuentas);
-            Cuenta cuentaDestino =  Banco.getCuenta(this.View.ecccdest.Text, this.cuentas);
             
 
             Transferencia t = new Transferencia( id, tipo, this.View.ecccorigen.Text,
@@ -84,7 +81,7 @@ namespace DIA_BANCO_V1
 
             if (!esta && fecha && ccc1)
             {
-                if (Banco.transferencia_sum_rest(cuentaOrigen, cuentaDestino, importe))
+                if (Banco.transferencia_sum_rest(t,this.cuentas))
                 {
                     this.transferencias.Add(t);
                     WForms.MessageBox.Show("Transferencia creada correctamente");
