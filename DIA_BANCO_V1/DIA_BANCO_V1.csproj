@@ -69,7 +69,6 @@
     <Compile Include="Core\Prestamos\PrestamoException.cs" />
     <Compile Include="Core\Prestamos\Prestamo.cs" />
     <Compile Include="Core\Prestamos\RegistroPrestamos.cs" />
-    <Compile Include="Core\Transferencia\RegistroTransferencias.cs" />
     <Compile Include="Core\Transferencia\Transferencia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

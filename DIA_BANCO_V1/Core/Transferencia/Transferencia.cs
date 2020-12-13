@@ -6,11 +6,6 @@ namespace DIA_BANCO_V1
 {
     public class Transferencia
     {
-
-        public Transferencia()
-        {
-            
-        }
         
         /// <summary>
         /// Constructor de la clase Transferencia
@@ -32,6 +27,7 @@ namespace DIA_BANCO_V1
             Importe = importe;
             this.Fecha = fecha;
         }
+        
 
         /// <summary>
         /// Conversor a string
@@ -59,7 +55,35 @@ namespace DIA_BANCO_V1
         public string CCCDestino { get ;set; }
         public double Importe { get ;  set; }
         public DateTime Fecha { get ;  set;}
-        
 
+        
     }
+
+    //En caso de trasnferencia periodica
+    public class Transferencia_Periodica : Transferencia
+    {
+        //Para transferencias periodicas
+        public Transferencia_Periodica(int id,string tipo, string CCC_origen, string CCC_destino, double importe, DateTime fecha,DateTime siguiente_fecha):base(id,tipo,CCC_origen,CCC_destino,importe,fecha)
+        {
+            Id = id;
+            // Puntual / Periodica
+            Tipo = tipo;
+            CCCOrigen = CCC_origen;
+            CCCDestino = CCC_destino;
+            Importe = importe;
+            this.Fecha = fecha;
+            this.Fecha_Siguiente = siguiente_fecha;
+        }
+        
+        public DateTime Fecha_Siguiente {
+            get;
+            set;
+        }
+        
+        public override string ToString() {
+            return "Transferencia:\n" + base.ToString() + "\nFecha_Siguiente: " + Fecha_Siguiente;
+        }
+        
+    }
+    
 }

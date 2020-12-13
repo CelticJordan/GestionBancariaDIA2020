@@ -89,6 +89,7 @@ namespace DIA_BANCO_V1 {
         public static string EtiquetaCCCdestino = "cccDestino";
         public static string EtiquetaImporte = "importe";
         public static string EtiquetaFecha = "fecha";
+        public static string EtiquetaFecha_Siguiente = "fecha_siguiente";
         public static string EtiquetaCuota = "cuota";
         public static string EtiquetaNumeroCuotas = "numeroCuotas";
         public static string EtiquetaTitular = "titular";
@@ -215,16 +216,38 @@ namespace DIA_BANCO_V1 {
         /// <summary>
         /// Metodo ToXml para guardar transferencias
         /// </summary>
-        private XElement ToXmlTransferencia(Transferencia transferencia) {
-            XElement toret = new XElement(EtiquetaTransferencia);
-            toret.Add(
-                new XAttribute(EtiquetaId, transferencia.Id.ToString()),
-                new XAttribute(EtiquetaTipoTransferencia, transferencia.Tipo.ToString()),
-                new XAttribute(EtiquetaCCCorigen, transferencia.CCCOrigen.ToString()),
-                new XAttribute(EtiquetaCCCdestino, transferencia.CCCDestino.ToString()),
-                new XAttribute(EtiquetaImporte, transferencia.Importe.ToString()),
-                new XAttribute(EtiquetaFecha, transferencia.Fecha.ToString())
-            );
+        private XElement ToXmlTransferencia(Transferencia transferencia)
+        {
+
+            XElement toret;
+            if (transferencia is Transferencia_Periodica)
+            {
+                Transferencia_Periodica t = (Transferencia_Periodica) transferencia;
+                
+                toret = new XElement(EtiquetaTransferencia);
+                toret.Add(
+                    new XAttribute(EtiquetaId, t.Id.ToString()),
+                    new XAttribute(EtiquetaTipoTransferencia, t.Tipo.ToString()),
+                    new XAttribute(EtiquetaCCCorigen, t.CCCOrigen.ToString()),
+                    new XAttribute(EtiquetaCCCdestino, t.CCCDestino.ToString()),
+                    new XAttribute(EtiquetaImporte, t.Importe.ToString()),
+                    new XAttribute(EtiquetaFecha, t.Fecha.ToString()),
+                    new XAttribute(EtiquetaFecha_Siguiente, t.Fecha_Siguiente.ToString())
+                );
+                
+            }
+            else
+            {
+                toret = new XElement(EtiquetaTransferencia);
+                toret.Add(
+                    new XAttribute(EtiquetaId, transferencia.Id.ToString()),
+                    new XAttribute(EtiquetaTipoTransferencia, transferencia.Tipo.ToString()),
+                    new XAttribute(EtiquetaCCCorigen, transferencia.CCCOrigen.ToString()),
+                    new XAttribute(EtiquetaCCCdestino, transferencia.CCCDestino.ToString()),
+                    new XAttribute(EtiquetaImporte, transferencia.Importe.ToString()),
+                    new XAttribute(EtiquetaFecha, transferencia.Fecha.ToString())
+                );
+            }
 
             return toret;
         }
@@ -524,17 +547,40 @@ namespace DIA_BANCO_V1 {
             if (documento.Root != null && documento.Root.Name == EtiquetaBancoTransferencias) //en el caso de que encuentre un documento escrito
             {
                 var transferencias = documento.Root.Elements(EtiquetaTransferencia);
-                foreach (var tr in transferencias) {
-                    int id = (int)tr.Attribute(EtiquetaId);
-                    String tipoTransferencia = (string)tr.Attribute(EtiquetaTipoTransferencia);
-                    String cccOrigen = (string)tr.Attribute(EtiquetaCCCorigen);
-                    String cccDestino = (string)tr.Attribute(EtiquetaCCCdestino);
-                    double importe = (double)tr.Attribute(EtiquetaImporte);
-                    DateTime fecha = (DateTime)tr.Attribute(EtiquetaFecha);
 
-                    Transferencia transferencia =
-                        new Transferencia(id, tipoTransferencia, cccOrigen, cccDestino, importe, fecha);
-                    contenedorTransferencias.Add(transferencia);
+
+                foreach (var tr in transferencias) {
+
+                    if ((string) tr.Attribute(EtiquetaTipoTransferencia) == "Puntual")
+                    {
+                        
+                        int id = (int)tr.Attribute(EtiquetaId);
+                        String tipoTransferencia = (string)tr.Attribute(EtiquetaTipoTransferencia);
+                        String cccOrigen = (string)tr.Attribute(EtiquetaCCCorigen);
+                        String cccDestino = (string)tr.Attribute(EtiquetaCCCdestino);
+                        double importe = (double)tr.Attribute(EtiquetaImporte);
+                        DateTime fecha = (DateTime)tr.Attribute(EtiquetaFecha);
+
+                        Transferencia transferencia =
+                            new Transferencia(id, tipoTransferencia, cccOrigen, cccDestino, importe, fecha);
+                        contenedorTransferencias.Add(transferencia);
+                        
+                    }
+                    else
+                    {
+                        int id = (int)tr.Attribute(EtiquetaId);
+                        String tipoTransferencia = (string)tr.Attribute(EtiquetaTipoTransferencia);
+                        String cccOrigen = (string)tr.Attribute(EtiquetaCCCorigen);
+                        String cccDestino = (string)tr.Attribute(EtiquetaCCCdestino);
+                        double importe = (double)tr.Attribute(EtiquetaImporte);
+                        DateTime fecha = (DateTime)tr.Attribute(EtiquetaFecha);
+                        DateTime fecha_siguiente = (DateTime) tr.Attribute(EtiquetaFecha_Siguiente);
+
+                        Transferencia_Periodica transferencia =
+                            new Transferencia_Periodica(id, tipoTransferencia, cccOrigen, cccDestino, importe, fecha, fecha_siguiente);
+                        contenedorTransferencias.Add(transferencia);
+                    }
+                    
                 }
                 Console.WriteLine("Datos de transferencias cargados correctamente. \n");
             }

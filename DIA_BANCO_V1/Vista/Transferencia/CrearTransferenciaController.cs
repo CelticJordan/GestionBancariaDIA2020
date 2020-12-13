@@ -40,21 +40,17 @@ namespace DIA_BANCO_V1
             bool fecha = false;
 
             bool ccc1 = false;
+            Transferencia t;
             
             int id;
             int.TryParse(this.View.eid.Text, out id);
             double importe;
             double.TryParse(this.View.eimporte.Text, out importe);
-            DateTime data;
+            DateTime data=DateTime.Now;
+            string[] _fecha = this.View.efecha.Text.Split('/');
+            
 
-            if(DateTime.TryParse(this.View.efecha.Text, out data))
-            {
-                fecha = true;
-            }
-            else
-            {
-                fecha = false;
-            }
+            // data = new DateTime((int)_fecha[2],(int)_fecha[1],(int)_fecha[0]);
             
             if (Regex.IsMatch(this.View.ecccdest.Text, "^[0-9]{20}$") &&  Banco.existeCCC(this.View.ecccdest.Text,this.cuentas))
             {
@@ -64,13 +60,19 @@ namespace DIA_BANCO_V1
             {
                 ccc1 = false;
             }
-            
 
-            Transferencia t = new Transferencia( id, tipo, this.View.ecccorigen.Text,
-                this.View.ecccdest.Text, importe, data);
-            
-            
-            
+            if (tipo == "Puntual")
+            {
+                 t = new Transferencia(id, tipo, this.View.ecccorigen.Text,
+                    this.View.ecccdest.Text, importe, data);
+            }
+            else
+            {
+                t = new Transferencia_Periodica(id, tipo, this.View.ecccorigen.Text,
+                    this.View.ecccdest.Text, importe, data, data.AddMonths(1));
+            }
+
+
             foreach (Transferencia transferencia in transferencias)
             {
                 if (transferencia.Id == t.Id)

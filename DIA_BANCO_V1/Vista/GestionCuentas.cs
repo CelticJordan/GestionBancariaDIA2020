@@ -686,14 +686,14 @@ namespace DIA_BANCO_V1
         {
             foreach (Transferencia transferencia in this.transferencias)
             {
-                if (transferencia.Tipo == "Periodica")
+                if (transferencia is Transferencia_Periodica)
                 {
-                    int act_month = DateTime.Now.Month;
-                    DateTime new_date= new DateTime(transferencia.Fecha.Year,act_month,transferencia.Fecha.Day);
-                    if(DateTime.Now > transferencia.Fecha && new_date<DateTime.Now)
+                    Transferencia_Periodica t = (Transferencia_Periodica)transferencia;
+                   if(DateTime.Now > t.Fecha && DateTime.Now<t.Fecha_Siguiente)
                     {
-                        MessageBox.Show("Ha pasado 1 mes"+"FECHA DE TRANS "+ transferencia.Fecha+"FECHA ACTUAL "+DateTime.Now +"FECHA MODIFICADA " +new_date);
                         //Banco.transferencia_sum_rest(transferencia,this.cuentas);
+                        //transferencia.Fecha_Siguiente = transferencia.Fecha_Siguiente.AddMonths(1);
+                        //MessageBox.Show("Ha pasado 1 mes"+"FECHA DE TRANS "+ t.Fecha+"FECHA ACTUAL "+DateTime.Now +"Fecha siguiente: "+ t.Fecha_Siguiente );
                     }
 
                 }
