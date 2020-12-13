@@ -500,7 +500,7 @@ namespace DIA_BANCO_V1 {
             } catch (Exception e) //si no encuentra el archivo creamos uno vacio
               {
                 Console.WriteLine(e.Message);
-                documento = new XDocument(archivo);
+                documento = new XDocument();
                 Console.WriteLine("No se han encontrado Clientes anteriores, se ha creado un archivo nuevo \n");
             }
 
