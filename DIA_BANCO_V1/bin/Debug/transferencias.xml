@@ -4,7 +4,6 @@
   <transferencia id="412" tipoTransferencia="Puntual" cccOrigen="11111111111111111111" cccDestino="22222222222222222222" importe="82" fecha="08/12/2020 0:00:00" />
   <transferencia id="48" tipoTransferencia="Puntual" cccOrigen="11111111111111111111" cccDestino="22222222222222222222" importe="45" fecha="30/12/0202 0:00:00" />
   <transferencia id="589" tipoTransferencia="Periodica" cccOrigen="22222222222222222222" cccDestino="11111111111111111111" importe="259" fecha="30/12/2020 0:00:00" fecha_siguiente="30/01/2021 0:00:00" />
-  <transferencia id="49" tipoTransferencia="Periodica" cccOrigen="33333333333333333333" cccDestino="77777777777777777777" importe="456" fecha="30/12/2022 0:00:00" fecha_siguiente="30/01/2023 0:00:00" />
-  <transferencia id="56" tipoTransferencia="Periodica" cccOrigen="11111111111111111111" cccDestino="22222222222222222222" importe="14" fecha="13/12/2020 0:00:00" fecha_siguiente="13/01/2021 0:00:00" />
-  <transferencia id="15" tipoTransferencia="Periodica" cccOrigen="11111111111111111111" cccDestino="22222222222222222222" importe="20" fecha="14/11/2020 0:00:00" fecha_siguiente="14/12/2020 0:00:00" />
+  <transferencia id="56" tipoTransferencia="Periodica" cccOrigen="11111111111111111111" cccDestino="22222222222222222222" importe="14" fecha="13/12/2020 0:00:00" fecha_siguiente="13/02/2021 0:00:00" />
+  <transferencia id="15" tipoTransferencia="Periodica" cccOrigen="11111111111111111111" cccDestino="22222222222222222222" importe="20" fecha="14/11/2020 0:00:00" fecha_siguiente="14/01/2021 0:00:00" />
 </BancoTransferencias>
