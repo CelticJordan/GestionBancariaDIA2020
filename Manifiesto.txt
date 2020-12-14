@@ -1,0 +1,15 @@
+
+## Grupo 2, proyecto #4 : Gestión Banco
+
+Miembros del grupo:
+
+Rubén Solveira Sorga
+Jorge Manuel Lozano Gómez
+Nicolás Cid Gómez
+Manuel Certal Puga
+Miguel Ángel Arias Pérez
+Jordan Oreiro Vieites
+Alfonso Rua martinez
+
+
+Enlace a GitHub: https://github.com/CelticJordan/GestionBancariaDIA2020
