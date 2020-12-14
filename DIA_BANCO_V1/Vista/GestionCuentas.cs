@@ -91,6 +91,11 @@ namespace DIA_BANCO_V1
             RefrescarGridPrestamos(GetPrestamosCuentaSelecionadaGridCuentas());
         }
 
+        
+        /// <summary>
+        /// Se introducen los datos de los titulares en el grid de titulares
+        /// </summary>
+        /// <param name="titulares"></param>
         private void RefrescarGridTitulares(List<Cliente> titulares)
         {
             dataGridTitulares.DataSource = null; //Borrar todos los objetos almacenados en el datagrid titulares
@@ -207,6 +212,10 @@ namespace DIA_BANCO_V1
             }
         }
         
+        /// <summary>
+        /// Se obtiene la cuenta que está selecionada actualmente en el datagrid Cuentas.
+        /// </summary>
+        /// <returns>Cuenta selecionada</returns>
         public Cuenta getCuentaSelecionadaGridCuentas()
         {
             if (dataGridCuentas.RowCount >= 0 && dataGridCuentas.CurrentRow != null)
@@ -220,6 +229,10 @@ namespace DIA_BANCO_V1
             else return null;
         }
 
+        /// <summary>
+        /// Se obtienen los titulares de la cuenta que está selecionada actualmente
+        /// </summary>
+        /// <returns></returns>
         public List<Cliente> getTitularesCuentaSelecionadaGridCuentas()
         {
             Cuenta c = getCuentaSelecionadaGridCuentas();
@@ -309,6 +322,13 @@ namespace DIA_BANCO_V1
         /***************************************************************************/
         /* GESTION DE CUENTAS ******************************************************/
         /***************************************************************************/
+        /// <summary>
+        /// Cada vez que se clica en una cuenta del data grid cuentas se actualizarán los
+        /// demás datagrids asociados, como pueden ser los prestamos de esa cuenta, las retiradas,
+        /// los depósitos y las transferencias
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridCuentas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Añadir titulares de la cuenta actual selecionada al datagrid titulares
@@ -342,6 +362,10 @@ namespace DIA_BANCO_V1
             ComprobarTipoCuentaParaMostrarDepositosORetiradas(getCuentaSelecionadaGridCuentas());
         }
 
+        
+        /// <summary>
+        /// Se borra la cuenta que está selecionada actualmente del datagrid Cuentas
+        /// </summary>
         private void BorrarCuentaSeleccionadaDelGrid()
         {
             int currentRow = dataGridCuentas.CurrentRow.Index;
