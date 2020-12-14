@@ -59,7 +59,9 @@ namespace DIA_BANCO_V1
         
     }
 
-    //En caso de trasnferencia periodica
+    /// <summary>
+    /// Constructor para trasnferencias periodicas
+    /// </summary>
     public class Transferencia_Periodica : Transferencia
     {
         //Para transferencias periodicas

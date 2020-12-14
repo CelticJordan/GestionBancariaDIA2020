@@ -146,7 +146,12 @@ namespace DIA_BANCO_V1
                 cv.AddDeposito(dep);
             }
         }
-        
+        /// <summary>
+        /// Selecciona una retirada y la elimina de la cuenta que se le pase
+        /// </summary>
+        /// <param name="cuen"></param>
+        /// <param name="ret"></param>
+        /// <returns></returns>
         public static bool borrarRetiradaCuenta(Cuenta cuen, Cuenta.Retirada ret)
         {
             CuentaCorriente cc;
@@ -158,6 +163,12 @@ namespace DIA_BANCO_V1
             
             return false;
         }
+        
+        /// <summary>
+        /// Selecciona yna retirada y la añade en la cuenta que se le pase
+        /// </summary>
+        /// <param name="cuen"></param>
+        /// <param name="ret"></param>
         public static void insertarRetiradaCuenta(Cuenta cuen, Cuenta.Retirada ret)
         {
             CuentaCorriente cc;
@@ -167,6 +178,12 @@ namespace DIA_BANCO_V1
             }
         }
 
+        /// <summary>
+        /// Devuelve una lista de transferenicas de una cuenta a raiz del ccc
+        /// </summary>
+        /// <param name="ccc"></param>
+        /// <param name="todasTransferencias"></param>
+        /// <returns></returns>
         public static List<Transferencia> getTransferenciasCuenta(string ccc, List<Transferencia> todasTransferencias)
         {
             if (todasTransferencias != null)
@@ -187,6 +204,12 @@ namespace DIA_BANCO_V1
             }
         }
         
+        /// <summary>
+        /// Devuelve una lista de prestamos de una cuenta a raiz del ccc
+        /// </summary>
+        /// <param name="ccc"></param>
+        /// <param name="todosPrestamos"></param>
+        /// <returns></returns>
         public static List<Prestamo> getPrestamosCuenta(string ccc, List<Prestamo> todosPrestamos)
         {
             if (todosPrestamos != null)
@@ -207,6 +230,13 @@ namespace DIA_BANCO_V1
             }
         }
         
+        /// <summary>
+        /// Se borra y se añade o retira el dinero de esa transferencia de las respectivas cuentas
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="transferencias"></param>
+        /// <param name="cuentas"></param>
+        /// <returns></returns>
         public static bool borrarTransferencia(int id, List<Transferencia> transferencias , List<Cuenta> cuentas)
         {
             foreach (Transferencia t in transferencias)
@@ -226,6 +256,13 @@ namespace DIA_BANCO_V1
             return false;
         }
         
+        /// <summary>
+        /// Se borra y se añade o retira el dinero de ese prestamo de las respectivas cuentas
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="prestamos"></param>
+        /// <param name="cuentas"></param>
+        /// <returns></returns>
         public static bool borrarPrestamo(string id, List<Prestamo> prestamos ,List<Cuenta> cuentas)
         {
             foreach (Prestamo p in prestamos)
@@ -252,6 +289,12 @@ namespace DIA_BANCO_V1
             return false;
         }
 
+        /// <summary>
+        /// Borrar un dni de una cuenta
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <param name="cuenta"></param>
+        /// <returns></returns>
         public static bool BorrarDniDeCuenta(string dni, Cuenta cuenta)
         {
             List<Cliente> titulares = cuenta.Titulares;
@@ -267,6 +310,12 @@ namespace DIA_BANCO_V1
             return false;
         }
 
+        /// <summary>
+        /// Añade el importe de la transferencia a la cuenta destino y retira el dinero de la cuenta de origen
+        /// </summary>
+        /// <param name="t"></param>
+        /// <param name="cuentas"></param>
+        /// <returns></returns>
         public static bool transferencia_sum_rest(Transferencia t,List<Cuenta> cuentas)
         {
             Cuenta origen = Banco.getCuenta(t.CCCOrigen, cuentas);
@@ -284,6 +333,12 @@ namespace DIA_BANCO_V1
             }
         }
         
+        /// <summary>
+        /// Añade el importe del prestamo a la cuenta
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="cuentas"></param>
+        /// <returns></returns>
         public static bool prestamo_sum(Prestamo p,List<Cuenta> cuentas)
         {
             Cuenta origen = Banco.getCuenta(p.CccOri, cuentas);
