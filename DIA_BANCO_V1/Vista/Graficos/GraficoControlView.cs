@@ -51,7 +51,7 @@ namespace DIA_BANCO_V1
             }
             catch (FormatException E)
             {
-                MessageBox.Show("Introduce los años correctamente");
+                MessageBox.Show("Introduce los años correctamente - "+ E.StackTrace);
             }
         }
         /// <summary>

@@ -88,8 +88,7 @@ namespace DIA_BANCO_V1
         private MenuItem opMovimientosPersona;
         private MenuItem opTransferenciasPersona;
         private MenuItem opTransferenciasBanco;
-
-        private Panel pnlPrincipal;
+        
         private StatusBar sbStatus;
         
         public IEnumerable<Cliente> Clientes;

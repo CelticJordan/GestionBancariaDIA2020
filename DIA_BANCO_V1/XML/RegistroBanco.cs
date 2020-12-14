@@ -462,7 +462,7 @@ namespace DIA_BANCO_V1 {
             } catch (Exception e) //si no encuentra el archivo creamos uno vacio
               {
                 documento = new XDocument();
-                Console.WriteLine("No se han encontrado Prestamos anteriores, se ha creado un archivo nuevo \n");
+                Console.WriteLine("No se han encontrado Prestamos anteriores, se ha creado un archivo nuevo \n" + e.StackTrace);
             }
 
             if (documento.Root != null && documento.Root.Name == EtiquetaBancoPrestamos) //en el caso de que encuentre un documento escrito

@@ -9,12 +9,6 @@ namespace DIA_BANCO_V1
     public class Cliente
     {
 
-        private string dni;
-        private string nombre;
-        private string telefono;
-        private string email;
-        private string dirPostal;
-
         public Cliente(string dni, string nombre, string telefono, string email, string dirPostal)
         {
             this.Dni = dni;
