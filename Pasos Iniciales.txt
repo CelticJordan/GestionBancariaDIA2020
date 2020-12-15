@@ -1,0 +1,3 @@
+Paso 1. Dar click en "Vista", luego "Cliente" y posteriormente en "Añadir Cliente"
+Paso 2. Después de crear el cliente, vuelva al menu inicial, cerrando la ventana.
+Paso 3. Presione el botón "Insertar Cuenta" para crear la cuenta correspondiente e indique el DNI del cliente creado previamente.
