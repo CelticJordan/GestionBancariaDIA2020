@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BancoClientes>
-  <cliente dni="76735813Q" nombre="Rubén Solveira" telefono="987987987" email="email" direccion="direcion" />
-  <cliente dni="55555555P" nombre="Xoel Molinos" telefono="654654654" email="email" direccion="direcion" />
-  <cliente dni="11111111M" nombre="Ana lopez" telefono="321321321" email="email" direccion="direcion" />
-  <cliente dni="77777777V" nombre="Vegeta" telefono="987987987" email="email" direccion="direcion" />
-  <cliente dni="81759827P" nombre="Ruben titular 2" telefono="654654654" email="email" direccion="direcion" />
-  <cliente dni="76735812S" nombre="carlos" telefono="684987546" email="calosc@carlo.com" direccion="789asdf asdf6asd54f4" />
-</BancoClientes>
